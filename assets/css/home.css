@@ -242,6 +242,14 @@ header .social-icon.youtube {
     }
 }
 
+main {
+    flex: 1; /* Allow main to take up remaining space */
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: center;
+}
 /* Parent container for chairman-msg and about-us */
 .main-content {
     display: flex; /* Use Flexbox to align items horizontally */
@@ -255,25 +263,56 @@ header .social-icon.youtube {
 .chairman-msg {
     flex: 0.3; /* Allow it to take up equal space */
     max-width: 100%; /* Limit the width */
-    background-image:linear-gradient(to right, #4aba82, #11904e, #06592e);
-    color: #ffffff;
-    padding: 15px; /* Add padding for better spacing */
-    height: 220px;
-    border-radius: 20px;
+    background-color: #008D45; /* Match the background color */
+    color: #d2ffec;
+    padding: 20px; /* Add padding for better spacing */
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 .chairman-msg h2 {
     text-align: center;
     font-size: 24px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Make the heading bold */
+}
+.chairman-msg p {
+    text-align: justify; /* Justify the text for better readability */
+    font-size: 18px;
 }
 
-.about-us {
+.welcome {
     flex: 0.7; /* Allow it to take up equal space */
     max-width: 100%; /* Limit the width */
-    background-image:linear-gradient(to right,  #06592e, #11904e, #4aba82);
-    color: #ffffff;
-    padding: 15px;
-    height: 220px;
+    background-color: aliceblue;
+    color: #010604;
+    padding: 20px;
     border-radius: 20px;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(7, 66, 74, 0.2); /* Add shadow for depth */
+}
+.welcome h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Make the heading bold */
+}
+.welcome p {
+    text-align: justify; /* Justify the text for better readability */
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        height: 40%; /* Smaller height for smaller screens */
+        height: auto; /* Allow the height to adjust based on content */
+        padding: 20px 20px; /* Reduce padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
@@ -308,9 +347,25 @@ header .social-icon.youtube {
     font-size: 28px;
 }
 
+@media (max-width: 768px) {
+    .contact-info {
+        height: auto; /* Allow the height to adjust based on content */
+        padding: 10px 10px; /* Reduce padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+footer {
+    background-color: antiquewhite;
+
+}
+
 .copyright p {
     text-align: center;
     font-size: 12px;
-    color: rgb(44, 46, 45);
+    color: rgb(72, 74, 73);
     width: 100%;
 }
