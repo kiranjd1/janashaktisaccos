@@ -8,7 +8,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #fff6fb;
+    background-image: linear-gradient(to bottom, #fff6fb,#008D45);
 }
 
 header {
@@ -27,7 +27,7 @@ header .header-bg {
     width: 80%;
     padding: 40px 10px;
     margin: 5px 0 5px 40px;
-    border-radius: 10px;
+    top: 0px;
     position: relative;
 }
 
@@ -103,7 +103,8 @@ header .social-icon.youtube {
     color: white;
     z-index: 1000;
     padding: 10px;
-    position: relative; /* Ensure the menu is positioned relative to this container */
+    top: 0px;
+    position: sticky; /* Ensure the menu is positioned relative to this container */
 }
 
 /* Menu styles */
@@ -205,13 +206,12 @@ header .social-icon.youtube {
     align-items: center;
     padding: 300px;
     position: relative;
-    overflow: hidden;/* Add padding to the container */
+    overflow: hidden; /* Hide overflow to prevent images from spilling out */
     border-bottom: 6px solid #06592e;
 }
 
 .banners-home img {
     position: absolute;
-    display: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -264,18 +264,18 @@ header .social-icon.youtube {
 }
 
 /* Footer styling */
-footer {
-    background: #008D45;
+.contact-info {
     padding: 5px 0;
     position: relative;
     bottom: 0;
     width: 100%;
+    flex-shrink: 0;
+    color: #ffffff;
 
 }
 .contact-info h3 {
     text-align: center;
     font-size: 24px;
-    color: #ffffff;
     margin-bottom: 20px; /* Space between heading and content */
 }
 .contact-info p {
@@ -284,7 +284,6 @@ footer {
     gap: 15px; /* Space between the icon and text */
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff;
     margin: 10px 0; /* Space between each contact item */
     text-align: center; /* Center-align the text */
 }
@@ -292,13 +291,14 @@ footer {
 .contact-info i {
     font-size: 28px;
 }
-
-.copyright {
-    text-align: center;
-    color: #fff;
-    font-size: 14px;
+footer {
+    width: 100%;
+    background-color: transparent;
 }
 
+.copyright p {
+    text-align: center;
+    font-size: 12px;
+    color: rgb(44, 46, 45);
+}
 
-
-/* Ensure the language switcher and social icons are aligned */
