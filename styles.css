@@ -30,6 +30,15 @@ header .header-bg {
     position: relative;
 }
 
+@media (max-width: 768px) {
+    header .header-bg {
+        height: 10px; /* Reduce height for smaller screens */
+        width: 100%; /* Adjust width for better fit */
+        background-size: 100%; /* Adjust background size */
+        margin: 15px auto; /* Center the header on smaller screens */
+        padding: 40px 10px; /* Reduce padding */
+    }
+}
 /* Social media icons styling */
 .buttons-home {
     position: absolute;
@@ -92,7 +101,8 @@ header .social-icon.youtube {
     background-color: #008D45;
     color: white;
     z-index: 1000;
-    padding: 15px;
+    padding: 10px;
+    position: relative; /* Ensure the menu is positioned relative to this container */
 }
 
 /* Menu styles */
@@ -166,14 +176,15 @@ header .social-icon.youtube {
         flex-direction: column; /* Stack items vertically */
         background-color: #008D45;
         position: absolute;
-        top: 100%;
+        top: 50px;
         left: 0;
         width: 100%;
         padding: 10px 0;
+        z-index: 1000; /* Ensure it appears above other content */
     }
 
     .menu.show {
-        display: flex; /* Show menu when toggled */
+        display: block; /* Show menu when toggled */
     }
 
     .menu li {
@@ -191,7 +202,7 @@ header .social-icon.youtube {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 250px;
+    padding: 300px;
     position: relative;
     overflow: hidden;/* Add padding to the container */
     border-bottom: 6px solid #06592e;
@@ -215,8 +226,8 @@ header .social-icon.youtube {
 
 @media (max-width: 768px) {
     .banners-home {
-        height: 300px; /* Smaller height for smaller screens */
-        padding: 10px;
+        height: 60%; /* Smaller height for smaller screens */
+        padding: 150px;
     }
 }
 
@@ -231,10 +242,10 @@ main {
 }
 
 .about-us {
-    padding: 20px;
-    text-align: center;
+    margin: 10px 20px; /* Center the frame */
+    padding: 20px; /* Space inside the frame */
     background-color: #e4fff5; /* Light background for the frame */
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 20px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
     max-width: 100%; /* Optional: Limit the width of the frame */
 }
@@ -242,11 +253,13 @@ main {
 .about-us h2 {
     font-size: 36px;
     color: #068a53;
+    text-align: center;
     margin-bottom: 20px; /* Space between heading and content */
     text-decoration: underline; /* Underline the heading */
 }
 .about-us p {
     font-size: 18px;
+    text-align: left; /* Align text to the left */
     color: #068a53;
     margin-bottom: 20px; /* Space between paragraph and button */
     font-weight: bold;
