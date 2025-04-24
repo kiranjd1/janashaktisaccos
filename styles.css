@@ -8,6 +8,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #fff6fb;
 }
 
 header {
@@ -231,19 +232,14 @@ header .social-icon.youtube {
     }
 }
 
-main {
-    text-align: center;
-    background-color: #ffffff;
-}
-
 .welcome h1 {
     font-size: 24px;
+    text-align: center;
     color: #068a53;/* Space between heading and content */
 }
 
 .about-us {
-    margin: 10px 20px; /* Center the frame */
-    padding: 20px; /* Space inside the frame */
+    margin:20px; /* Center the frame */
     background-color: #e4fff5; /* Light background for the frame */
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
@@ -254,14 +250,16 @@ main {
     font-size: 36px;
     color: #068a53;
     text-align: center;
-    margin-bottom: 20px; /* Space between heading and content */
-    text-decoration: underline; /* Underline the heading */
+    text-decoration: underline;
 }
+
 .about-us p {
     font-size: 18px;
-    text-align: left; /* Align text to the left */
+    padding: 0px 20px 20px 20px; /* Keep consistent padding */
+    text-align: left;
     color: #068a53;
-    margin-bottom: 20px; /* Space between paragraph and button */
+    margin-top: 5px; /* Reduce top margin to minimize gap */
+    margin-bottom: 20px;
     font-weight: bold;
 }
 
@@ -277,25 +275,22 @@ footer {
 .contact-info h3 {
     text-align: center;
     font-size: 24px;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 20px; /* Space between heading and content */
 }
 .contact-info p {
     display: flex;
-    align-items: center; /* Vertically center the content */
     justify-content: center; /* Horizontally center the content */
     gap: 15px; /* Space between the icon and text */
     font-size: 18px;
-    color: #fff;
+    font-weight: bold;
+    color: #ffffff;
     margin: 10px 0; /* Space between each contact item */
     text-align: center; /* Center-align the text */
 }
 
 .contact-info i {
-    text-align: left; /* Align icon to the left */
-    align-items: left;
-    color: #ffffff; /* Icon color */
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .copyright {
