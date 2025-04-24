@@ -20,7 +20,7 @@ header {
 }
 
 header .header-bg {
-    background: url('assets/images/header.png') no-repeat left center/cover;
+    background: url('../images/header.png') no-repeat left center/cover;
     background-size: 70%;
     background-position: left center;
     height: 40px;
