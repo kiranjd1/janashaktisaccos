@@ -19,7 +19,7 @@ header {
 }
 
 header .header-bg {
-    background: url('header.png') no-repeat left center/cover;
+    background: url('assets/images/header.png') no-repeat left center/cover;
     background-size: 70%;
     background-position: left center;
     height: 40px;
@@ -73,17 +73,17 @@ header .header-bg {
 }
 
 header .social-icon.facebook {
-    background-image: url('facebook.png'); /* Replace with the correct path to your Facebook icon */
+    background-image: url('assets/icons/facebook.png'); /* Replace with the correct path to your Facebook icon */
     background-color: #3b5998; /* Fallback color */
 }
 
 header .social-icon.twitter {
-    background-image: url('twitter.png'); /* Replace with the correct path to your Twitter icon */
+    background-image: url('assets/icons/twitter.png'); /* Replace with the correct path to your Twitter icon */
     background-color: #1da1f2; /* Fallback color */
 }
 
 header .social-icon.youtube {
-    background-image: url('youtube.png'); /* Replace with the correct path to your YouTube icon */
+    background-image: url('assets/icons/youtube.png'); /* Replace with the correct path to your YouTube icon */
     background-color: #ff0000; /* Fallback color */
 }
 
