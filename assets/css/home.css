@@ -242,36 +242,40 @@ header .social-icon.youtube {
     }
 }
 
-.welcome h1 {
-    font-size: 24px;
+/* Parent container for chairman-msg and about-us */
+.main-content {
+    display: flex; /* Use Flexbox to align items horizontally */
+    justify-content: space-between; /* Add space between the two sections */
+    align-items: flex-start; /* Align items at the top */
+    gap: 30px; /* Add spacing between the two sections */
+    margin: 30px 10px 30px 10px; /* Add some margin around the container */
+}
+
+/* Adjust chairman-msg and about-us widths */
+.chairman-msg {
+    flex: 0.3; /* Allow it to take up equal space */
+    max-width: 100%; /* Limit the width */
+    background-image:linear-gradient(to right, #4aba82, #11904e, #06592e);
+    color: #ffffff;
+    padding: 15px; /* Add padding for better spacing */
+    height: 220px;
+    border-radius: 20px;
+}
+.chairman-msg h2 {
     text-align: center;
-    color: #01472a;
+    font-size: 24px;
 }
 
 .about-us {
-    margin:20px; /* Center the frame */
-    background-color: #e4fff5; /* Light background for the frame */
-    border-radius: 20px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    max-width: 100%; /* Optional: Limit the width of the frame */
+    flex: 0.7; /* Allow it to take up equal space */
+    max-width: 100%; /* Limit the width */
+    background-image:linear-gradient(to right,  #06592e, #11904e, #4aba82);
+    color: #ffffff;
+    padding: 15px;
+    height: 220px;
+    border-radius: 20px;
 }
 
-.about-us h2 {
-    font-size: 36px;
-    color: #01472a;
-    text-align: center;
-    text-decoration: underline;
-}
-
-.about-us p {
-    font-size: 18px;
-    padding: 0px 20px 20px 20px; /* Keep consistent padding */
-    text-align: left;
-    color: #01472a;
-    margin-top: 5px; /* Reduce top margin to minimize gap */
-    margin-bottom: 20px;
-    font-weight: bold;
-}
 
 /* Footer styling */
 .contact-info {
