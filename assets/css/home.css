@@ -320,8 +320,8 @@ main {
 
 /* General styles for the about us page */
 .board-members {
-    background-color: #f5f5f5;
-    width: 90%; /* Light background for contrast *//* Limit the maximum width of the section */
+/*    background-color: #f5f5f5; */
+    width: 90%;
 }
 
 .board-type h2 {
@@ -348,16 +348,16 @@ main {
 }
 .board-members .member {
     align-items: center;
-    background: hsl(207, 100%, 89%);
+/*    background: hsl(207, 100%, 89%); */
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: auto;
-    height: 
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+    height: 340px;
+    width: 260px;
 }
 
 .member img {
     width: 100%; /* Adjust size as needed */
-    height: 180px;
+    height: 80%;
     border-radius: 20px; /* Make the image circular */
     object-fit: cover; /* Ensure the image fits within the circle */
 }
