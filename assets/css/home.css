@@ -358,6 +358,7 @@ main {
 
 footer {
     background-color: #008D45;
+    padding-block: 10px;
     bottom: 0;
 }
 
