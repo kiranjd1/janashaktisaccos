@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.6;
 }
 
@@ -92,7 +92,6 @@ header .social-icon.youtube {
     background-color: #008D45;
     color: white;
     position: sticky;
-    padding-block: 6px;
     top: 0; /* Stick to the top of the viewport */
     z-index: 1000; /* Ensure it appears above other content */
 }
@@ -104,13 +103,18 @@ header .social-icon.youtube {
     list-style: none;
     justify-content: center;
     align-items: center;
+    gap: 1rem; /* Space between menu items */
 }
 
 /* Menu items */
 .menu li {
     position: relative;
     margin: 0;
-    padding-inline: 10px;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.menu li:hover {
+    background-color: hsl(149, 100%, 30%); /* Change background color on hover */
 }
 
 .menu a {
@@ -119,38 +123,55 @@ header .social-icon.youtube {
     color: white;
     font-size: 18px;
     font-weight: bold;
+    padding: 10px; /* Add padding for better spacing */
     transition: color 0.3s ease;
 }
 
-.menu a:hover {
-    color: #04B85C; /* Hover effect */
+.menu a:active, .menu a:focus {
+    color: #04B85C; /* Active and focus state */
+    background-color: hsl(149, 100%, 30%);
 }
 
 /* Dropdown menu */
 .menu .dropdown {
-    display: none;
+    display: block;
     position: absolute;
+    left: 0;
     top: 100%;
-    background-color: #008D45;
+    background-color: hsl(149, 100%, 30%);
     list-style: none;
     z-index: 1000;
     width: 180px;
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* Start with 0 opacity */
+    visibility: hidden; /* Hide the dropdown */
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
 }
 
 .menu .dropdown li {
-    text-align: left;
-    margin-bottom: 10px; /* Space between dropdown items */
+    text-align: left; /* Align text to the left */
+    margin: 0; /* Remove any extra margin */
+    padding: 10px; /* Add consistent padding for spacing */
 }
+
 .menu .dropdown li:last-child {
     margin-bottom: 0; /* Remove margin for the last item */
 }
 
 .menu .dropdown a {
     font-size: 16px;
+    padding: 0; /* Remove extra padding */
+    text-indent: 0; /* Ensure no additional indentation */
+    color: white; /* Ensure text color matches the dropdown background */
+    display: block; /* Ensure the link spans the full width of the dropdown item */
 }
-
 .menu li:hover .dropdown {
-    display: block; /* Show dropdown on hover */
+    opacity: 1; /* Fade in the dropdown */
+    visibility: visible; /* Make visible */
+    transform: translateY(0); /* Move to natural position */
+
 }
 
 /* Menu toggle button for small screens */
@@ -171,7 +192,6 @@ header .social-icon.youtube {
         background-color: #008D45;
         position: absolute;
         top: 50px;
-        left: 0;
         width: 100%;
         padding: 10px 0;
         z-index: 1000; /* Ensure it appears above other content */
@@ -182,6 +202,8 @@ header .social-icon.youtube {
     }
 
     .menu li {
+        display: flex;
+        flex-direction: column;
         text-align: center;
         margin: 10px 0;
     }
@@ -189,10 +211,19 @@ header .social-icon.youtube {
     .menu-toggle {
         display: block; /* Show toggle button */
     }
+    .menu .dropdown {
+        display: none; /* Hide dropdown by default */
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .menu .dropdown a {
+        text-align: center; /* Center align text in dropdown */
+    }
+
 }
 
 .banners-home {
-    border-top: 6px solid #06592e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -317,7 +348,7 @@ main {
 /* General styles for the about us page */
 .board-members, .accounts-supervisory-committee, .credit-subcommittee {
 /*    background-color: #f5f5f5; */
-    width: 80%;
+    width: 75%;
     margin-bottom: 2rem;
 }
 
@@ -331,7 +362,7 @@ main {
 
 .board-members .chairman {
     grid-column: span 3;
-    width: 40%
+    width: 35%
 }
 
 .member img {

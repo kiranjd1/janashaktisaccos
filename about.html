@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Janashakti Saccos -Birtamod, Jhapa | About Us</title>
+    <title>Janashakti Saccos -Birtamod, Jhapa | Home</title>
     <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="header-bg">
-        </div>
+        <div class="header-bg"></div>
         <div class="buttons-home">
             <button id="lang-en" class="lang-btn" data-lang="en">En</button>
             <button id="lang-ne" class="lang-btn" data-lang="ne">ने</button>
             <a href="https://www.facebook.com/jsaccosbirtamod" target="_blank" class="social-icon facebook" aria-label="Facebook"></a>
             <a href="https://www.twitter.com" target="_blank" class="social-icon twitter" aria-label="Twitter"></a>
             <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" aria-label="YouTube"></a>
-        </div>
         </div>
     </header>
     <nav class="nav-bar">
@@ -28,7 +25,13 @@
         </button>
         <ul class="menu">
             <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
-            <li><a href="about.html" data-en="About Us" data-ne="हाम्रो बारेमा">About Us</a></li>
+            <li><a href="" data-en="About" data-ne="हाम्राे बारेमा">About</a>
+            <ul class="dropdown">
+                <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
+                <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
+                <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
+                <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
+            </ul></li>
             <li>
                 <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services</a>
                 <ul class="dropdown">
@@ -44,95 +47,10 @@
         </ul>
     </nav>
     <main>
-        <div class ="board-type">
-            <h2 data-en="Board of Directors" data-ne="सञ्चालक समिति">Board of Directors</h2>
-        </div>
-        <div class="board-members">
-            <div class="members-grid">
-                <!-- Chairman -->
-                <div class="member row-1 chairman">
-                    <img src="assets/board_members/member1.jpg" alt="Chairman">
-                    <p data-en="Himalaya Prakash Kandangwa" data-ne="हिमालय प्रकाश कन्दङ्वा">Himalaya Prakash Kandangwa</p>
-                    <p data-en="Chairman" data-ne="अध्यक्ष">Chairman</p>
-                </div>
-                <!-- Members Row 1 -->
-                <div class="member row-2">
-                    <img src="assets/board_members/member2.jpg" alt="Vice Chairman">
-                    <p data-en="Bishnu Prasad Yonghang" data-ne="विष्णु प्रसाद योङहाङ">Bishnu Prasad Yonghang</p>
-                    <p data-en="Vice-chairman" data-ne="उपाअध्यक्ष">Vice-chairman</p>
-                </div>
-                <div class="member row-2">
-                    <img src="assets/board_members/member3.jpg" alt="Secretary">
-                    <p data-en="Mani Raj Dangal" data-ne="मणि राज दंगाल">Mani Raj Dangal</p>
-                    <p data-en="Secretary" data-ne="सचिव">Secretary</p>
-                </div>
-                <div class="member row-2">
-                    <img src="assets/board_members/member4.jpg" alt="Member">
-                    <p data-en="Shankar Prasad Sedai" data-ne="शंकर प्रसाद सेडाई">Shankar Prasad Sedai</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-                <!-- Members Row 2 -->
-                <div class="member row-3">
-                    <img src="assets/board_members/member5.jpg" alt="Member">
-                    <p data-en="Bhuma Devi Ghimire" data-ne="भुमादेवि घिमिरे">Bhuma Devi Ghimire</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-                <div class="member row-3">
-                    <img src="assets/board_members/member6.jpg" alt="Member">
-                    <p data-en="Khagendra Prasad Niroula" data-ne="खगेन्द्र प्रसाद निराैला">Khagendra Prasad Niroula</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-                <div class="member row-3">
-                    <img src="assets/board_members/member7.jpg" alt="Member">
-                    <p data-en="Empty" data-ne="खाली">Empty</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-            </div>
-        </div>
-        <div class ="board-type">
-            <h2 data-en="Accounts Supervisory Committee" data-ne="लेखा सुपरिवेक्षण समिति">Accounts Supervisory Committee</h2>
-        </div>
-        <div class="accounts-supervisory-committee">
-            <div class="members-grid">
-                <div class="member">
-                    <img src="assets/board_members/asc1.jpg" alt="Coordinator">
-                    <p data-en="Ram Chandra Ghimire" data-ne="">Ram Chandra Ghimire</p>
-                    <p data-en="Coordinator" data-ne="संयाेजक">Coordinator</p>
-                </div>
-                <div class="member">
-                    <img src="assets/board_members/asc2.jpg" alt="Hari Maya Lingden">
-                    <p data-en="Hari Maya Lingden" data-ne="हरिमाया लिङदेन">Hari Maya Lingden</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-                <div class="member">
-                    <img src="assets/board_members/asc3.jpg" alt="Member">
-                    <p data-en="" data-ne="गणेश बहादुर लिङदम">Ganesh Bahadur Lingdam</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-            </div>
-        </div>
-        <div class ="board-type">
-            <h2 data-en="Credit Sub-Committee" data-ne="ऋण उप–समिति">Credit Sub-Committee</h2>
-        </div>
-        <div class="credit-subcommittee">
-            <div class="members-grid">
-                <div class="member">
-                    <img src="assets/board_members/csc1.jpg" alt="Coordinator">
-                    <p data-en="Bishnu Prasad Yonghang" data-ne="">Bishnu Prasad Yonghang</p>
-                    <p data-en="Coordinator" data-ne="संयाेजक">Coordinator</p>
-                </div>
-                <div class="member">
-                    <img src="assets/board_members/csc2.jpg" alt="Member">
-                    <p data-en="Gita Rai" data-ne="गीता राई">Gita Rai</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-                <div class="member">
-                    <img src="assets/board_members/csc3.jpg" alt="Member">
-                    <p data-en="Dipa Bhandari" data-ne="दिपा भण्डारी">Dipa Bhandari</p>
-                    <p data-en="Member" data-ne="सदस्य">Member</p>
-                </div>
-            </div>
-        </div>
+        <section class ="about-us">
+            <h1 data-en="Our Introduction" data-ne="हाम्राे परिचय">Our Introduction</h1>
+            <p data-en="Established in 2014 A.D., Janashakti Saving and Credit Cooperative is dedicated to providing its members the best possible services with the vision of a beautiful society with secure financial self-reliance and prosperity. Our main goal is to uplift the financial backgrounds of our members and their communities by initiating healthy saving habits and utilizing our credit facilities in various productive sectors." data-ne="सुरक्षित वित्तीय आत्मनिर्भरता र समृद्धि सहित सुन्दर समाजको परिकल्पना भन्ने नाराका साथ वि.सं. २०७१ सालमा स्थापना भई यस जनशक्ति बचत तथा ऋण सहकारी संस्थाले आफ्ना सदस्यहरूलाई उत्कृष्ट सेवाहरू प्रदान गर्दै आएको छ । हाम्रो मुख्य उद्देश्य भनेको सदस्यहरूमा स्वस्थ बचत गर्ने बानीको विकास गर्ने तथा आवश्यकता अनुसार उत्पादनशील क्षेत्रमा कर्जा सुबिधा उपयोग गर्दै सदस्यको र तिनका समुदायको वित्तीय पृष्ठभूमिमा सुधार ल्याउनु हो ।">Established in 2014 A.D., Janashakti Saving and Credit Cooperative is dedicated to providing its members the best possible services with the vision of a beautiful society with secure financial self-reliance and prosperity. Our main goal is to uplift the financial backgrounds of our members and their communities by initiating healthy saving habits and utilizing our credit facilities in various productive sectors.</p>
+        </section>
     </main>
     
     <footer>
