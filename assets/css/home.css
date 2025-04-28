@@ -91,18 +91,17 @@ header .social-icon.youtube {
 .nav-bar {
     background-color: #008D45;
     color: white;
-    padding: 10px;
     position: sticky;
+    padding-block: 6px;
     top: 0; /* Stick to the top of the viewport */
     z-index: 1000; /* Ensure it appears above other content */
 }
 
 /* Menu styles */
 .menu {
-    list-style: none;
+    display: flex;
     margin: 0;
-    display: flex; /* Default: horizontal layout */
-    flex-direction: row;
+    list-style: none;
     justify-content: center;
     align-items: center;
 }
@@ -110,11 +109,13 @@ header .social-icon.youtube {
 /* Menu items */
 .menu li {
     position: relative;
+    margin: 0;
+    padding-inline: 10px;
 }
 
 .menu a {
     text-decoration: none;
-    padding: 10px 20px;
+    margin: 0;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -130,13 +131,10 @@ header .social-icon.youtube {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
     background-color: #008D45;
     list-style: none;
-    padding: 20px;
-    margin: 0;
     z-index: 1000;
-    width: 150px;
+    width: 180px;
 }
 
 .menu .dropdown li {
@@ -148,7 +146,6 @@ header .social-icon.youtube {
 }
 
 .menu .dropdown a {
-    padding: 10px;
     font-size: 16px;
 }
 
