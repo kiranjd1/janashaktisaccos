@@ -3,64 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generic Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background: #444;
-            color: #fff;
-            padding: 0.5rem 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 2rem;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Janashakti Saccos -Birtamod, Jhapa | Home</title>
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <div class="header-bg"></div>
+        <div class="buttons-home">
+            <button id="lang-en" class="lang-btn" data-lang="en">En</button>
+            <button id="lang-ne" class="lang-btn" data-lang="ne">ने</button>
+            <a href="https://www.facebook.com/jsaccosbirtamod" target="_blank" class="social-icon facebook" aria-label="Facebook"></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon twitter" aria-label="Twitter"></a>
+            <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" aria-label="YouTube"></a>
+        </div>
     </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+    <nav class="nav-bar">
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="menu">
+            <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
+            <li><a href="" data-en="About" data-ne="हाम्राे बारेमा">About</a>
+            <ul class="dropdown">
+                <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
+                <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
+                <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
+                <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
+            </ul></li>
+            <li>
+                <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services</a>
+                <ul class="dropdown">
+                    <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
+                    <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
+            <li><a href="news.html" data-en="News & Notices" data-ne="समाचार/सन्देश">News & Notices</a></li>
+            <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
+            <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
+            <li><a href="jobs.html" data-en="Jobs | Apply" data-ne="रोजगारी | आवेदन">Jobs | Apply</a></li>
+        </ul>
     </nav>
-    <main>
-        <h2>About Us</h2>
-        <p>This is a generic webpage template. You can customize it to suit your needs.</p>
-    </main>
-    <footer>
-        <p>&copy; 2023 My Website. All rights reserved.</p>
-    </footer>
-</body>
-</html></html>
