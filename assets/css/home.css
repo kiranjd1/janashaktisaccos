@@ -369,6 +369,7 @@ main {
     gap: 3rem; /* Space between items */
     justify-items: center; /* Center items horizontally within the grid */
     align-items: center; /* Center items vertically within the grid */
+
 }
 
 .board-members .chairman {
@@ -378,7 +379,7 @@ main {
 
 .member img {
     width: 100%; /* Adjust size as needed */
-    height: 80%;
+    height: 80%; /* Adjust size as needed */
     border-radius: 20px; /* Make the image circular */
     object-fit: cover; /* Ensure the image fits within the circle */
 }
@@ -410,10 +411,12 @@ main {
     margin: 0; /* Remove default margin */
 }
 .about-us p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6; /* Increase line height for better readability */
     color: #06592e; /* Darker text color for contrast */
     margin: 0;
+    font-weight: 900;
+    text-align: justify;
 }
 .general-info {
     display: grid; /* Use CSS Grid for layout */
