@@ -212,11 +212,22 @@ header .social-icon.youtube {
         display: block; /* Show toggle button */
     }
     .menu .dropdown {
-        display: none; /* Hide dropdown by default */
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: hsl(149, 100%, 30%);
+        list-style: none;
+        z-index: 1000;
         width: 100%;
         padding: 0;
         margin: 0;
+        opacity: 0; /* Start with 0 opacity */
+        visibility: hidden; /* Hide the dropdown */
+        transform: translateY(-10px); /* Start slightly above */
+        transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
     }
+
     .menu .dropdown a {
         text-align: center; /* Center align text in dropdown */
     }
@@ -362,7 +373,7 @@ main {
 
 .board-members .chairman {
     grid-column: span 3;
-    width: 35%
+    width: 35%; /* Adjust width as needed */
 }
 
 .member img {
@@ -381,6 +392,42 @@ main {
     font-weight: bold;
     color: #008D45;
 }
+
+
+/* Styles for About Us page */
+.about-us {
+    margin: 20px 0;
+    padding: 20px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    text-align: center;
+}
+.about-us h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #06592e;
+    margin: 0; /* Remove default margin */
+}
+.about-us p {
+    font-size: 16px;
+    line-height: 1.6; /* Increase line height for better readability */
+    color: #06592e; /* Darker text color for contrast */
+    margin: 0;
+}
+.general-info {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(3, 1fr); /* Responsive columns */
+    font-size: 16px;
+    gap:20px; /* Space between items */
+    margin: 20px 0; /* Add margin for spacing */
+    color: #06592e;
+    font-weight: bold;
+}
+.info-items i {
+    font-size: 24px;
+}
+
 
 /* --------Footer styling -------------------------------*/
 
