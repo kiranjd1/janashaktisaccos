@@ -513,27 +513,31 @@ header .social-icon.youtube {
 }
 
 /* General styles for the about us page */
-.employees-internal, .employees-field {
+.employees-internal {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     justify-content: center; /* Center the content vertically */
     align-items: center;
     margin-bottom: 3rem; /* Space between sections */
-    
 }
 
 .employees-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem; /* Space between items */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; /* Space between items */
     justify-items: center; /* Center items horizontally within the grid */
     align-items: center; /* Center items vertically within the grid */
     margin: 0 6rem; /* Add some margin around the container */
-
+    border-bottom: #ff0000 solid 6px; /* Add a red border at the bottom */
+    width: 80%;
 }
 
 .employees-internal .ceo {
-    grid-column: span 4;
+    grid-column: span 3;
+}
+
+.employees-internal .it-head {
+    grid-column: span 3;
 }
 
 .employee {
@@ -543,7 +547,7 @@ header .social-icon.youtube {
 }
 
 .employee img {
-    width: 16rem; /* Adjust size as needed */
+    width: 20rem; /* Adjust size as needed */
     border-radius: 20px; /* Make the image circular */
     object-fit: cover; /* Ensure the image fits within the circle */
     transition: transform 0.3s ease;
@@ -556,17 +560,35 @@ header .social-icon.youtube {
     right: 0;
     background: rgba(0, 141, 69, 0.9); /* Semi-transparent green background */
     color: white;
+    font-size: 18px;
+    font-weight: bold;
     padding: 10px;
+    text-align: center;
     transform: translateY(100%);
     transition: transform 0.3s ease;
-    text-align: center;
 }
+
 .employee:hover img {
     transform: scale(1.1);
 }
 
 .employee:hover .details {
     transform: translateY(0);
+}
+
+
+.savings-banner {
+    margin-top: 0px; /* Remove top margin */
+    position: relative;
+    overflow: hidden; /* Hide overflow to prevent images from spilling out */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.savings-banner img {
+    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    object-fit: cover; /* Ensure the image fits within the container */
+    border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
 }
 
 
