@@ -236,21 +236,24 @@ header .social-icon.youtube {
 
 
 .banners-home {
-    padding: 260px;
     position: relative;
     overflow: hidden; /* Hide overflow to prevent images from spilling out */
-    border-bottom: 6px solid #06592e;
+    z-index: 1; /* Ensure it appears above other content */
+    margin: 0;
+    height: 400px;
+    border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
 }
 
 .banners-home img {
     position: absolute;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the container */
+    object-fit: cover; /* Ensure the image fits within the container */
     opacity: 0; /* Initially hide all images */
-    transition: opacity 2s ease-in-out; /* Smooth fade-in/out animation */
+    transition: opacity 3s ease-in-out; /* Smooth fade-in/
+    out animation */
+    pointer-events: none; /* Prevent images from interfering with clicks */
 }
 
 .banners-home img.active {
@@ -591,6 +594,56 @@ header .social-icon.youtube {
     border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
 }
 
+
+.saving-schemes {
+    display: flex;
+    flex-direction: column;
+}
+
+.saving-schemes-header {
+    margin: 0 auto;
+}
+
+.saving-schemes-header h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0;
+    background-color: #008D45;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.saving-schemes-grid {
+    display: grid;
+    margin: 1rem 6rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 3rem 3rem;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.saving-scheme img {
+    width: 260px;
+}
+
+/* ----- Loan Facilities Page  ----- */
+.loans-banner {
+    margin-top: 0px; /* Remove top margin */
+    position: relative;
+    overflow: hidden; /* Hide overflow to prevent images from spilling out */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.loans-banner img {
+    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    object-fit: cover; /* Ensure the image fits within the container */
+    border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
+}
 
 /* --------Footer styling -------------------------------*/
 

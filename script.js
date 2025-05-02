@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add the 'active' class to the new current image
         images[currentIndex].classList.add("active");
-    }, 10000); // Change image every 10 seconds
+    }, 5000); // Change image every 5 seconds
 
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
