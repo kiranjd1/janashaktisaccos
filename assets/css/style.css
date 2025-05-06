@@ -90,8 +90,9 @@ header .social-icon.youtube {
 .nav-bar {
     background-color: #008D45;
     color: white;
-    position: sticky;
+    position: relative;
     top: 0; /* Stick to the top of the viewport */
+    width: 100%;
     z-index: 1111; /* Ensure it appears above other content */
     border-bottom: #ff0000 solid 6px; /* Add a red border at the bottom */
 }
@@ -234,6 +235,161 @@ header .social-icon.youtube {
 
 }
 
+/* Scrollable navigation bar */
+.nav-bar-scroll {
+    background-color: #008D45;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: -100px; /* Hide initially */
+    left: 0;
+    z-index: 2000; /* Higher than original nav */
+    border-bottom: #ff0000 solid 6px;
+    /*transition: all 0.3s ease-in-out; /* Smooth transition */
+    transform: translateY(-100%);
+}
+
+.nav-bar-scroll.visible {
+    top: 0;
+    transform: translateY(0);
+}
+
+.nav-bar-scroll .menu {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Menu items */
+.nav-bar-scroll .menu li {
+    position: relative;
+    margin: 0;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.nav-bar-scroll .menu li:hover {
+    background-color: hsl(149, 100%, 30%); /* Change background color on hover */
+}
+
+.nav-bar-scroll .menu a {
+    text-decoration: none;
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px; /* Add padding for better spacing */
+    transition: color 0.3s ease;
+}
+
+.nav-bar-scroll .menu a:active, .menu a:focus {
+    color: #04B85C; /* Active and focus state */
+    background-color: hsl(149, 100%, 30%);
+}
+
+/* Dropdown menu */
+.nav-bar-scroll .menu .dropdown {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: hsl(149, 100%, 30%);
+    list-style: none;
+    z-index: 1000;
+    width: 180px;
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* Start with 0 opacity */
+    visibility: hidden; /* Hide the dropdown */
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+}
+
+.nav-bar-scroll .menu .dropdown li {
+    text-align: left; /* Align text to the left */
+    margin: 0; /* Remove any extra margin */
+    padding: 10px; /* Add consistent padding for spacing */
+}
+
+.nav-bar-scroll .menu .dropdown li:last-child {
+    margin-bottom: 0; /* Remove margin for the last item */
+}
+
+.nav-bar-scroll .menu .dropdown a {
+    font-size: 16px;
+    padding: 0; /* Remove extra padding */
+    text-indent: 0; /* Ensure no additional indentation */
+    color: white; /* Ensure text color matches the dropdown background */
+    display: block; /* Ensure the link spans the full width of the dropdown item */
+}
+.nav-bar-scroll .menu li:hover .dropdown {
+    opacity: 1; /* Fade in the dropdown */
+    visibility: visible; /* Make visible */
+    transform: translateY(0); /* Move to natural position */
+
+}
+
+/* Menu toggle button for small screens */
+.nav-bar-scroll .menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile view styles */
+@media (max-width: 768px) {
+    .nav-bar-scroll .menu {
+        display: none; /* Hide menu by default */
+        flex-direction: column; /* Stack items vertically */
+        background-color: #008D45;
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .nav-bar-scroll .menu.show {
+        display: block; /* Show menu when toggled */
+    }
+
+    .nav-bar-scroll .menu li {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nav-bar-scroll .menu-toggle {
+        display: block; /* Show toggle button */
+    }
+    .nav-bar-scroll .menu .dropdown {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: hsl(149, 100%, 30%);
+        list-style: none;
+        z-index: 1000;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        opacity: 0; /* Start with 0 opacity */
+        visibility: hidden; /* Hide the dropdown */
+        transform: translateY(-10px); /* Start slightly above */
+        transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+    }
+
+    .nav-bar-scroll .menu .dropdown a {
+        text-align: center; /* Center align text in dropdown */
+    }
+
+}
 
 .banners-home {
     position: relative;
@@ -697,4 +853,158 @@ footer {
     font-size: 12px;
     color: rgb(217, 250, 234);
     width: 100%;
+}
+
+
+
+.contact-page {
+    display: flex;
+    margin: 30px 40px; /* Add some margin around the container */
+    padding: 10px 20px;
+    gap: 30px; /* Space between sections */
+}
+
+.contact-details {
+    flex: 0.4; /* Allow it to take up equal space */
+    max-width: 100%; /* Limit the width */
+    background-color: #008D45; /* Match the background color */
+    color: #ffffff;
+    padding: 20px; /* Add padding for better spacing */
+    height: auto;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    overflow: hidden;
+    display: flex; /* Use Flexbox for layout */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.contact-details h1 {
+    text-align: left;
+    font-size: 36px;
+    font-weight: 900;
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+.contact-details p {
+    text-align: justify; /* Justify the text for better readability */
+    font-size: 18px;
+    color: #ffffff; /* Darker text color for contrast */
+    margin: 20px; /* Add margin for spacing */
+    font-weight: 900;
+}
+
+.contact-details i {
+    font-size: 24px;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.contact-details a{
+    color: inherit; /* White color for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.contact-details .follow-us {
+    display: flex;
+    justify-content: flex-start; /* Center the social media icons */
+    gap: 20px; /* Space between icons */
+    margin-top: 20px; /* Space above the icons */
+    align-items: left; /* Align icons to the left */
+}
+.follow-us .social-media {
+    display: flex;
+    justify-content: center; /* Center the social media icons */
+    gap: 10px; /* Space between icons */
+    margin-top: 20px; /* Space above the icons */
+    align-items: left; /* Align icons to the left */
+}
+
+.follow-us .social-media a {
+    border-radius: 50%; /* Circular icons */
+    padding: 5px; /* Add padding for better spacing */
+    background-color: #008D45; /* Match the background color */
+    display: inline-block; /* Ensure the icon is treated as a block element */
+    width: 30px; /* Set width for circular effect */
+    height: 30px; /* Set height for circular effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-media .social-icon.facebook {
+    background-image: url('../icons/facebook.png'); /* Replace with the correct path to your Facebook icon */
+    background-color: #3b5998; /* Fallback color */
+}
+
+.social-media .social-icon.twitter {
+    background-image: url('../icons/twitter.png'); /* Replace with the correct path to your Twitter icon */
+    background-color: #1da1f2; /* Fallback color */
+}
+
+.social-media .social-icon.youtube {
+    background-image: url('../icons/youtube.png'); /* Replace with the correct path to your YouTube icon */
+    background-color: #ff0000; /* Fallback color */
+}
+
+.contact-form-section {
+    flex: 0.6; /* Allow it to take up equal space */
+    max-width: 100%; /* Limit the width */  
+    background-color: hsl(149, 71%, 93%);
+    padding: 30px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: hsl(141, 21%, 39%);
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .submit-btn {
+    background-color: #008D45;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .submit-btn:hover {
+    background-color: #06592e;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 20px;
+    }
+    
+    .contact-form-section {
+        padding: 20px;
+    }
 }
