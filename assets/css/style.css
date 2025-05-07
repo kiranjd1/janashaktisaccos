@@ -391,6 +391,61 @@ header .social-icon.youtube {
 
 }
 
+/* --------Footer styling -------------------------------*/
+
+footer {
+    background-color: #008D45;
+    padding-block: 10px;
+    bottom: 0;
+}
+
+.contact-info {
+    width: 100%;
+    color: #ffffff;
+    background-color: #008D45;
+}
+.contact-info h3 {
+    text-align: center;
+    font-size: 24px;
+}
+.contact-info p {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    gap: 15px; /* Space between the icon and text */
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0; /* Space between each contact item */
+    text-align: center; /* Center-align the text */
+}
+
+.contact-info a{
+    color: inherit; /* White color for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+.contact-info i {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        height: auto; /* Allow the height to adjust based on content */
+        padding: 10px 10px; /* Reduce padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center;
+        align-items: center;
+    }
+}
+.copyright p {
+    text-align: center;
+    font-size: 12px;
+    color: rgb(217, 250, 234);
+    width: 100%;
+}
+
+
 .banners-home {
     position: relative;
     overflow: hidden; /* Hide overflow to prevent images from spilling out */
@@ -802,61 +857,6 @@ header .social-icon.youtube {
     border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
 }
 
-/* --------Footer styling -------------------------------*/
-
-footer {
-    background-color: #008D45;
-    padding-block: 10px;
-    bottom: 0;
-}
-
-.contact-info {
-    width: 100%;
-    color: #ffffff;
-    background-color: #008D45;
-}
-.contact-info h3 {
-    text-align: center;
-    font-size: 24px;
-}
-.contact-info p {
-    display: flex;
-    justify-content: center; /* Horizontally center the content */
-    gap: 15px; /* Space between the icon and text */
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0; /* Space between each contact item */
-    text-align: center; /* Center-align the text */
-}
-
-.contact-info a{
-    color: inherit; /* White color for links */
-    text-decoration: none; /* Remove underline from links */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-.contact-info i {
-    font-size: 28px;
-    color: #ffffff;
-}
-
-@media (max-width: 768px) {
-    .contact-info {
-        height: auto; /* Allow the height to adjust based on content */
-        padding: 10px 10px; /* Reduce padding for smaller screens */
-        display: flex;
-        flex-direction: column; /* Stack content vertically */
-        justify-content: center;
-        align-items: center;
-    }
-}
-.copyright p {
-    text-align: center;
-    font-size: 12px;
-    color: rgb(217, 250, 234);
-    width: 100%;
-}
-
-
 
 .contact-page {
     display: flex;
@@ -1101,3 +1101,89 @@ footer {
     }
 }
 
+
+
+.reports-section {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 40px; /* Add some margin around the container */
+    padding: 10px 20px;
+    gap: 30px; /* Space between sections */
+}
+.reports-section h1 {
+    text-align: left;
+    font-size: 36px;
+    font-weight: 900;
+    color: #06592e;
+    width: 30%;
+    border-radius: 12px; /* Rounded corners */
+    text-decoration-line: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 4px;
+    text-decoration-color: #ff0000;
+    margin-bottom: 0; /* Remove default margin */
+}
+.reports-section p {
+    text-align: left; /* Center-align the text */
+    font-size: 24px;
+    color: #06592e;
+    margin-top: 0; /* Add margin for spacing */
+    font-weight: 900;
+}
+
+
+.reports-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Increased space between items */
+    margin-bottom: 3rem;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 5px; /* Add padding for better appearance */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* Firefox scrollbar */
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+}
+
+.reports-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reports-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.reports-list::-webkit-scrollbar-thumb {
+    background: #008D45;
+    border-radius: 4px;
+}
+
+.reports-list::-webkit-scrollbar-thumb:hover {
+    background: #006633;
+}
+
+.reports-list .report-item {
+    color: #2e2828;
+    padding: 10px;
+    width: 260px; /* Set minimum width instead of fixed width */
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    transition: transform 0.3s ease;
+}
+
+.reports-list .report-item:hover {
+    transform: translateY(-5px);
+    background-color: #006633;
+}
+.reports-list .report-item img {
+    width: 260px;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits within the circle */
+}
