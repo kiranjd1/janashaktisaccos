@@ -553,6 +553,7 @@ header .social-icon.youtube {
 .board-members .chairman {
     grid-column: span 3;
     width: 35%; /* Adjust width as needed */
+    animation: slideUp 1s ease-out forwards;
 }
 
 .member img {
@@ -956,55 +957,147 @@ footer {
     margin: 0 auto;
 }
 
-.contact-form .form-group {
-    margin-bottom: 20px;
+/* Form group container */
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: hsl(141, 21%, 39%);
-    font-weight: 900;
-    font-size: 18px;
-}
-
-.contact-form input,
-.contact-form textarea {
+/* Input and textarea styles */
+.form-group input,
+.form-group textarea {
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
-    padding: 10px 0;
+    font-size: 18px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #7a7979;
 }
 
-.contact-form textarea {
+/* Textarea-specific styles */
+.form-group textarea {
     resize: vertical;
+    min-height: 100px;
+}
+
+/* Label styles */
+.form-group label {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 18px;
+    color: #7a7979;
+    pointer-events: none;
+}
+
+/* Hide label when input has text */
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    opacity: 0; /* Make the label invisible */
+    visibility: hidden; /* Ensure it is not interactable */
 }
 
 .contact-form .submit-btn {
-    background-color: #008D45;
+    background-color: #ff0000;
     color: white;
     padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 24px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    width: 100%;
+    font-size: 24px;
+    font-weight: 600;
+    width: 20%;
+    border-bottom: #aa0707 solid 6px; /* Add a red border at the bottom */
     transition: background-color 0.3s ease;
 }
 
 .contact-form .submit-btn:hover {
-    background-color: #06592e;
+    background-color: #aa0707; /* Darker red on hover */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .contact-container {
-        padding: 20px;
+/* Slide-in animation */
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100%); /* Start off-screen to the right */
     }
-    
-    .contact-form-section {
-        padding: 20px;
+    to {
+        opacity: 1;
+        transform: translateX(0); /* End at the original position */
     }
 }
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-100%); /* Start off-screen to the left */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* End at the original position */
+    }    
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%); /* Start off-screen to the left */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at the original position */
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0.5;
+        transform: translateY(30%); /* Start off-screen to the left */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at the original position */
+    }
+}
+
+
+/* Apply animation to main content */
+.contact-details {
+    opacity: 0; /* Start hidden */
+    animation: slideRight 1s ease-out forwards; /* Trigger slide-in animation */
+}
+
+.contact-form-section {
+    opacity: 0; /* Start hidden */
+    animation: slideLeft 1s ease-out forwards; /* Trigger slide-in animation */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .contact-page {
+        flex-direction: column; /* Stack sections vertically */
+        margin: 20px 10px; /* Adjust margin for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .contact-details,
+    .contact-form-section {
+        width: 90%; /* Full width on smaller screens */
+        margin: 0; /* Remove margin for smaller screens */
+        border-radius: 24px; /* Rounded corners */
+    }
+
+    .contact-details h1 {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+
+    .contact-form .submit-btn {
+        width: 100%; /* Full width on smaller screens */
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+}
+
