@@ -1101,111 +1101,73 @@ footer {
     }
 }
 
-
-
 .reports-section {
-    display: flex;
-    flex-direction: column;
-    margin: 30px 40px; /* Add some margin around the container */
-    padding: 10px 20px;
-    gap: 30px; /* Space between sections */
+    margin: 2rem 0 2rem 4rem;
 }
+
 .reports-section h1 {
-    text-align: left;
     font-size: 36px;
     font-weight: 900;
-    color: #06592e;
-    width: 30%;
-    border-radius: 12px; /* Rounded corners */
-    text-decoration-line: underline;
+    color:#008D45;
+    text-decoration: underline;
     text-underline-offset: 6px;
-    text-decoration-thickness: 4px;
     text-decoration-color: #ff0000;
-    margin-bottom: 0; /* Remove default margin */
-}
-.reports-section p {
-    text-align: left; /* Center-align the text */
-    font-size: 24px;
-    color: #06592e;
-    margin-top: 0; /* Add margin for spacing */
-    font-weight: 900;
 }
 
-.report-item {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
+
 
 .reports-list {
-    display: flex;
-    flex-direction: row;
-    gap: 20px; /* Increased space between items */
-    margin-bottom: 3rem;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    padding: 5px; /* Add padding for better appearance */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: thin; /* Firefox scrollbar */
-    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 20%;
+    gap: 3rem;
+    overflow-x: auto;
+    border-radius: 20px;
+    background-color: #f7eaea;
+    padding: 1rem;
+    margin: 20px 10px;
+    justify-items: center; /* Center items horizontally within the grid */
+    align-items: center; /* Center items vertically within the grid */
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    overscroll-behavior-inline: contain;
+    
+}
+.report-item {
+    position: relative;
+    cursor: pointer;
+    overflow-y: hidden;
+    border-radius: 16px;
 }
 
-.reports-list::-webkit-scrollbar {
-    height: 8px;
-}
-
-.reports-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.reports-list::-webkit-scrollbar-thumb {
-    background: #008D45;
-    border-radius: 4px;
-}
-
-.reports-list::-webkit-scrollbar-thumb:hover {
-    background: #006633;
-}
-
-.reports-list .report-item {
-    color: #2e2828;
-    padding: 10px;
-    width: 260px; /* Set minimum width instead of fixed width */
+.report-item img {
+    width: 280px;
     height: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 0 0 auto; /* Prevent items from shrinking */
     transition: transform 0.3s ease;
+    align-items: center;
+    justify-content: center;
 }
 
-.reports-list .report-item:hover {
-    transform: translateY(-5px);
-    background-color: #006633;
-    color: #ffffff;
-}
-.reports-list .report-item img {
-    width: 260px;
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Make the image circular */
-    object-fit: cover; /* Ensure the image fits within the circle */
-}
-.report-details {
+.report-item .report-details {
     position: absolute;
+    height: 100%;
+    width: 280px;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 141, 69, 0.9); /* Semi-transparent green background */
+    background: rgba(0, 141, 69, 0.8); /* Semi-transparent green background */
     color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px;
     text-align: center;
     transform: translateY(100%);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.report-item:hover img {
+    transform: translateY(-4%);
 }
 
 .report-item:hover .report-details {
