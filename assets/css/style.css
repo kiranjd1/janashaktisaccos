@@ -1127,13 +1127,13 @@ footer {
     grid-auto-flow: column;
     grid-auto-columns: 20%;
     gap: 3rem;
-    overflow-x: auto;
+    overflow-x: scroll;
     border-radius: 20px;
     background-color: #f7eaea;
     padding: 1rem;
     margin: 20px 10px;
-    justify-items: center; /* Center items horizontally within the grid */
-    align-items: center; /* Center items vertically within the grid */
+    justify-items: center;
+    align-items: center;
     scrollbar-width: thin;
     scroll-behavior: smooth;
     overscroll-behavior-inline: contain;
@@ -1160,7 +1160,6 @@ footer {
     width: 280px;
     bottom: 0;
     left: 0;
-    right: 0;
     background: rgba(0, 141, 69, 0.8); /* Semi-transparent green background */
     color: white;
     text-align: center;
@@ -1181,17 +1180,31 @@ footer {
 }
 
 
+/*Gallery Page Styles------------*/
+
+.gallery-section .section-title {
+    margin: 2rem 4rem;
+}
+
+.gallery-section .section-title h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color:#008D45;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: #ff0000;
+}
+
+.gallery-section .section-title p {
+    font-size: 24px;
+    font-weight: 900;
+    color: #06592e;
+}
+
 .gallery-section .photos {
     margin: 2rem 4rem;
     background-color: #fdf0f0;
-    padding: 1.5rem;
-}
-
-.gallery-section .photos h2 {
-    color: #06592e;
-    font-size: 24px;
-    text-decoration: underline;
-    text-decoration-color: #ff0000;
+    padding: 0.5rem;
 }
 
 .gallery-section .photos-grid {
@@ -1208,12 +1221,56 @@ footer {
     width: auto;
     margin: 0;
     padding-inline: 5px;
+    padding-block: 5px;
+    display: flex;
+    overflow-y: hidden;
+    flex-direction: column;
+    text-decoration: none;
+    transition: 0.2s ease-in;
 
 }
 .photos-grid .thumbnail img{
+    position: relative;
     width: 100%;
-    height: 165px;
+    height: 75%;
     overflow: hidden;
+    margin-bottom: 0px;
 }
 
+.photos-grid .thumbnail h3 {
+    position: relative;
+    margin: 0;
+    padding-inline: 5px;
+    color: #06592e;
+}
 
+.photos-grid .thumbnail:hover {
+    transform: scale(1.03);
+    transition: 0.2s ease-out;
+}
+
+.photos-grid .thumbnail:hover img {
+    opacity: 0.6;
+}
+
+.photos-grid .thumbnail p {
+    position: absolute;
+    bottom: 40%;
+    left: 20%;
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    align-items: center;    
+}
+
+.photos-grid .thumbnail p i {
+    margin-right: 10px;
+}
+
+.photos-grid .thumbnail:hover p {
+    transform: translateY(0);
+}
