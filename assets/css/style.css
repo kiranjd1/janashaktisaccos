@@ -597,7 +597,7 @@ footer {
 
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem; /* Space between items */
     justify-items: center; /* Center items horizontally within the grid */
     align-items: center; /* Center items vertically within the grid */
@@ -613,7 +613,6 @@ footer {
 
 .member img {
     width: 100%; /* Adjust size as needed */
-    height: 80%; /* Adjust size as needed */
     border-radius: 20px; /* Make the image circular */
     object-fit: cover; /* Ensure the image fits within the circle */
 }
@@ -1201,47 +1200,83 @@ footer {
     color: #06592e;
 }
 
-.gallery-section .photos {
-    margin: 2rem 4rem;
-    background-color: #fdf0f0;
-    padding: 0.5rem;
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.gallery-btn {
+    padding: 10px 20px;
+    border: none;
+    background: #fff;
+    color: #008D45;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid #008D45;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.gallery-btn.active {
+    background: #008D45;
+    color: #fff;
+}
+
+/* Hide videos section by default */
+.videos {
+    display: none;
+}
+
+/* Show active section */
+.gallery-section .active-section {
+    display: block;
 }
 
 .gallery-section .photos-grid {
+    margin: 2rem 4rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
 }
 
 .photos-grid .thumbnail {
-    border: solid 2px #aa0707;
-    height: 100%;
-    width: auto;
-    margin: 0;
-    padding-inline: 5px;
-    padding-block: 5px;
     display: flex;
-    overflow-y: hidden;
+    overflow: hidden;
     flex-direction: column;
     text-decoration: none;
     transition: 0.2s ease-in;
-
+    margin: 0;
 }
+
 .photos-grid .thumbnail img{
     position: relative;
     width: 100%;
-    height: 75%;
-    overflow: hidden;
+    aspect-ratio: 1.25 / 1;
     margin-bottom: 0px;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
-.photos-grid .thumbnail h3 {
+.photos-grid .thumbnail .thumbnail-title {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 60px;
     position: relative;
-    margin: 0;
-    padding-inline: 5px;
-    color: #06592e;
+    margin-top: 0;
+    padding: 6px;
+    text-align: left;
+    line-height: 1.15;
+    background-color: #06592e;
+}
+
+.thumbnail-title h3 {
+    margin-top: 5px;
+    color: #ffffff;
 }
 
 .photos-grid .thumbnail:hover {
@@ -1253,9 +1288,10 @@ footer {
     opacity: 0.6;
 }
 
-.photos-grid .thumbnail p {
+.photos-grid .thumbnail .view {
     position: absolute;
-    bottom: 40%;
+    display: flex;
+    bottom: 50%;
     left: 20%;
     color: white;
     font-size: 24px;
@@ -1264,13 +1300,13 @@ footer {
     justify-content: center;
     transform: translateY(100%);
     transition: transform 0.3s ease;
-    align-items: center;    
+    align-items: center;
 }
 
-.photos-grid .thumbnail p i {
+.thumbnail .view i {
     margin-right: 10px;
 }
 
-.photos-grid .thumbnail:hover p {
+.photos-grid .thumbnail:hover .view {
     transform: translateY(0);
 }
