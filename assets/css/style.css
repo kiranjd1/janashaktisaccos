@@ -1202,20 +1202,17 @@ footer {
 
 .gallery-nav {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 2rem 0;
+    justify-content: left;
+    margin: 2rem 4rem;
 }
 
 .gallery-btn {
     padding: 10px 20px;
-    border: none;
-    background: #fff;
+    background: hsl(125, 73%, 97%);
     color: #008D45;
     font-size: 18px;
     cursor: pointer;
-    border: 2px solid #008D45;
-    border-radius: 5px;
+    border: none;
     transition: all 0.3s ease;
 }
 
