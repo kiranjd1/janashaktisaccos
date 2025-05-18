@@ -188,7 +188,7 @@ header .social-icon.youtube {
         display: none; /* Hide menu by default */
         flex-direction: column; /* Stack items vertically */
         background-color: #007f3e;
-        position: absolute;
+        position: relative;
         top: 50px;
         width: 100%;
         padding: 10px 0;
@@ -344,7 +344,7 @@ header .social-icon.youtube {
         display: none; /* Hide menu by default */
         flex-direction: column; /* Stack items vertically */
         background-color: #007f3e;
-        position: absolute;
+        position: relative;
         top: 50px;
         width: 100%;
         padding: 10px 0;
@@ -550,6 +550,14 @@ footer {
     text-align: justify; /* Justify the text for better readability */
     font-size: 18px;
 }
+
+.work-area-home {
+    margin: 2rem 4rem;
+    overflow-x: hidden;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
 
 @media (max-width: 768px) {
     .main-content-home {
@@ -1003,6 +1011,7 @@ footer {
 }
 
 .contact-form .submit-btn {
+    display: block;
     background-color: #ff0000;
     color: white;
     padding: 12px 30px;
@@ -1011,7 +1020,6 @@ footer {
     cursor: pointer;
     font-size: 24px;
     font-weight: 600;
-    width: 20%;
     border-bottom: #aa0707 solid 6px; /* Add a red border at the bottom */
     transition: background-color 0.3s ease;
 }
@@ -1330,5 +1338,31 @@ footer {
 .job-vacancy p {
     font-size: 24px;
     font-weight: 900;
+}
+
+.utilities {
+    margin: 2rem 4rem;
+    display: flex;
+    list-style: none;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #007f3e;
+    background-color: #d2ffec;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.utilities li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}
+
+.utilities span {
+    font-size: 8vh;
 }
 
