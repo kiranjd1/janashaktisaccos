@@ -85,7 +85,7 @@ header .social-icon.youtube {
 
 /* Navigation container */
 .nav-bar {
-    background-color: #008D45;
+    background-color: #007f3e;
     color: white;
     position: relative;
     top: 0; /* Stick to the top of the viewport */
@@ -187,7 +187,7 @@ header .social-icon.youtube {
     .nav-bar .menu {
         display: none; /* Hide menu by default */
         flex-direction: column; /* Stack items vertically */
-        background-color: #008D45;
+        background-color: #007f3e;
         position: absolute;
         top: 50px;
         width: 100%;
@@ -234,7 +234,7 @@ header .social-icon.youtube {
 
 /* Scrollable navigation bar */
 .nav-bar-scroll {
-    background-color: #008D45;
+    background-color: #007f3e;
     color: white;
     position: fixed;
     width: 100%;
@@ -343,7 +343,7 @@ header .social-icon.youtube {
     .nav-bar-scroll .menu {
         display: none; /* Hide menu by default */
         flex-direction: column; /* Stack items vertically */
-        background-color: #008D45;
+        background-color: #007f3e;
         position: absolute;
         top: 50px;
         width: 100%;
@@ -399,7 +399,6 @@ footer {
 .contact-info {
     width: 100%;
     color: #ffffff;
-    background-color: #008D45;
 }
 .contact-info h3 {
     text-align: center;
