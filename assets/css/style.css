@@ -6,10 +6,7 @@ html, body {
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.6;
-}
-
-header {
-    background-image: linear-gradient(to bottom, #ffffff,#fdf5f9);
+    background-color: #FFFFFC;
 }
 
 header .header-bg {
@@ -486,12 +483,12 @@ footer {
 }
 
 /* Parent container for chairman-msg and about-us */
-.main-content {
+.main-content-home {
     display: flex; /* Use Flexbox to align items horizontally */
     justify-content: space-between; /* Add space between the two sections */
     align-items: flex-start; /* Align items at the top */
     gap: 30px; /* Add spacing between the two sections */
-    margin: 2rem 5rem; /* Add some margin around the container */
+    margin: 2rem 4rem; /* Add some margin around the container */
     height: max-content;
 }
 
@@ -512,8 +509,7 @@ footer {
 }
 .chairman-msg h2 {
     text-align: center;
-    font-size: 24px;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif; /* Make the heading bold */
 }
@@ -545,9 +541,9 @@ footer {
     border-bottom-right-radius: 24px;
     box-shadow: 0 4px 8px rgba(7, 66, 74, 0.2); /* Add shadow for depth */
 }
-.welcome h1 {
+.welcome h2 {
     text-align: center;
-    font-size: 30px;
+    font-size: clamp(.75rem, 32px, 6vh);
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif; /* Make the heading bold */
 }
@@ -557,14 +553,23 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .main-content {
+    .main-content-home {
         height: auto; /* Allow the height to adjust based on content */
-        padding: 20px 20px; /* Reduce padding for smaller screens */
-        display: flex;
+        padding: 0.25rem; /* Reduce padding for smaller screens */
+        margin: 0.75rem;
         flex-direction: column; /* Stack content vertically */
         justify-content: center;
         align-items: center;
     }
+    .welcome {
+        border-radius: 12px;
+        flex: 1;
+    }
+    .chairman-msg {
+        border-radius: 12px;
+        flex: 1;
+    }
+
 }
 
 .board-type {
@@ -1307,3 +1312,23 @@ footer {
 .photos-grid .thumbnail:hover .view {
     transform: translateY(0);
 }
+
+
+/* --- Jobs Page Styles ------ */
+
+.jobs-main-content {
+    margin: 2rem 4rem;
+    height: 100vh;
+}
+
+.job-vacancy h1 {
+    color: #06592e;
+    font-size: 36px;
+    font-weight: 900;
+}
+
+.job-vacancy p {
+    font-size: 24px;
+    font-weight: 900;
+}
+
