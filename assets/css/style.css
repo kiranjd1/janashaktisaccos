@@ -424,6 +424,11 @@ footer {
     color: hsl(160, 100%, 97%);
 }
 
+.footer-section i {
+    line-height: 1.6;
+    color: #ffffff;
+}
+
 .footer-section .quick-links a:hover {
     color: #06592e;
 }
@@ -437,6 +442,12 @@ footer {
     display: flex;
     flex-direction: column;
     /* border: solid 2px yellow; */
+}
+
+.quick-links i {
+    line-height: 1.6;
+    margin-left: 0.5rem;
+    font-size: 0.85rem;
 }
 
 .contact-info {
@@ -453,10 +464,11 @@ footer {
     text-decoration: none; /* Remove underline from links */
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
-.contact-info i {
+
+/* .contact-info i {
     line-height: 1.6;
     color: #ffffff;
-}
+} */
 
 .copyright {
     text-align: center;
@@ -1446,7 +1458,7 @@ footer {
     padding: 1rem 2rem;
     justify-content: center;
     font-size: 24px;
-    background-color: hsl(160, 100%, 97%);
+    background-color: #f0fffa;
     border-radius: 24px;
 }
 
@@ -1482,6 +1494,67 @@ footer {
 .general-info-home .info-item i {
     font-size: 40px;
 }
+
+.services-home {
+    margin: 2rem 24rem;
+}
+
+.services-home h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.services-home .services-grid {
+    display: flex;
+    justify-items: center; /* Center items horizontally within the grid */
+    align-items: center; /* Center items vertically within the grid */
+    gap: 6rem;
+    max-width: 100%;
+}
+
+.services-grid h3 {
+    font-size: 1.5rem;
+    color: #007f3e;
+    margin-bottom: 1rem;
+}
+
+.services-grid .service {
+    display: flex;
+    font-size: 1.25rem;
+    font-weight: 900;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: #f0fffa;
+    box-shadow: 0 4px 4px rgb(217, 217, 217);
+}
+
+.services-grid .service i {
+    font-size: 4rem;
+    color: #007f3e;
+    margin-bottom: 1rem;
+}
+
+.services-grid .service a {
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #ff0000;
+    font-weight: 600;
+    border-radius: 12px;
+    border: solid 2px #ff0000;
+    margin-bottom: 0.5rem;
+}
+
+.services-grid .service a:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
 
 @media (max-width: 768px) {
     .general-info-home {
