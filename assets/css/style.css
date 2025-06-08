@@ -54,33 +54,6 @@ header .header-bg {
     background-color: #04B85C; /* Match hover effect */
     transform: scale(1.2); /* Add a zoom effect on hover */
 }
-.social-icon {
-    width: 25px;
-    height: 25px;
-    background-size: cover;
-    display: inline-block;
-    border-radius: 50%; /* Circular icons */
-    transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.2); /* Slight zoom effect on hover */
-}
-
-header .social-icon.facebook {
-    background-image: url('../icons/facebook.png'); /* Replace with the correct path to your Facebook icon */
-    background-color: #3b5998; /* Fallback color */
-}
-
-header .social-icon.twitter {
-    background-image: url('../icons/twitter.png'); /* Replace with the correct path to your Twitter icon */
-    background-color: #1da1f2; /* Fallback color */
-}
-
-header .social-icon.youtube {
-    background-image: url('../icons/youtube.png'); /* Replace with the correct path to your YouTube icon */
-    background-color: #ff0000; /* Fallback color */
-}
 
 /* Navigation container */
 .nav-bar {
@@ -476,6 +449,43 @@ footer {
     color: #f0fcf6;
 }
 
+.footer-section .social-icon {
+    display: flex;
+    gap: 0.5rem; /* Space between icons */
+}
+
+.contact-info .social-icon a {
+    border-radius: 50%; /* Circular icons */
+    display: inline-block; /* Ensure the icon is treated as a block element */
+    width: 30px; /* Set width for circular effect */
+    height: 30px; /* Set height for circular effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.contact-info .social-icon a:hover {
+    background-color: #04B85C; /* Match hover effect */
+    transform: scale(1.2); /* Add a zoom effect on hover */
+}
+
+.contact-info .social-icon.facebook {
+    background-color: #3b5998; /* Fallback color */
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.contact-info .social-icon.twitter {
+    background-color: #1da1f2; /* Fallback color */
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.contact-info .social-icon.youtube {
+    background-color: #ff0000; /* Fallback color */
+    text-align: center;
+    font-size: 1.25rem;
+}
+
 @media (max-width: 768px) {
     .footer-section {
         flex-direction: column;
@@ -629,6 +639,16 @@ footer {
     border-radius: 12px;
 }
 
+.services-home h2 {
+    text-align: center;
+    font-size: clamp(4vh, 36px, 10vh);
+    font-weight: 900;
+    padding: 0.75rem;
+    color: #007f3e;
+    text-decoration: underline;
+    text-decoration-color: #ff0000;
+    text-underline-offset: 10px;
+}
 
 @media (max-width: 768px) {
     .main-content-home {
