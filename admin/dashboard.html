@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Janashakti SACCOS</title>
+    <link rel="stylesheet" href="/admin/admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="admin-nav">
+            <h2>Admin Panel</h2>
+            <ul>
+                <li><a href="#" data-section="general-info" class="active">General Info</a></li>
+                <li><a href="#" data-section="reports">Reports</a></li>
+                <li><a href="#" data-section="gallery">Gallery</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <main class="admin-content">
+            <section id="general-info" class="content-section active">
+                <h2>General Information</h2>
+                <div class="info-items-editor">
+                    <form id="infoItemForm">
+                        <div class="form-group">
+                            <input type="text" id="itemTitle" required>
+                            <label for="itemTitle">Title</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="itemValue" required>
+                            <label for="itemValue">Value</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="itemIcon" required>
+                            <label for="itemIcon">Icon Class</label>
+                        </div>
+                        <button type="submit">Add/Update Item</button>
+                    </form>
+                    
+                    <div class="info-items-list">
+                        <!-- Info items will be populated here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/admin/admin-script.js"></script>
+</body>
+</html>
