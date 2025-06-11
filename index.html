@@ -106,14 +106,13 @@
                 </div>               
             </div>
             <div class="info-item">
-                <span class="icon"><i class="fas fa-silid fa-coins"></i></span>
+                <span class="icon"><i class="fas fa-solid fa-coins"></i></span>
                 <div class="info-item-detail">
                     <span class="text">Total Saving: </span>
                     <span class="number">Rs. 136,096,607</span>
                 </div>
             </div>
-            <div class="i
-            nfo-item">
+            <div class="info-item">
                 <span class="icon"><i class="fas fa-money-check-alt"></i></span>
                 <div class="info-item-detail">
                     <span class="text">Total Loan: </span>
@@ -210,5 +209,46 @@
             <p>&copy; 2025 Janashakti Saving And Credit Cooperative Ltd. All rights reserved.</p>
         </div>
     </footer>
+    <div id="stackImageModal" class="stack-image-modal">
+        <div class="stack-images">
+            <span class="stack-image-close">&times;</span>
+            <img src="assets/images/bibaran-modal-img.jpg" alt="Latest Offical Info" class="stack-image">
+            <img src="assets/images/bibaran-modal-img.jpg" alt="Latest Offical Info" class="stack-image">
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var modal = document.getElementById("stackImageModal");
+            var closeBtn = document.querySelector(".stack-image-close");
+            var slides = document.querySelectorAll(".stack-image");
+            var current = 0;
+
+            function showSlide(idx) {
+                slides.forEach((img, i) => {
+                    img.classList.toggle("active", i === idx);
+                });
+            }
+
+            // Show modal and first image on page load
+            modal.style.display = "flex";
+            showSlide(current);
+
+            closeBtn.onclick = function() {
+                current++;
+                if (current < slides.length) {
+                    showSlide(current);
+                } else {
+                    modal.style.display = "none";
+                }
+            };
+
+            // Optional: close modal if clicking outside the modal-inner
+            modal.onclick = function(e) {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
+        });
+    </script>
 </body>
 </html>

@@ -84,42 +84,42 @@
                 <h2 data-en="Monthly Reports" data-ne="मासिक प्रतिवेदन">Monthly Reports</h2>
                 <div class="reports-list">
                     <div class="report-item">
-                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 1" class="report-image">
+                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 1" class="report-image" id="myImg">
                         <div class="report-details">
                             <h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
                             <h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
                         </div>
                     </div>
                     <div class="report-item">
-                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 2" class="report-image">
+                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 2" class="report-image" id="myImg">
                         <div class="report-details">
                             <h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
                             <h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
                         </div>
                     </div>
                     <div class="report-item">
-                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 3" class="report-image">
+                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 3" class="report-image" id="myImg">
                         <div class="report-details">
                             <h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
                             <h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
                         </div>
                     </div>
                     <div class="report-item">
-                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 4" class="report-image">
+                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 4" class="report-image" id="myImg">
                         <div class="report-details">
                             <h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
                             <h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
                         </div>
                     </div>
                     <div class="report-item">
-                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 5" class="report-image">
+                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 5" class="report-image" id="myImg">
                         <div class="report-details">
                             <h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
                             <h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
                         </div>
                     </div>
                     <div class="report-item">
-                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 6" class="report-image">
+                        <img src="assets/reports/monthly-1.jpg" alt="Monthly Report 6" class="report-image" id="myImg">
                         <div class="report-details">
                             <h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
                             <h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
@@ -128,7 +128,16 @@
                 </div>
             </div>
         </section>
+        <!-- Image Display Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-inner">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>         
+        </div>
     </main>
+
     <footer>
         <div class="contact-info">
             <h3>Contact Us</h3>
@@ -140,5 +149,31 @@
             <p>&copy; 2025 Janashakti Saving And Credit Cooperative Ltd. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var modal = document.getElementById("myModal");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                var closeBtn = document.getElementsByClassName("close")[0];
+
+                document.querySelectorAll('.report-image').forEach(function(image) {
+                    image.onclick = function(){
+                        modal.classList.add("show");
+                        modalImg.src = this.src;
+                        captionText.innerHTML = this.alt;
+                    }
+                });
+
+                closeBtn.onclick = function() {
+                    modal.classList.remove("show");
+                }
+
+                modal.onclick = function(event) {
+                    if (event.target === modal) {
+                        modal.classList.remove("show");
+                    }
+                }
+            });
+    </script>
 </body>
 </html>

@@ -59,9 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrollMenuToggle) {
         scrollMenuToggle.addEventListener('click', () => {
             scrollMenu.classList.toggle('show');
-        });
-    }
+        })
+    };
 
+
+// Contact form submission handling
     const contactForm = document.getElementById('contactForm');
 
     contactForm.addEventListener('submit', function(e) {
