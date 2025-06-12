@@ -1250,7 +1250,7 @@ footer {
     border-radius: 16px;
 }
 
-.modal {
+.view-report-modal {
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 10000;
@@ -1264,14 +1264,14 @@ footer {
     align-items: center;
 }
 
-.modal.show {
+.view-report-modal.show {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.modal-inner {
+.report-modal-inner {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1279,36 +1279,41 @@ footer {
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    max-width: 560px;
+    max-height: 95vh;
+    background-color: #ffffff;
     padding: 0;
     margin: 0;
+    animation: zoom 0.6s;
+    box-shadow: 0 0 30px #000;
+    border-radius: 10px;
 }
 
 /* Modal Content (image) */
-.modal-content {
+.report-modal-content {
     margin: 0;
     display: block;
     max-height: calc(100vh - 80px); /* 80px for close button and caption */
     width: auto;
     max-width: 90vw;
-    box-shadow: 0 0 30px #000;
-    border-radius: 10px;
-    animation: zoom 0.6s;
 }
 
 /* Caption of Modal Image */
-#caption {
-    margin: 10px 0 0 0;
+#reportCaption {
+    margin: 0 0;
     display: block;
     width: 80%;
     max-width: 700px;
     text-align: center;
-    color: #ccc;
+    color: #06592e;
+    font-size: 1.25rem;
+    font-weight: 600;
     padding: 0;
     height: auto;
 }
 
 /* Add Animation */
-.modal-content, #caption {  
+.report-modal-content, #reportCaption {  
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -1326,31 +1331,39 @@ footer {
 }
 
 /* The Close Button */
-.close {
+.report-modal-close {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: -10px;
+        right: -10px;
         color: #ffffff;
-        font-size: 40px;
+        font-size: 36px;
         font-weight: bold;
         cursor: pointer;
         z-index: 10001;
-        background: #20e0534d;
+        background: rgba(26, 44, 28, 0.855);
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         text-align: center;
-        line-height: 40px;
+        line-height: 36px;
         transition: background 0.2s;
-        animation: zoom 0.6s;
     }
 
-.close:hover, .close:focus {
-    background: rgba(0,0,0,0.6);
-    color: #fff;
+.report-modal-close:hover, .report-modal-close:focus {
+    background: rgba(6, 80, 52, 0.8);
+    color: #ffffff;
+    transform: scale(1.2);
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens */
+.report-modal-close:active {
+    background: #007f3e;
+    color: #ffffff;
+    transition: background 0.2s;
+}
+
+/* Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 90%;
@@ -1711,20 +1724,52 @@ footer {
     position: relative;
     width: 100vw;
     height: 100vh;
-    max-width: 700px;
-    max-height: 100vh;
+    max-width: 560px;
+    max-height: 90vh;
     margin: 0 auto;
-    display: block;
+    display: flex;
+    box-shadow: 0 0 30px #000;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
+    background-color: #ffffff;
+    animation: zoom 0.6s;
 }
 
+.stack-image-close {
+    position: absolute;
+    font-size: 24px;
+    top: -10px;
+    right: -10px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10;
+    background: rgba(26, 44, 28, 0.855);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    transition: background 0.2s;
+}
+.stack-image-close:hover {
+    background: rgba(6, 80, 52, 0.8);
+    color: #ffffff;
+    transform: scale(1.2);
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.stack-image-close:active {
+    background: #007f3e;
+    color: #ffffff;
+    transition: background 0.2s;
+}
 
 .stack-image {
     position: absolute;
-    top: 0; left: 0;
-    max-width: 700px;
-    max-height: 100vh;
+    max-width: 500px;
+    max-height: 85vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1733,9 +1778,8 @@ footer {
     pointer-events: none;
     transition: opacity 0.3s;
     margin: 0;
-    box-shadow: 0 0 30px #000;
-    border-radius: 10px;
-    animation: zoom 0.6s;
+    align-items: center;
+    justify-content: center;
 }
 
 .stack-image.active {
@@ -1744,22 +1788,88 @@ footer {
     pointer-events: auto;
 }
 
-.stack-image-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 36px;
-    color: #fff;
-    cursor: pointer;
-    z-index: 10;
-    background: rgba(0,0,0,0.3);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    transition: background 0.2s;
-    /* Place above the image */
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .stack-images {
+        width: 85%;
+    }
 }
-.stack-image-close:hover { background: rgba(0,0,0,0.6); }
 
+.news-section {
+    margin: 2rem 4rem;
+}
+
+.news-section h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color:#008D45;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: #ff0000;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    margin: 2rem 0;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-height: 400px;
+    width: 100%;
+    border: 2px solid #06592e;
+}
+.news-item img {
+    margin: 8px 0;
+    justify-content: center;
+    align-self: center;
+    height: 80%;
+    overflow-y: hidden;
+    border-radius: 4px 4px 0 0; /* Rounded corners for the top */
+}
+
+.news-item .news-caption {
+    display: flex;
+    height: 20%;
+    padding: none;
+    margin: 0;
+}
+
+.news-caption .news-icon {
+    flex: 0.15;
+    background-color: #007f3e;
+    padding: 0.5rem;
+}
+
+.news-icon i {
+    font-size: 3rem;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.news-caption .news-title {
+    flex: 0.85;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0.25rem 0.375rem;
+    color: #06592e;
+    background-color: #ecfff5;
+}
+
+.news-caption .news-title h2 {
+    font-size: 1.25rem;
+    margin: 0.25rem 0.25rem;
+    line-height: 1.2;
+}
+
+.news-caption .news-title p {
+    font-size: 0.85rem;
+    margin: 0;
+}

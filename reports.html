@@ -129,12 +129,12 @@
             </div>
         </section>
         <!-- Image Display Modal -->
-        <div id="myModal" class="modal">
-            <div class="modal-inner">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
-            </div>         
+        <div id="ViewReportModal" class="view-report-modal">
+            <div class="report-modal-inner">
+                <span class="report-modal-close">&times;</span>
+                <img class="report-modal-content" id="img01">
+                <div id="reportCaption"></div>
+            </div>  
         </div>
     </main>
 
@@ -151,10 +151,10 @@
     </footer>
     <script>
             document.addEventListener("DOMContentLoaded", function() {
-                var modal = document.getElementById("myModal");
+                var modal = document.getElementById("ViewReportModal");
                 var modalImg = document.getElementById("img01");
-                var captionText = document.getElementById("caption");
-                var closeBtn = document.getElementsByClassName("close")[0];
+                var captionText = document.getElementById("reportCaption");
+                var closeBtn = document.getElementsByClassName("report-modal-close")[0];
 
                 document.querySelectorAll('.report-image').forEach(function(image) {
                     image.onclick = function(){
