@@ -34,8 +34,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const originalNav = document.querySelector('.nav-bar');
-    const scrollNav = document.querySelector('.nav-bar-scroll');
+    const nav = document.getElementById('mainNav');
+    const header = document.querySelector('header');
+    if (!nav) return;
+
+    const getHeaderBottom = () => (header ? header.getBoundingClientRect().bottom + window.scrollY : 0);
+
+    function updateNavState() {
+        const trigger = getHeaderBottom();
+        if (window.scrollY > trigger) {
+        if (!nav.classList.contains('scrolled')) {
+            nav.classList.add('scrolled');
+            // prevent content jump by adding padding equal to nav height
+            document.body.style.paddingTop = `${nav.getBoundingClientRect().height}px`;
+        }
+        } else {
+        if (nav.classList.contains('scrolled')) {
+            nav.classList.remove('scrolled');
+            document.body.style.paddingTop = '';
+        }
+        }
+    }
+
+    updateNavState();
+    window.addEventListener('scroll', updateNavState, { passive: true });
+    window.addEventListener('resize', () => {
+        if (nav.classList.contains('scrolled')) {
+        document.body.style.paddingTop = `${nav.getBoundingClientRect().height}px`;
+        }
+    });
 
     // Create an Intersection Observer
     const navObserver = new IntersectionObserver((entries) => {
@@ -87,3 +114,39 @@ document.addEventListener("DOMContentLoaded", () => {
         alert('Thank you for your message. We will get back to you soon!');
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("stackImageModal");
+    var closeBtn = document.querySelector(".stack-image-close");
+    var slides = document.querySelectorAll(".stack-image");
+    var current = 0;
+
+    function showSlide(idx) {
+        slides.forEach((img, i) => {
+            img.classList.toggle("active", i === idx);
+        });
+    }
+
+    // Show modal and first image on page load
+    modal.style.display = "flex";
+    showSlide(current);
+
+    closeBtn.onclick = function() {
+        current++;
+        if (current < slides.length) {
+            showSlide(current);
+        } else {
+            modal.style.display = "none";
+        }
+    };
+
+    // Optional: close modal if clicking outside the modal-inner
+    modal.onclick = function(e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+});
+
+
