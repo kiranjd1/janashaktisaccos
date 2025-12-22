@@ -1,3 +1,36 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #008D45;   /* main green */
+  --color-primary-light: #33A867;
+  --color-primary-dark: #006B34;
+
+  /* Secondary Accent (calm blue to balance green) */
+  --color-secondary: #0066CC;
+  --color-secondary-light: #3385D9;
+  --color-secondary-dark: #004C99;
+
+  /* Backgrounds */
+  --color-bg: #F9FAFB;        /* page background */
+  --color-bg-alt: #FFFFFF;    /* cards, sections */
+  --color-bg-muted: #E6F4EC;  /* subtle green tint */
+
+  /* Text */
+  --color-text: #1A1A1A;      /* main text */
+  --color-text-muted: #6B7280;/* secondary text */
+  --color-text-inverse: #FFFFFF; /* text on dark/green backgrounds */
+
+  /* Borders & Dividers */
+  --color-border: #D1D5DB;
+  --color-border-strong: #004D26;
+
+  /* Status Colors */
+  --color-success: #22C55E;   /* bright green */
+  --color-warning: #F59E0B;   /* amber */
+  --color-error: #DC2626;     /* red */
+  --color-info: #0EA5E9;      /* cyan */
+}
+
+
 html, body {
     height: 100%;
     margin: 0;

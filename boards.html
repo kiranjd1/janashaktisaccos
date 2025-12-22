@@ -12,14 +12,11 @@
     <header>
         <div class="header-bg"></div>
         <div class="buttons-home">
-            <button id="lang-en" class="lang-btn" data-lang="en">En</button>
-            <button id="lang-ne" class="lang-btn" data-lang="ne">ने</button>
-            <a href="https://www.facebook.com/jsaccosbirtamod" target="_blank" class="social-icon facebook" aria-label="Facebook"></a>
-            <a href="https://www.twitter.com" target="_blank" class="social-icon twitter" aria-label="Twitter"></a>
-            <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" aria-label="YouTube"></a>
+            <button id="lang-en" class="lang-btn" data-lang="en"><img src="assets/icons/usa-flag.png">En</button>
+            <button id="lang-ne" class="lang-btn" data-lang="ne"><img src="assets/icons/nepal-flag.png">Np</button>
         </div>
     </header>
-    <nav class="nav-bar">
+    <nav id="mainNav" class="nav-bar" role="navigation">
         <button class="menu-toggle" aria-label="Toggle Menu">
             <i class="fas fa-bars"></i>
         </button>
@@ -38,7 +35,7 @@
                     <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
                     <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
                 </ul>
-            </li>            
+            </li>         
             <li><a href="news.html" data-en="News & Notices" data-ne="समाचार/सन्देश">News & Notices</a></li>
             <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
             <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
@@ -172,12 +169,31 @@
     </main>
     
     <footer>
-        <div class="contact-info">
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-map-marker-alt"></i>Bhadrapur Road, Birtamod-4, Jhapa, Nepal</p>
-            <p><i class="fas fa-phone-alt"></i>+977-023-533-344</p>
-            <p><i class="fas fa-envelope"></i><a href="mailto:janashakticoop2014@gmail.com">janashakticoop2014@gmail.com</a></p>
-        </div>
+        <section class="footer-section">
+            <div class="overview">
+                <h3>Overview</h3>
+                <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam sunt optio pariatur quae, deserunt minima molestiae natus neque aut unde harum officia cupiditate atque earum temporibus. Laborum voluptas vero provident.</P>
+            </div>
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <a href="#" target="_blank" rel="noopener noreferrer">Our Annual Calendar<i class="fas fa-external-link-alt"></i></a>
+                <a href="https://www.deoc.gov.np/" target="_blank" rel="noopener noreferrer">Department of Cooperative<i class="fas fa-external-link-alt"></i></a>
+                <a href="https://copomis.gov.np/" target="_blank" rel="noopener noreferrer">COPOMIS<i class="fas fa-external-link-alt"></i></a>
+                <a href="https://goaml.fiu.nrb.org.np/PRD/content/#/home" target="_blank" rel="noopener noreferrer">goAML<i class="fas fa-external-link-alt"></i></a>
+                <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer">Nepal Rastra Bank(NRB)<i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Bhadrapur Road, Birtamod-4, Jhapa, Nepal</p>
+                <p><i class="fas fa-phone-alt"></i>+977-023-533344</p>
+                <p><i class="fas fa-envelope"></i><a href="mailto:janashakticoop2014@gmail.com">janashakticoop2014@gmail.com</a></p>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/jsaccosbirtamod" target="_blank" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" class="social-icon twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section> 
         <div class="copyright">
             <p>&copy; 2025 Janashakti Saving And Credit Cooperative Ltd. All rights reserved.</p>
         </div>
