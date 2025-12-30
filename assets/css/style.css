@@ -1,35 +1,23 @@
 :root {
   /* Brand Colors */
-  --color-primary: #008D45;   /* main green */
-  --color-primary-light: #33A867;
-  --color-primary-dark: #006B34;
+  --primary: #006B34;   /* main green */
+  --hover-bg: #008240;
+  --accent: #D4AF37;
+  --icons: #2E7D32;
+  --bg-card: #FDFDFD;
+  --bg-soft: #F2F7F2;
 
-  /* Secondary Accent (calm blue to balance green) */
-  --color-secondary: #0066CC;
-  --color-secondary-light: #3385D9;
-  --color-secondary-dark: #004C99;
+  /* Text Colors */
+  --text-main: #1A2E22;      /* Deep charcoal-green for primary body text */
+  --text-muted: #556B5D;     /* Muted green-grey for subheadings/labels */
+  --text-on-dark: #FFFFFF;   /* Pure white for primary background */
+  --text-accent: #006B34;    /* Your primary green used as text on light BGs */
 
-  /* Backgrounds */
-  --color-bg: #F9FAFB;        /* page background */
-  --color-bg-alt: #FFFFFF;    /* cards, sections */
-  --color-bg-muted: #E6F4EC;  /* subtle green tint */
-
-  /* Text */
-  --color-text: #1A1A1A;      /* main text */
-  --color-text-muted: #6B7280;/* secondary text */
-  --color-text-inverse: #FFFFFF; /* text on dark/green backgrounds */
-
-  /* Borders & Dividers */
-  --color-border: #D1D5DB;
-  --color-border-strong: #004D26;
-
-  /* Status Colors */
-  --color-success: #22C55E;   /* bright green */
-  --color-warning: #F59E0B;   /* amber */
-  --color-error: #DC2626;     /* red */
-  --color-info: #0EA5E9;      /* cyan */
+  --primary-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --h1-weight: 700;
+  --body-weight: 400;
+  --label-weight: 600;
 }
-
 
 html, body {
     height: 100%;
@@ -37,8 +25,14 @@ html, body {
 }
 
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--primary-font);
     line-height: 1.6;
+    color: var(--text-main);
+}
+
+h1, h2, h3 {
+  font-weight: var(--h1-weight);
+  letter-spacing: -0.02em;
 }
 
 header .header-bg {
@@ -87,7 +81,7 @@ header .header-bg {
 
 .lang-btn:hover {
     text-decoration: underline;
-    color: #007f3e; /* Match hover effect */
+    color: var(--icons); /* Match hover effect */
     transform: scale(1.2); /* Add a zoom effect on hover */
 }
 
@@ -98,9 +92,9 @@ header .header-bg {
     right: 0;
     width: 100%;
     z-index: 999;
-    background-color: #008D45;
+    background-color: var(--primary);
     transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease;
-    border-bottom: #ff0000 solid 6px;
+    border-bottom: var(--accent) solid 6px;
 }
 .nav-bar.scrolled {
     position: fixed;
@@ -130,7 +124,7 @@ header .header-bg {
 }
 
 .nav-bar .menu li:hover {
-    background-color: #00994a; /* Change background color on hover */
+    background-color: #008240 /* Change background color on hover */
 }
 
 .nav-bar .menu a {
