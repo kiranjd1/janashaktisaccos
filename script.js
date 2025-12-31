@@ -29,8 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Update the content for each translatable element
       translatableElements.forEach((element) => {
-          element.textContent = element.getAttribute(`data-${selectedLang}`);
+        element.textContent = element.getAttribute(`data-${selectedLang}`);
       });
+
+      // Remove .active from all buttons
+      langButtons.forEach((btn) => btn.classList.remove("active"));
+
+      // Add .active to the clicked button
+      button.classList.add("active");
     });
   });
 
