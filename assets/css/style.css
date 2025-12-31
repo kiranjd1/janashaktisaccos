@@ -1,566 +1,439 @@
 :root {
   /* Brand Colors */
-  --primary: #006B34;   /* main green */
-  --hover-bg: #008240;
-  --accent: #D4AF37;
+  --primary: #006B34;
+  --hover-bg: #008743;
+  --accent: #FF0000;
   --icons: #2E7D32;
   --bg-card: #FDFDFD;
   --bg-soft: #F2F7F2;
 
   /* Text Colors */
-  --text-main: #1A2E22;      /* Deep charcoal-green for primary body text */
-  --text-muted: #556B5D;     /* Muted green-grey for subheadings/labels */
-  --text-on-dark: #FFFFFF;   /* Pure white for primary background */
-  --text-accent: #006B34;    /* Your primary green used as text on light BGs */
+  --text-main: #1A2E22;
+  --text-muted: #556B5D;
+  --text-on-dark: #FFFFFF;
+  --text-accent: #006B34;
 
-  --primary-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Typography */
+  --primary-font: 'Inter', 'Poppins', -apple-system, sans-serif;
   --h1-weight: 700;
   --body-weight: 400;
   --label-weight: 600;
+
+  /* Sizing */
+  --top-bar-height: 40px;
+  --nav-height: 70px;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: var(--primary-font);
-    line-height: 1.6;
-    color: var(--text-main);
+  margin: 0;
+  font-family: var(--primary-font);
+  line-height: 1.6;
+  color: var(--text-main);
+  padding-top: calc(var(--top-bar-height) + var(--nav-height));
 }
 
-h1, h2, h3 {
-  font-weight: var(--h1-weight);
-  letter-spacing: -0.02em;
+/* --- 1. Top Utility Bar --- */
+.top-util-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--top-bar-height);
+  background-color: var(--bg-soft);
+  border-bottom: 1px solid rgba(0, 107, 52, 0.1);
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s ease;
 }
 
-header .header-bg {
-    background: url('../images/header.png') no-repeat left center/cover;
-    background-position: left;
-    height: 50px;
-    padding: 50px;
-    top: 0px;
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-    header .header-bg {
-        height: 10px; /* Reduce height for smaller screens */
-        width: 100%; /* Adjust width for better fit */
-        background-size: 100%; /* Adjust background size */
-        margin: 15px auto; /* Center the header on smaller screens */
-        padding: 40px 10px; /* Reduce padding */
-    }
+.top-contact-info {
+  font-size: 13px;
+  color: var(--text-muted);
 }
-/* Social media icons styling */
+
+.top-contact-info i {
+  color: var(--primary);
+  margin-right: 5px;
+}
+
+/* Language Toggle */
+.lang-btn img {
+  width: 16px;   /* Fixed small width */
+  height: 18px;  /* Maintain flag aspect ratio */
+  object-fit: cover;
+  display: inline-block;
+}
+
 .buttons-home {
-    position: absolute;
-    top: 120px;
-    right: 20px;
-    display: flex;
-    gap: 10px; /* Space between icons */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto; 
 }
 
 .lang-btn {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    border: none;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
 }
 
-.lang-btn img {
-    width: 18px; /* Adjust size of flag icons */
-    height: 18px;
+.lang-btn.active {
+  background-color: var(--primary);
+  color: white;
 }
 
-.lang-btn:hover {
-    text-decoration: underline;
-    color: var(--icons); /* Match hover effect */
-    transform: scale(1.2); /* Add a zoom effect on hover */
+.divider {
+  width: 2px;
+  height: 20px;
+  background-color: #ddd;
 }
 
-/* Navigation container */
+/* --- 2. Main Navigation Bar --- */
 .nav-bar {
-    position: relative;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 999;
-    background-color: var(--primary);
-    transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease;
-    border-bottom: var(--accent) solid 6px;
+  position: fixed;
+  top: var(--top-bar-height); /* Starts below top bar */
+  left: 0;
+  right: 0;
+  padding-inline: 10vw;
+  height: var(--nav-height);
+  background-color: #FFFFFF;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 0.4s ease, 
+              box-shadow 0.4s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
+
+/* Scroll Effect (Triggered via JS) */
 .nav-bar.scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    backdrop-filter: blur(4px); /* optional */
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-    transform: translateY(0);
+  --nav-height: 55px;
+  height: var(--nav-height);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* Menu styles */
-.nav-bar .menu {
-    display: flex;
-    margin: 0;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; /* Space between menu items */
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Logo on left, Menu on right */
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-/* Menu items */
-.nav-bar .menu li {
-    position: relative;
-    margin: 0;
-    padding: 10px; /* Add padding for better spacing */
+.logo {
+  display: flex;
+  align-items: center;
+  /* Adjust this width based on your specific logo's wide aspect ratio */
+  min-width: 250px; 
+  flex-shrink: 0; /* Prevents the logo area from being squeezed */
 }
 
-.nav-bar .menu li:hover {
-    background-color: #008240 /* Change background color on hover */
+.nav-logo {
+  margin-right: 30px;
+  height: 50px;
+  width: auto;
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-bar .menu a {
-    text-decoration: none;
-    margin: 0;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px; /* Add padding for better spacing */
-    transition: color 0.3s ease;
+.nav-bar.scrolled .nav-logo {
+  height: 40px;
 }
 
-.nav-bar .menu a:active, .menu a:focus {
-    color: #04B85C; /* Active and focus state */
-    background-color: hsl(149, 100%, 30%);
+/* --- 3. Menu & Links --- */
+.menu {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  gap: 5px;
+  align-items: center;
+  margin-left: auto; 
 }
 
-/* Dropdown menu */
-.nav-bar .menu .dropdown {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    background-color: hsl(149, 100%, 30%);
-    list-style: none;
-    z-index: 1000;
-    width: 180px;
-    padding: 0;
-    margin: 0;
-    opacity: 0; /* Start with 0 opacity */
-    visibility: hidden; /* Hide the dropdown */
-    transform: translateY(-10px); /* Start slightly above */
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+.menu li {
+  display: flex;
+  align-items: center;
+  height: var(--nav-height);
+  position: relative;
 }
 
-.nav-bar .menu .dropdown li {
-    text-align: left; /* Align text to the left */
-    margin: 0; /* Remove any extra margin */
-    padding: 10px; /* Add consistent padding for spacing */
+.menu i {
+  margin-left: 5px;
 }
 
-.nav-bar .menu .dropdown li:last-child {
-    margin-bottom: 0; /* Remove margin for the last item */
+.menu a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: var(--label-weight);
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
-.nav-bar .menu .dropdown a {
-    font-size: 16px;
-    padding: 0; /* Remove extra padding */
-    text-indent: 0; /* Ensure no additional indentation */
-    color: white; /* Ensure text color matches the dropdown background */
-    display: block; /* Ensure the link spans the full width of the dropdown item */
-}
-.nav-bar .menu li:hover .dropdown {
-    opacity: 1; /* Fade in the dropdown */
-    visibility: visible; /* Make visible */
-    transform: translateY(0); /* Move to natural position */
-
+.menu li:hover > a {
+  color: var(--hover-bg);
 }
 
-/* Menu toggle button for small screens */
-.nav-bar .menu-toggle {
-    display: none; /* Hidden by default */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
+/* --- 4. Dropdowns --- */
+.dropdown {
+  position: absolute;
+  top: 100%; /* Sits exactly at the bottom of the li (80px) */
+  left: 0;
+  background-color: #FFFFFF;
+  min-width: 230px;
+  padding: 5px 0; /* Small vertical breathing room inside the box */
+  list-style: none;
+  margin: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 0 0 8px 8px; /* Professional rounded bottom */
+  border-top: 3px solid var(--accent); /* THE FIX: Visual anchor to the bar */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0); /* Removed the 15px jump to keep it stable */
+  transition: all 0.2s ease-in-out;
+  z-index: 1000;
 }
 
-/* Mobile view styles */
-@media (max-width: 768px) {
-    .nav-bar .menu {
-        display: none; /* Hide menu by default */
-        flex-direction: column; /* Stack items vertically */
-        background-color: #007f3e;
-        position: relative;
-        top: 50px;
-        width: 100%;
-        padding: 10px 0;
-        z-index: 1000; /* Ensure it appears above other content */
-    }
-
-    .nav-bar .menu.show {
-        display: block; /* Show menu when toggled */
-    }
-
-    .nav-bar .menu li {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .nav-bar .menu-toggle {
-        display: block; /* Show toggle button */
-    }
-    .nav-bar .menu .dropdown {
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        background-color: hsl(149, 100%, 30%);
-        list-style: none;
-        z-index: 1000;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        opacity: 0; /* Start with 0 opacity */
-        visibility: hidden; /* Hide the dropdown */
-        transform: translateY(-10px); /* Start slightly above */
-        transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
-    }
-
-    .nav-bar .menu .dropdown a {
-        text-align: center; /* Center align text in dropdown */
-    }
-
+.has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Scrollable navigation bar */
-.nav-bar-scroll {
-    background-color: #007f3e;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: -100px; /* Hide initially */
-    left: 0;
-    z-index: 2000; /* Higher than original nav */
-    border-bottom: #ff0000 solid 6px;
-    /*transition: all 0.3s ease-in-out; /* Smooth transition */
-    transform: translateY(-100%);
+/* Internal Dropdown Links */
+.dropdown li {
+  height: auto; /* Reset height so they don't try to be 80px tall */
+  display: block;
 }
 
-.nav-bar-scroll.visible {
-    top: 0;
-    transform: translateY(0);
+.dropdown a {
+  display: block;
+  padding: 10px 20px !important; /* Proper internal spacing */
+  height: auto; /* Reset height */
+  font-size: 13px !important;
+  border-radius: 0;
 }
 
-.nav-bar-scroll .menu {
-    display: flex;
-    margin: 0;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+.dropdown a:hover {
+  background-color: var(--bg-soft);
+  color: var(--primary);
 }
 
-/* Menu items */
-.nav-bar-scroll .menu li {
-    position: relative;
-    margin: 0;
-    padding: 10px; /* Add padding for better spacing */
+/* --- 5. Call to Action (Apply Now) --- */
+.nav-cta a {
+  background-color: var(--primary) !important;
+  color: white !important;
+  padding: 5px 10px !important;
+  border-radius: 40px !important;
+  font-weight: 600 !important;
+  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(0, 107, 52, 0.15);
 }
 
-.nav-bar-scroll .menu li:hover {
-    background-color: hsl(149, 100%, 30%); /* Change background color on hover */
+.nav-cta a:hover {
+  background-color: var(--hover-bg) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 107, 52, 0.25);
 }
 
-.nav-bar-scroll .menu a {
-    text-decoration: none;
-    margin: 0;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px; /* Add padding for better spacing */
-    transition: color 0.3s ease;
-}
-
-.nav-bar-scroll .menu a:active, .menu a:focus {
-    color: #04B85C; /* Active and focus state */
-    background-color: hsl(149, 100%, 30%);
-}
-
-/* Dropdown menu */
-.nav-bar-scroll .menu .dropdown {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    background-color: hsl(149, 100%, 30%);
-    list-style: none;
-    z-index: 1000;
-    width: 180px;
-    padding: 0;
-    margin: 0;
-    opacity: 0; /* Start with 0 opacity */
-    visibility: hidden; /* Hide the dropdown */
-    transform: translateY(-10px); /* Start slightly above */
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
-}
-
-.nav-bar-scroll .menu .dropdown li {
-    text-align: left; /* Align text to the left */
-    margin: 0; /* Remove any extra margin */
-    padding: 10px; /* Add consistent padding for spacing */
-}
-
-.nav-bar-scroll .menu .dropdown li:last-child {
-    margin-bottom: 0; /* Remove margin for the last item */
-}
-
-.nav-bar-scroll .menu .dropdown a {
-    font-size: 16px;
-    padding: 0; /* Remove extra padding */
-    text-indent: 0; /* Ensure no additional indentation */
-    color: white; /* Ensure text color matches the dropdown background */
-    display: block; /* Ensure the link spans the full width of the dropdown item */
-}
-.nav-bar-scroll .menu li:hover .dropdown {
-    opacity: 1; /* Fade in the dropdown */
-    visibility: visible; /* Make visible */
-    transform: translateY(0); /* Move to natural position */
-
-}
-
-/* Menu toggle button for small screens */
-.nav-bar-scroll .menu-toggle {
-    display: none; /* Hidden by default */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Mobile view styles */
-@media (max-width: 768px) {
-    .nav-bar-scroll .menu {
-        display: none; /* Hide menu by default */
-        flex-direction: column; /* Stack items vertically */
-        background-color: #007f3e;
-        position: relative;
-        top: 50px;
-        width: 100%;
-        padding: 10px 0;
-        z-index: 1000; /* Ensure it appears above other content */
-    }
-
-    .nav-bar-scroll .menu.show {
-        display: block; /* Show menu when toggled */
-    }
-
-    .nav-bar-scroll .menu li {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .nav-bar-scroll .menu-toggle {
-        display: block; /* Show toggle button */
-    }
-    .nav-bar-scroll .menu .dropdown {
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        background-color: hsl(149, 100%, 30%);
-        list-style: none;
-        z-index: 1000;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        opacity: 0; /* Start with 0 opacity */
-        visibility: hidden; /* Hide the dropdown */
-        transform: translateY(-10px); /* Start slightly above */
-        transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
-    }
-
-    .nav-bar-scroll .menu .dropdown a {
-        text-align: center; /* Center align text in dropdown */
-    }
-
+/* Mobile Toggle - Hidden on Desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 22px;
+  cursor: pointer;
 }
 
 /* --------Footer styling -------------------------------*/
-
 footer {
-    background-color: #008D45;
-    padding-block: 10px;
-    bottom: 0;
+  background-color: var(--bg-soft);
+  padding-block: 10px;
+  padding-inline: 10vw;
+  bottom: 0;
 }
 
 .footer-section {
-    display: flex;
-    padding: 2.25rem;
-    gap: 3.75rem;
-    font-size: 18px;
-    max-height: max-content;
+  display: flex;
+  padding: 2.25rem;
+  gap: 3.75rem;
+  font-size: 18px;
+  max-height: max-content;
 }
 
 .footer-section h3 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    padding: 0.25rem;
-    border-radius: 0.5rem;
-    background-color: #06592e;
-    width: 10rem;
-    text-indent: 0.5rem;
-    border-bottom: #f0fcf6 solid 3px;
+  font-size: 1.5rem;
+  color: var(--text-accent);
+  padding: 0.25rem;
+  width: 10rem;
+  text-indent: 0.5rem;
 }
 
 .footer-section p {
-    color: hsl(160, 100%, 97%);
+  color: var(--text-accent);
 }
 
 .footer-section a {
-    text-decoration: underline;
-    text-underline-offset: 0.25rem;
-    color: hsl(160, 100%, 97%);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  color: var(--text-accent);
 }
 
 .footer-section i {
-    line-height: 1.6;
-    color: #ffffff;
+  line-height: 1.6;
+  color: var(--text-accent);
 }
 
 .footer-section .quick-links a:hover {
-    color: #06592e;
+  color: var(--hover-bg);
 }
 
 .footer-section .overview {
-    flex: 0.4;
+  flex: 0.4;
 }
 
 .footer-section .quick-links {
-    flex: 0.3;
-    display: flex;
-    flex-direction: column;
-    /* border: solid 2px yellow; */
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
 }
 
 .quick-links i {
-    line-height: 1.6;
-    margin-left: 0.5rem;
-    font-size: 0.85rem;
+  line-height: 1.6;
+  margin-left: 0.5rem;
+  font-size: 0.80rem;
 }
 
 .contact-info {
-    flex: 0.3;
+  flex: 0.3;
 }
 
 .contact-info p {
-    display: flex;
-    gap: 0.75rem; /* Space between the icon and text */
+  display: flex;
+  gap: 0.75rem; /* Space between the icon and text */
 }
 
 .contact-info a{
-    color: inherit; /* White color for links */
-    text-decoration: none; /* Remove underline from links */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-/* .contact-info i {
-    line-height: 1.6;
-    color: #ffffff;
-} */
-
-.copyright {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #f0fcf6;
+  color: inherit; /* White color for links */
+  text-decoration: none; /* Remove underline from links */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .footer-section .social-icon {
-    display: flex;
-    gap: 0.5rem; /* Space between icons */
+  display: flex;
+  gap: 0.5rem; /* Space between icons */
+}
+
+.footer-section .social-icon i {
+  color: var(--text-on-dark);
 }
 
 .contact-info .social-icon a {
-    border-radius: 50%; /* Circular icons */
-    display: inline-block; /* Ensure the icon is treated as a block element */
-    width: 30px; /* Set width for circular effect */
-    height: 30px; /* Set height for circular effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+  border-radius: 50%; /* Circular icons */
+  display: inline-block; /* Ensure the icon is treated as a block element */
+  width: 30px; /* Set width for circular effect */
+  height: 30px; /* Set height for circular effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .contact-info .social-icon a:hover {
-    background-color: #04B85C; /* Match hover effect */
-    transform: scale(1.2); /* Add a zoom effect on hover */
+  background-color: #04B85C; /* Match hover effect */
+  transform: scale(1.2); /* Add a zoom effect on hover */
 }
 
 .contact-info .social-icon.facebook {
-    background-color: #3b5998; /* Fallback color */
-    text-align: center;
-    font-size: 1.25rem;
+  background-color: #3b5998; /* Fallback color */
+  text-align: center;
+  font-size: 1.25rem;
 }
 
 .contact-info .social-icon.twitter {
-    background-color: #1da1f2; /* Fallback color */
-    text-align: center;
-    font-size: 1.25rem;
+  background-color: #1da1f2; /* Fallback color */
+  text-align: center;
+  font-size: 1.25rem;
 }
 
 .contact-info .social-icon.youtube {
-    background-color: #ff0000; /* Fallback color */
-    text-align: center;
-    font-size: 1.25rem;
+  background-color: #ff0000; /* Fallback color */
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.copyright {
+  justify-content: space-between;
+  display: flex;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.copyright a {
+  color: var(--text-accent);
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
-    .footer-section {
-        flex-direction: column;
-    }
+  .footer-section {
+      flex-direction: column;
+  }
 }
 
-
-
-
 .banners-home {
-    position: relative;
-    overflow: hidden; /* Hide overflow to prevent images from spilling out */
-    z-index: 1; /* Ensure it appears above other content */
-    margin: 0;
-    height: 400px;
-    border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
+  position: relative;
+  overflow: hidden; /* Hide overflow to prevent images from spilling out */
+  z-index: 1; /* Ensure it appears above other content */
+  margin: 0;
+  height: 400px;
+  border-bottom: #06592e solid 6px; /* Add a red border at the bottom */
 }
 
 .banners-home img {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover; /* Ensure the image fits within the container */
-    opacity: 0; /* Initially hide all images */
-    transition: opacity 3s ease-in-out; /* Smooth fade-in/
-    out animation */
-    pointer-events: none; /* Prevent images from interfering with clicks */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover; /* Ensure the image fits within the container */
+  opacity: 0; /* Initially hide all images */
+  transition: opacity 3s ease-in-out; /* Smooth fade-in/
+  out animation */
+  pointer-events: none; /* Prevent images from interfering with clicks */
 }
 
 .banners-home img.active {
-    opacity: 1; /* Show the active image */
+  opacity: 1; /* Show the active image */
 }
-
-
 
 @media (max-width: 768px) {
     .banners-home {
@@ -583,36 +456,35 @@ footer {
 
 /* Adjust chairman-msg and about-us widths */
 .chairman-msg {
-    margin: 0;
-    padding-inline: 1rem;
-    color: #ffffff;
-    background-color: #008D45; /* Match the background color */
-    border-top-left-radius: 24px;
-    border-bottom-left-radius: 24px;
-    overflow: hidden;
-    display: flex; /* Use Flexbox for layout */
-    gap: 1.25rem;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
+  margin: 0;
+  padding-inline: 1rem;
+  color: #ffffff;
+  background-color: var(--primary);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  overflow: hidden;
+  display: flex; /* Use Flexbox for layout */
+  gap: 1.25rem;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
 .chairman-msg h2 {
-    margin-bottom: 0;
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Make the heading bold */
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .chairman-msg p {
-    text-align: justify; /* Justify the text for better readability */
-    font-size: 18px;
-    margin-bottom: 0;
+  text-align: justify; /* Justify the text for better readability */
+  font-size: 18px;
+  margin-bottom: 0;
 }
 
 .chairman-img-container {
-    display: flex;
-    gap: 2.5rem;
+  display: flex;
+  gap: 2.5rem;
 }
 
 .chairman-img-container img {
@@ -635,24 +507,23 @@ footer {
 }
 
 .welcome {
-    background-color: #f0fffa;
-    color: #010604;
-    padding: 20px;
-    border-top-right-radius: 24px;
-    border-bottom-right-radius: 24px;
-    box-shadow: 0 4px 8px rgba(7, 66, 74, 0.2); /* Add shadow for depth */
+  background-color: #f0fffa;
+  color: #010604;
+  padding: 20px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 8px rgba(7, 66, 74, 0.2); /* Add shadow for depth */
 }
 .welcome h2 {
-    text-align: center;
-    font-size: clamp(.75rem, 32px, 6vh);
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Make the heading bold */
-    margin-bottom: 0;
+  text-align: center;
+  font-size: clamp(.75rem, 32px, 6vh);
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .welcome p {
-    text-align: justify; /* Justify the text for better readability */
-    font-size: 18px;
+  text-align: justify; /* Justify the text for better readability */
+  font-size: 18px;
 }
 
 .work-area-home {
