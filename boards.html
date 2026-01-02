@@ -11,72 +11,67 @@
 <body>
     <header>
         <div class="header-bg"></div>
-        <div class="buttons-home">
-            <button id="lang-en" class="lang-btn" data-lang="en"><img src="assets/icons/usa-flag.png">En</button>
-            <button id="lang-ne" class="lang-btn" data-lang="ne"><img src="assets/icons/nepal-flag.png">Np</button>
-        </div>
-    </header>
-    <nav id="mainNav" class="nav-bar" role="navigation">
-        <button class="menu-toggle" aria-label="Toggle Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="menu">
-            <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
-            <li><a href="#" data-en="About" data-ne="हाम्राे बारेमा">About</a>
-            <ul class="dropdown">
-                <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
-                <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
-                <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
-                <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
-            </ul></li>
-            <li>
-                <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services</a>
-                <ul class="dropdown">
-                    <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
-                    <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
-                </ul>
-            </li>         
-            <li><a href="news.html" data-en="News & Notices" data-ne="समाचार/सन्देश">News & Notices</a></li>
-            <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
-            <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
-            <li><a href="jobs.html" data-en="Jobs | Apply" data-ne="रोजगारी | आवेदन">Jobs | Apply</a></li>
-            <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
-        </ul>
-    </nav>
-    <!-- Add duplicate nav-bar -->
-    <nav class="nav-bar-scroll">
-        <button class="menu-toggle" aria-label="Toggle Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="menu">
-            <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
-            <li><a href="#" data-en="About" data-ne="हाम्राे बारेमा">About</a>
-            <ul class="dropdown">
-                <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
-                <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
-                <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
-                <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
-            </ul></li>
-            <li>
-                <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services</a>
-                <ul class="dropdown">
-                    <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
-                    <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
-                </ul>
-            </li>
-            <li><a href="news.html" data-en="News & Notices" data-ne="समाचार/सन्देश">News & Notices</a></li>
-            <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
-            <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
-            <li><a href="jobs.html" data-en="Jobs | Apply" data-ne="रोजगारी | आवेदन">Jobs | Apply</a></li>
-            <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
-        </ul>
-    </nav>
-    <main class="main-boards">
-        <section class="board-committees">
-            <div class ="board-type">
-                <h2 data-en="Board of Directors" data-ne="सञ्चालक समिति">Board of Directors</h2>
-                <div class="bod-tenure directors">
-                    Tenure: From Ashoj 4, 2082 B.S. to Ashoj 3, 2086 B.S.
+        <body>
+            <header class="top-util-bar">
+                <div class="top-container">
+                    <div class="top-contact-info">
+                        <span><i class="fas fa-phone-alt"></i> +977-23-533344 </span>
+                        <span>| Birtamode, Jhapa</span>
+                        <span><i class="fas fa-envelope"></i> janashakticoop2014@gmail.com</span>
+                    </div>
+                    <div class="buttons-home">
+                        <button id="lang-en" class="lang-btn active" data-lang="en">
+                            <img src="assets/icons/usa-flag.png" alt="English">
+                            <span>En</span>
+                        </button>
+                        <button id="lang-ne" class="lang-btn" data-lang="ne">
+                            <img src="assets/icons/nepal-flag.png" alt="Nepali">
+                            <span>ने</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <nav id="mainNav" class="nav-bar" role="navigation">
+                <div class="nav-container">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo-header.png" alt="Janashakti Logo" class="nav-logo">
+                        </a>
+                    </div>
+
+                    <button class="menu-toggle" aria-label="Toggle Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <ul class="menu">
+                        <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="#" data-en="About" data-ne="हाम्राे बारेमा">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
+                                <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
+                                <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
+                                <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
+                                <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
+                            </ul>
+                        </li>      
+                        <li><a href="notice.html" data-en="Notice" data-ne="सूचना">Notice</a></li>
+                        <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
+                        <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
+                        <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
+                
+                        <li class="nav-cta">
+                            <a href="jobs.html" data-en="Apply Now" data-ne="आवेदन दिनुहोस्">Apply Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
                 </div>
             </div>
             <div class="board-members">
