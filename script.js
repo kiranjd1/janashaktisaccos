@@ -13,11 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
     images[currentIndex].classList.add("active");
   }, 5000); // Change image every 5 seconds
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const menu = document.querySelector(".menu");
 
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("show"); // Toggle the 'show' class
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.menu');
+
+  menuToggle.addEventListener('click', function() {
+    // Toggles the 'active' class which triggers the CSS display: flex
+    navMenu.classList.toggle('active');
+    
+    // Optional: Change icon from bars to 'X' if using FontAwesome
+    const icon = menuToggle.querySelector('i');
+    if (navMenu.classList.contains('active')) {
+      icon.classList.replace('fa-bars', 'fa-times');
+    } else {
+      icon.classList.replace('fa-times', 'fa-bars');
+    }
   });
 
   const langButtons = document.querySelectorAll(".lang-btn");
@@ -29,7 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Update the content for each translatable element
       translatableElements.forEach((element) => {
-        element.textContent = element.getAttribute(`data-${selectedLang}`);
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+          element.placeholder = element.getAttribute(`data-${selectedLang}`);
+        } else {
+          element.innerText = element.getAttribute(`data-${selectedLang}`);
+        }
       });
 
       // Remove .active from all buttons
@@ -39,6 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.add("active");
     });
   });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Target all elements with the class
+  const elements = document.querySelectorAll('.scroll-underline');
+  elements.forEach((el) => observer.observe(el));
 
   const nav = document.getElementById('mainNav');
   const threshold = 120;

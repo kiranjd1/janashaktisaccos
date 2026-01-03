@@ -9,11 +9,13 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="top-util-bar">
     <div class="top-container">
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="top-contact-info">
         <span><i class="fas fa-phone-alt"></i> +977-23-533344 </span>
         <span>| Birtamode, Jhapa</span>
@@ -38,11 +40,6 @@
           <img src="assets/images/logo-header.png" alt="Janashakti Logo" class="nav-logo">
         </a>
       </div>
-
-      <button class="menu-toggle" aria-label="Toggle Menu">
-        <i class="fas fa-bars"></i>
-      </button>
-
       <ul class="menu">
         <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
         <li class="has-dropdown">
@@ -73,12 +70,12 @@
     </div>
   </nav>
   <main>
-    <div class="banners-home">
+    <section class="banners-home">
       <img loading="lazy" src="assets/banners/group-banner.JPG" alt="Banner 1" class="active">
       <img loading="lazy" src="assets/banners/samiti-banner.jpg" alt="Banner 2" class="">
       <img loading="lazy" src="assets/banners/puraskrit-banner.JPG" alt="Banner 3" class="">
-    </div>
-    <div class="main-content-home">
+    </section>
+    <section class="main-content-home">
       <div class="chairman-msg">
         <h2 data-en="Message from Chairman" data-ne="अध्यक्षको सन्देश">Message from Chairman</h2>
         <p data-en="Dear Members, welcome to the official website of Janashakti Saving and Credit Cooperative Ltd. We are committed to providing you with the best financial services and support. Our cooperative is built on the principles of mutual assistance and community development. Together, we can achieve financial self-reliance and prosperity." data-ne="प्रिय सदस्यहरू, जनशक्ति बचत तथा ऋण सहकारी संस्था लि.को आधिकारिक वेबसाइटमा यहाँलाई स्वागत छ । हामी तपाईंलाई उत्कृष्ट वित्तीय सेवाहरू र सहयोग प्रदान गर्न प्रतिबद्ध छौं । हाम्रो सहकारी आपसी सहयोग र सामुदायिक विकासका सिद्धान्तहरूमा आधारित छ । हामी साथ मिलेर वित्तीय आत्मनिर्भरता र समृद्धि हासिल गर्न सक्छौं ।">Dear Members, welcome to the official website of Janashakti Saving and Credit Cooperative Ltd. We are committed to providing you with the best financial services and support. Our cooperative is built on the principles of mutual assistance and community development. Together, we can achieve financial self-reliance and prosperity.</p>
@@ -94,8 +91,8 @@
         <h2 data-en="Welcome to JANASHAKTI SACCOS" data-ne="जनशक्ति बचत तथा ऋण सहकारी संस्थामा स्वागत छ">Welcome to Janashakti Saving and Credit Cooperative</h2>
         <p data-en="Established in 2014 A.D. (B.S. 2071), Janashakti Saving and Credit Cooperative is dedicated to providing its members the best possible services with the vision of a beautiful society with secure financial self-reliance and prosperity. Our main goal is to uplift the financial backgrounds of our members and their communities by initiating healthy saving habits and utilizing our credit facilities in various productive sectors." data-ne="सुरक्षित वित्तीय आत्मनिर्भरता र समृद्धि सहित सुन्दर समाजको परिकल्पना भन्ने नाराका साथ वि.सं. २०७१ सालमा स्थापना भई यस जनशक्ति बचत तथा ऋण सहकारी संस्थाले आफ्ना सदस्यहरूलाई उत्कृष्ट सेवाहरू प्रदान गर्दै आएको छ । हाम्रो मुख्य उद्देश्य भनेको सदस्यहरूमा स्वस्थ बचत गर्ने बानीको विकास गर्ने तथा आवश्यकता अनुसार उत्पादनशील क्षेत्रमा कर्जा सुबिधा उपयोग गर्दै सदस्यको र तिनका समुदायको वित्तीय पृष्ठभूमिमा सुधार ल्याउनु हो ।">Established in 2014 A.D. (B.S. 2071), Janashakti Saving and Credit Cooperative is dedicated to providing its members the best possible services with the vision of a beautiful society with secure financial self-reliance and prosperity. Our main goal is to uplift the financial backgrounds of our members and their communities by initiating healthy saving habits and utilizing our credit facilities in various productive sectors.</p>
       </div>
-    </div>
-    <div class="general-info-home">
+    </section>
+    <section class="general-info-home">
       <div class="info-item">
         <div class="info-icon-wrapper">
           <i class="fas fa-hand-holding-usd"></i>
@@ -135,58 +132,95 @@
           <span class="number">Rs. 204,975,843</span>
         </div>               
       </div>
-    </div>
-      <div class="work-area-home">
-        <h2 data-en="Our Working Area" data-ne="हाम्राे कार्यक्षेत्र">Our Working Area</h2>
-        <img loading="lazy" src="assets/images/work-area-map-small.png" alt="Work Area Map" class="work-area-home-img">
+    </section>
+    <section class="work-area-home">
+      <h2 data-en="Our Working Area" data-ne="हाम्राे कार्यक्षेत्र">Our Working Area</h2>
+      <img loading="lazy" src="assets/images/work-area-map-small.png" alt="Work Area Map" class="work-area-home-img">
+    </section>
+    <section class="services-home">
+      <h2 class="scroll-underline" data-en="Our Services" data-ne="Our Services">Our Services</h2>
+      <div class="services-grid">
+          <div class="service savings">
+              <h3>Savings</h3>
+              <i class="fas fa-piggy-bank"></i>
+              <a href="savings.html">View more</a>
+          </div>
+          <div class="service loans">
+              <h3>Loans</h3>
+              <i class="fas fa-money-bill-wave"></i>
+              <a href="loans.html">View more</a>
+          </div>
       </div>
-      <div class="services-home">
-        <h2 data-en="Our Services" data-ne="Our Services">Our Services</h2>
-        <div class="services-grid">
-            <div class="service savings">
-                <h3>Savings</h3>
-                <i class="fas fa-piggy-bank"></i>
-                <a href="savings.html">View more</a>
-            </div>
-            <div class="service loans">
-                <h3>Loans</h3>
-                <i class="fas fa-money-bill-wave"></i>
-                <a href="loans.html">View more</a>
-            </div>
+    </section>  
+    <section class="utilities">
+      <div class="utility">
+          <a href="#">
+              <span class="material-icons-outlined">calculate</span>
+              EMI Calculator
+          </a>            
+      </div>
+      <div class="utility">
+          <a href="#">
+              <span class="material-icons-outlined">link</span>
+              Important link
+          </a>
+      </div>
+      <div class="utility">
+          <a href="news.html">
+              <span class="material-icons-outlined">feed</span>
+              News & Notices
+          </a>
+      </div>
+      <div class="utility">
+          <a href="#">
+              <span class="material-icons-outlined">app_shortcut</span>
+              Mobile Banking
+          </a>                    
+      </div>
+      <div class="utility">
+          <a href="#">
+              <span class="material-icons-outlined">attachment</span>
+              Downloads
+          </a>           
+      </div>
+    </section>
+    <section class="get-in-touch">
+      <h2>Get in touch</h2>
+      <div class="map-contact-container">
+        <div class="map-container">
+          <p>Find us at:</p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3566.547416609406!2d87.989109!3d26.63095!3m2!1i1024!2i768!4f60.1!3m3!1m2!1s0x39e5bbfeed345877%3A0xd0a7d7af207df597!2sJanashakti%20Saving%20and%20Credit%20Co-operative%20Ltd.!5e0!3m2!1sen!2snp!4v1767442592209!5m2!1sen!2snp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-      </div>  
-      <div class="utilities">
-          <div class="utility">
-              <a href="#">
-                  <span class="material-icons-outlined">calculate</span>
-                  EMI Calculator
-              </a>            
+        <form class="contact-form-home" id="contactFormHome">
+          <div class="form-group">
+            <p>Or fill in the form to reach out to us:</p>
           </div>
-          <div class="utility">
-              <a href="#">
-                  <span class="material-icons-outlined">link</span>
-                  Important link
-              </a>
+          <div class="form-group">
+            <input type="text" id="first_name" name="first_name" placeholder=" " required>
+            <label for="first_name" data-en="First Name" data-ne="नाम">First Name</label>
           </div>
-          <div class="utility">
-              <a href="news.html">
-                  <span class="material-icons-outlined">feed</span>
-                  News & Notices
-              </a>
+          <div class="form-group">
+            <input type="text" id="last_name" name="last_name" placeholder=" " required>
+            <label for="last_name" data-en="Last Name" data-ne="थर">Last Name</label>
           </div>
-          <div class="utility">
-              <a href="#">
-                  <span class="material-icons-outlined">app_shortcut</span>
-                  Mobile Banking
-              </a>                    
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email" data-en="Email" data-ne="इमेल">Email</label>
           </div>
-          <div class="utility">
-              <a href="#">
-                  <span class="material-icons-outlined">attachment</span>
-                  Downloads
-              </a>           
+          <div class="form-group">
+            <input type="text" id="number" name="number" placeholder=" " required>
+            <label for="number" data-en="Mobile Number" data-ne="विषय">Mobile Number</label>
           </div>
+          <div class="form-group">
+              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+              <label for="message" data-en="Message" data-ne="सन्देश">Message</label>
+          </div>
+          <button type="submit" class="submit-btn" data-en="Submit" data-ne="पठाउनुहोस्">
+              Submit
+          </button>
+        </form>
       </div>
+    </section>  
   </main>
   <footer>
     <section class="footer-section">
@@ -202,15 +236,15 @@
         <a href="https://copomis.gov.np/" target="_blank" rel="noopener noreferrer">COPOMIS<i class="fas fa-external-link-alt"></i></a>
         <a href="https://goaml.fiu.nrb.org.np/PRD/content/#/home" target="_blank" rel="noopener noreferrer">goAML<i class="fas fa-external-link-alt"></i></a>
         <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer">Nepal Rastra Bank(NRB)<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://ncbl.coop/" target="_blank" rel="noopener noreferrer">National Co-operative Bank Limited (NCBL)<i class="fas fa-external-link-alt"></i></a>
+        <a href="https://ncbl.coop/" target="_blank" rel="noopener noreferrer">NCBL<i class="fas fa-external-link-alt"></i></a>
       </div>
       <div class="contact-info">
         <h3>Contact Us</h3>
-        <p><i class="fas fa-map-marker-alt"></i>Bhadrapur Road, Birtamod Municipality Ward No. 4, Jhapa, Nepal</p>
+        <p><i class="fas fa-map-marker-alt"></i>Bhadrapur Road, Birtamod-4, Jhapa, Nepal</p>
         <p><i class="fas fa-phone-alt"></i>+977-23-533344</p>
         <p><i class="fas fa-envelope"></i><a href="mailto:janashakticoop2014@gmail.com">janashakticoop2014@gmail.com</a></p>
-        <p>Follow us:</p>
         <div class="social-icon">
+          <p>Follow us:</p>
           <a href="https://www.facebook.com/jsaccosbirtamod" target="_blank" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.twitter.com" target="_blank" class="social-icon twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
           <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -232,5 +266,7 @@
       <img src="assets/images/JobNotice_1-081-82.jpg" alt="Job Vacancy 001-081/82" class="stack-image">
     </div>
   </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
