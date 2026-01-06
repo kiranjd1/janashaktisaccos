@@ -15,19 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.menu');
+  const menu = document.querySelector('.menu');
+  const hasDropdowns = document.querySelectorAll('.has-dropdown');
 
-  menuToggle.addEventListener('click', function() {
-    // Toggles the 'active' class which triggers the CSS display: flex
-    navMenu.classList.toggle('active');
-    
-    // Optional: Change icon from bars to 'X' if using FontAwesome
-    const icon = menuToggle.querySelector('i');
-    if (navMenu.classList.contains('active')) {
-      icon.classList.replace('fa-bars', 'fa-times');
-    } else {
-      icon.classList.replace('fa-times', 'fa-bars');
-    }
+  // Toggle Mobile Menu
+  menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      
+      // Change icon from Bars to X
+      const icon = menuToggle.querySelector('i');
+      if (menu.classList.contains('active')) {
+          icon.classList.replace('fa-bars', 'fa-times');
+      } else {
+          icon.classList.replace('fa-times', 'fa-bars');
+      }
+  });
+
+  // Handle Mobile Dropdowns on Click
+  hasDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', function(e) {
+          if (window.innerWidth <= 768) {
+              // If clicking the parent link, prevent navigation and toggle dropdown
+              e.preventDefault();
+              this.classList.toggle('active');
+          }
+      });
   });
 
   const langButtons = document.querySelectorAll(".lang-btn");
@@ -114,6 +126,62 @@ document.addEventListener("DOMContentLoaded", () => {
           modal.style.display = "none";
       }
   };
+
+  function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      
+      if (element) {
+          const navHeight = 116; 
+          const extraPadding = 14;
+          
+          // offsetTop gets the position relative to the top of the whole document
+          const targetPosition = element.offsetTop - (navHeight + extraPadding);
+
+          window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth"
+          });
+      }
+  }
+
+  // Updated showBoard to handle the event properly and center the view
+  function showBoard(boardId, btnElement) {
+    // 1. Reset content
+    document.querySelectorAll('.board-content').forEach(section => {
+        section.classList.remove('active-content');
+    });
+
+    // 2. Reset buttons
+    document.querySelectorAll('.selector-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // 3. Show new content
+    const targetBoard = document.getElementById('board-' + boardId);
+    if (targetBoard) {
+        targetBoard.classList.add('active-content');
+    }
+
+    // 4. Set active button (use btnElement instead of 'event')
+    if (btnElement) {
+        btnElement.classList.add('active');
+    }
+
+    // 5. Scroll to the section after a short delay (for the content to render)
+    setTimeout(() => {
+        scrollToSection('board-members-section');
+    }, 100);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault(); // Stop the jumping behavior
+      
+      const targetId = this.getAttribute('href').substring(1);
+      scrollToSection(targetId);
+    });
+  });
+
 });
 
 

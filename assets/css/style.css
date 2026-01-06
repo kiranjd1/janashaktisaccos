@@ -17,14 +17,26 @@
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
 
   /* Typography */
-  --primary-font: 'Inter', 'Poppins', -apple-system, sans-serif;
-  --h1-weight: 700;
+  --primary-font: 'Poppins', 'Inter', -apple-system, sans-serif;
+  --h1-weight: 600;
   --body-weight: 400;
-  --label-weight: 600;
+  --label-weight: 500;
 
   /* Sizing */
   --top-bar-height: 36px;
   --nav-height: 80px;
+}
+
+/* Crucial: Offset for the fixed nav-bar */
+section[id], 
+.board-content,
+[id^="section-"] { 
+    scroll-margin-top: 130px; 
+}
+
+/* Smooth scrolling for all links */
+html {
+    scroll-behavior: smooth;
 }
 
 * {
@@ -39,6 +51,13 @@ body {
   line-height: 1.6;
   color: var(--text-main);
   padding-top: calc(var(--top-bar-height) + var(--nav-height));
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  width: 100%;
 }
 
 /* --- 1. Top Utility Bar --- */
@@ -277,7 +296,6 @@ body {
 
 .get-in-touch {
   padding: 0 10vw;
-  margin-bottom: 40px;
 }
 
 .get-in-touch h2 {
@@ -291,7 +309,7 @@ body {
   color: var(--primary);
 }
 
-.map-contact-container {
+.location-contact-container {
   padding: 2rem;
   display: flex;
   gap: 1rem;
@@ -299,15 +317,15 @@ body {
   border-radius: 24px;
 }
 
-.map-container {
+.location-map {
   flex: 1;
 }
 
-.map-container p {
+.location-map p {
   margin-bottom: 0.5rem;
 }
 
-.map-container iframe {
+.location-map iframe {
   height: 340px;
   width: 480px;
   border: 1px solid lightgray;
@@ -360,6 +378,7 @@ body {
 }
 
 footer {
+  margin-top: 40px;
   background-color: var(--bg-soft);
   padding-block: 10px;
   padding-inline: 10vw;
@@ -538,7 +557,6 @@ footer {
   padding-inline: 10vw;
   display: flex;
   gap: 1rem; /* Add spacing between the two sections */
-  margin: 2rem 0; /* Add some margin around the container */
 }
 
 /* Adjust chairman-msg and about-us widths */
@@ -620,7 +638,6 @@ footer {
 .work-area-home {
     padding-inline: 10vw;
     align-self: center;
-    margin: 2rem 0;
     object-fit: cover;
     overflow: hidden;
 }
@@ -630,7 +647,7 @@ footer {
     font-size: clamp(4vh, 36px, 10vh);
     font-weight: 900;
     padding: 0.75rem;
-    color: #007f3e;
+    color: var(--primary);
     text-decoration: underline;
     text-decoration-color: var(--accent);
     text-underline-offset: 10px;
@@ -683,7 +700,6 @@ footer {
     display: block;
 }
 
-/* General styles for the about us page */
 .board-members, .accounts-supervisory-committee, .credit-subcommittee {
     display: flex;
     flex-direction: column; /* Stack items vertically */
@@ -726,85 +742,613 @@ footer {
 }
 
 
-/* ----- About Us ------------------- */
-
+/* ----- About Us Page ------------------- */
 .main-about-us {
-    display: grid; /* Use Flexbox for layout */
-    grid-template-rows: auto;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    gap: 3rem; /* Space between items */
-    margin: 2rem 6rem; /* Add some margin around the container */
+  display: grid; /* Use Flexbox for layout */
+  grid-template-rows: auto;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  gap: 3rem; /* Space between items */
 }
-/* Styles for About Us page */
-.about-us {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    text-align: center;
-    background-color:#008D45;
-    border-radius: 24px; /* Rounded corners */
-    flex-direction: column;
-    justify-content: center;
+
+.about-hero {
+  padding: 5vh 10vw;
+  background-color: var(--bg-card);
+  margin: 0 auto;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
     align-items: center;
 }
 
-.about-us h1 {
-    font-size: 30px;
+.section-title {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.full-description p {
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Stats Styling */
+.stats-grid {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #ffffff;
-    margin: 0; /* Remove default margin */
-    background-color: #06592e;
-    width: 30%;
-    border-radius: 12px; /* Rounded corners */
+    color: var(--primary);
 }
 
-.about-us p {
-    font-size: 18px;
-    line-height: 1.6; /* Increase line height for better readability */
-    color: #ffffff; /* Darker text color for contrast */
-    margin: 0;
-    font-weight: 900;
-    text-align: justify;
+.stat-label {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
 }
 
-.banner-work-area {
-    height: auto;
-    border-top: #06592e solid 6px; /* Add a red border at the top */
-    border-bottom: solid 6px #06592e; /* Add border around the image */
+/* Button */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.banner-work-area img {
-    max-width: 100%;
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(45, 106, 79, 0.3);
+}
+
+/* Image Styling */
+.image-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.image-overlay-card {
+    position: absolute;
+    bottom: -20px;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .stats-grid {
+        justify-content: center;
+    }
+    .intro-image-container {
+        order: -1; /* Puts image on top on mobile */
+    }
+}
+
+.stats-overview {
+    padding: 0 10vw;
+    background-color: #ffffff;
+}
+
+.general-info-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.general-info-header h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1.1rem;
+}
+
+.stats-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background: var(--bg-soft);
+    border: 1px solid #eee;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-color: var(--primary);
+}
+
+/* Highlight the Total Assets card */
+.accent-card {
+    background: var(--primary);
+    color: white;
+}
+
+.accent-card .stat-icon i, 
+.accent-card .stat-data .number, 
+.accent-card .stat-data .text {
+    color: white;
+}
+
+.stat-icon i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.stat-data .number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #333;
+}
+
+.stat-data .text {
+    font-size: 0.95rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .stats-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Chairman Message Section --- */
+.chairman-msg-full {
+    padding: 40px 0;
+    background-color: #fdfdfd; /* Subtle off-white to separate from stats */
+    overflow: hidden;
+}
+
+.chairman-msg-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Left: Image Frame */
+.chairman-visual {
+    flex: 1;
+    text-align: center;
+}
+
+.chairman-image-frame {
+    position: relative;
+    display: inline-block;
+}
+
+.chairman-image-frame img {
+    width: 280px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px #f0fdf4; /* Light green offset background */
+    border: 1px solid #eee;
+}
+
+.chairman-image-frame::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 60px;
+    height: 60px;
+    background: #ffdf00; /* Marker Yellow Accent */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.chairman-info h3 {
+    margin-top: 25px;
+    color: #2d6a4f;
+    font-size: 1.4rem;
+}
+
+/* Right: Content */
+.chairman-text-content {
+    flex: 1.5;
+}
+
+.section-badge {
+  color: #2d6a4f;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.chairman-text-content h1 {
+  font-size: 2.8rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: #ffdf00;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.message-body {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 768px) {
+    .chairman-msg-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .chairman-image-frame img {
+        width: 280px;
+        height: 350px;
+        box-shadow: 10px 10px 0px #f0fdf4;
+    }
+}
+
+.geo-reach {
+    padding: 0 10vw;
+    text-align: center;
+}
+
+.section-header h2 {
+    color: #2d6a4f;
+    font-size: 2rem;
+}
+
+/* Container Layout */
+.map-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--bg-soft);
+}
+
+.map-container {
+    flex: 2;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* SVG Styling */
+.jhapa-svg {
+    width: 100%;
+    height: 460px;
     display: block;
 }
 
-.general-info-header h1{
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: #008D45;
-    margin-bottom: 0px; /* Remove default margin */
+/* The District Background Border */
+.jhapa-bg {
+  fill: var(--bg-card);
+  stroke: var(--primary);
+  stroke-width: 2;
 }
 
-.general-info {
-    display: grid; /* Use CSS Grid for layout */
-    grid-template-columns: repeat(6, 1fr); /* Responsive columns */
-    font-size: 16px;
-    gap: 20px; /* Space between items */
-    margin: 20px 0; /* Add margin for spacing */
+/* Local Bodies (Palika) Paths */
+.palika-path {
+    fill: var(--hover-bg); /* Default light gray */
+    stroke: var(--primary);
+    stroke-width: 3;
+    transition: all 0.3s ease;
+}
+
+/* Active/Hover State for Map Paths */
+.palika-path.active, 
+.palika-path:hover {
+    fill: var(--primary) !important; /* Brand green */
+    stroke: var(--primary);
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
+}
+
+/* Sidebar List Styling */
+.palika-list-container {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.palika-list-container p {
+  padding: 10px;
+  background-color: var(--primary);
+  color: var(--text-on-dark);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 4px solid var(--accent);
+}
+
+.palika-list {
+  list-style: none;
+}
+
+.palika-list li {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+}
+
+.palika-list li:hover {
+    background-color: #f0fdf4; /* Very light green bg */
     color: var(--primary);
+    padding-left: 25px; /* Inward movement effect */
     font-weight: bold;
-    background-color: #f0fcf6;
-    padding: 20px; /* Add padding for better spacing */
-    border-top-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    border-left: 4px solid var(--primary);
+}
+/* Default Marker Style */
+.fa-icon {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    fill: var(--accent);
+    font-size: 28px;
+    text-anchor: middle;
+    pointer-events: none;
+    transition: fill 0.3s ease, transform 0.3s ease;
 }
 
-.info-items i {
-    font-size: 24px;
+/* 1. Change Marker Color when Map Path is Hovered */
+.palika-group:hover .fa-icon,
+.palika-group.active .fa-icon {
+    fill: var(--accent);
+    stroke: #ffffff;
+    transform: translateY(-5px); /* Simple jump effect */
+}
+
+svg .palika-label {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-anchor: middle;
+  font-size: 0.95rem;
+  font-weight: bold;
+  fill: #FFFFFF;
+}
+
+.palika-group:hover .palika-label,
+.palika-group.active .palika-label {
+    opacity: 1;
+}
+
+/* Keep your path hover style */
+.palika-path:hover,
+.palika-group.active .palika-path {
+    fill: var(--primary) !important;
+}
+
+/* This triggers when you hover the map OR the list */
+.palika-list li.active-list {
+    background-color: #f0fdf4; 
+    color: var(--primary);
+    padding-left: 25px; 
+    font-weight: bold;
+    border-left: 4px solid var(--primary);
+}
+
+.location-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+.location-item {
+    background: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #444;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.location-item i {
+    color: #2d6a4f;
+    font-size: 1.1rem;
+}
+
+.location-item:hover {
+    background: #2d6a4f;
+    color: white;
+    transform: translateY(-3px);
+    border-color: #2d6a4f;
+}
+
+.location-item:hover i {
+    color: white;
+}
+
+/* --- Board Section Container --- */
+.board-members {
+    padding: 2vh 10vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Selector Navigation Buttons */
+.board-selectors {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.selector-btn {
+    padding: 12px 28px;
+    border: 2px solid #2d6a4f;
+    background: transparent;
+    color: #2d6a4f;
+    font-weight: bold;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selector-btn:hover {
+    background: #f0fdf4;
+    transform: translateY(-2px);
+}
+
+.selector-btn.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+}
+
+/* --- Board Content Visibility --- */
+.board-content {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.board-content.active-content {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Container for each row */
+.members-row-top, 
+.members-row-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* --- Modern Member Card --- */
+.member {
+    background: transparent; /* Clean look */
+    padding: 10px;
+    text-align: center;
+    width: 220px; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none; /* Remove old borders */
+}
+
+/* Enlarged & Styled Image */
+.member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: all 0.3s ease;
+}
+
+.member-detail p:first-of-type {
+    font-size: 1.1rem;
+    font-weight: 700; /* Extra bold for name */
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.member-detail p:last-of-type {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.member:hover img {
+    box-shadow: 0 12px 25px rgba(45, 106, 79, 0.2);
+    border-top: 4px solid var(--accent);
+    transform: scale(1.05) translateY(-10px);
+}
+
+.member:hover .member-detail {
+    color: var(--primary);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .member {
+        width: 100%; /* Stack cards on mobile */
+        max-width: 320px;
+    }
+    
+    .selector-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .management-team-header {
@@ -1505,11 +2049,12 @@ footer {
 
 .general-info-home {
   display: grid;
-  /* Automatically fits as many cards as possible in one row */
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 0 10vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .info-item {
@@ -1826,13 +2371,171 @@ footer {
     margin: 0;
 }
 
-/* All Mobile & Tablet Styles (Up to 768px) */
+/* --- All Mobile & Tablet Styles (Up to 768px) --- */
 @media (max-width: 768px) {
 
-  /* Home Page Layouts */
+  /* 1. Header & Utility Bar (The Fix) */
+  .top-util-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Explicitly set width */
+    height: 50px;
+    padding: 0 15px !important; /* Overrides the 10vw completely */
+    margin: 0;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Prevents horizontal scroll */
+  }
+
+  .top-container {
+    display: flex;
+    justify-content: space-between; /* This pins items to the far left and right */
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. Style the Language Bar for Mobile Visibility */
+  .buttons-home {
+    display: flex !important;
+    margin-left: 0; /* Resets desktop auto-margin */
+    flex-shrink: 0; /* Prevents the language bar from being squashed */
+    background-color: var(--primary);
+    border-radius: 20px;
+    padding: 2px 5px;
+  }
+
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  /* 3. Ensure Toggle is visible */
+  .menu-toggle {
+    display: block !important;
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 20px;
+    padding: 5px;
+    flex-shrink: 0;
+  }
+
+  /* 4. Hide Contact Info */
+  .top-contact-info {
+    display: none !important;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    order: 1; /* Left side */
+  }
+
+  .buttons-home {
+    order: 2; /* Right side */
+    margin-left: 0; 
+    display: flex !important;
+    background-color: var(--primary);
+    padding: 2px;
+    border-radius: 20px;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* 2. Navigation Bar & Logo */
+  .nav-bar {
+    top: 50px; /* Must match .top-util-bar height */
+    width: 100%;
+    padding: 0 15px !important;
+    box-sizing: border-box;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  .logo {
+    min-width: auto;
+  }
+
+  .nav-logo {
+    height: 40px;
+    margin-right: 0;
+  }
+
+  /* 3. Mobile Slide-down Menu */
+  .menu {
+    position: fixed;
+    top: 110px; /* top-util (50) + nav (60) */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 0; 
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    margin-left: 0;
+    gap: 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .menu.active {
+    height: auto;
+    max-height: 80vh; /* Prevents menu from going off-screen */
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+
+  .menu li {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .menu a {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  /* 4. Dropdowns in Mobile */
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    transform: none;
+    box-shadow: none;
+    border-top: none;
+    background-color: var(--bg-soft);
+    padding-left: 20px;
+  }
+
+  .has-dropdown.active .dropdown {
+    display: block;
+  }
+
+  .nav-cta {
+    padding: 20px;
+  }
+  
+  .nav-cta a {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 5. Home Page Grid & Layouts */
   .general-info-home, 
   .utilities {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: 1fr;
       margin: 0.75rem;
   }
 
@@ -1853,27 +2556,45 @@ footer {
   .chairman-msg {
       border-radius: 12px;
       flex: 1;
+      width: 100%;
   }
 
   .banners-home {
       height: auto;
-      padding: 100px 20px;
+      padding: 80px 20px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
+  }
+  .get-in-touch {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .location-contact-container {
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  iframe {
+    max-width: 340px;
+    height: auto;
   }
 
   #contactFormHome {
-    grid-template-columns: 1fr; /* Switch to 1 column on mobile */
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
   }
 
-  #contactFormHome .form-group:has(#message),
+  #contactFormHome .form-group,
   #contactFormHome .submit-btn {
-    grid-column: span 1; /* Reset span for single column */
+    flex: 1;
+    width: 100%;
   }
 
-  /* Contact Page */
+  /* 6. Contact Page & Footer */
   .contact-page {
       flex-direction: column;
       margin: 20px 10px;
@@ -1882,37 +2603,22 @@ footer {
 
   .contact-details,
   .contact-form-section {
-      width: 90%;
-      margin: 0;
+      width: 100%;
+      margin: 0 0 20px 0;
       border-radius: 24px;
   }
 
-  .contact-details h1 {
-      font-size: 24px;
-  }
-
-  .contact-form .submit-btn {
-      width: 100%;
-      font-size: 20px;
-  }
-
-  /* Footer */
-  .footer-section {
-      flex-direction: column;
-  }
-
+  .footer-section, 
   .copyright {
-    flex-direction: column;
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
   }
 
-  /* Specific overrides for very small screens (700px and below) */
-  @media (max-width: 700px) {
-      .modal-content {
-          width: 90%;
-      }
-      .stack-images {
-          width: 85%;
-      }
+  .modal-content, .stack-images {
+    width: 95%;
+    height: auto;
+    max-height: 80vh;
   }
 }
 

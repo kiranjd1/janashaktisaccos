@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Janashakti Saving and Credit Cooperative Ltd. -Birtamod Jhapa | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
   <link rel="stylesheet" href="assets/css/style.css">
@@ -16,11 +18,13 @@
       <button class="menu-toggle" aria-label="Toggle Menu">
         <i class="fas fa-bars"></i>
       </button>
+
       <div class="top-contact-info">
-        <span><i class="fas fa-phone-alt"></i> +977-23-533344 </span>
-        <span>| Birtamode, Jhapa</span>
+        <span><i class="fas fa-phone-alt"></i> +977-23-533344</span>
+        <span class="location">| Birtamode, Jhapa</span>
         <span><i class="fas fa-envelope"></i> janashakticoop2014@gmail.com</span>
       </div>
+
       <div class="buttons-home">
         <button id="lang-en" class="lang-btn active" data-lang="en">
           <img src="assets/icons/usa-flag.png" alt="English">
@@ -33,42 +37,45 @@
       </div>
     </div>
   </header>
+
   <nav id="mainNav" class="nav-bar" role="navigation">
-    <div class="nav-container">
-      <div class="logo">
-        <a href="index.html">
-          <img src="assets/images/logo-header.png" alt="Janashakti Logo" class="nav-logo">
-        </a>
-      </div>
-      <ul class="menu">
-        <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
-        <li class="has-dropdown">
-          <a href="#" data-en="About" data-ne="हाम्राे बारेमा">About <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown">
-            <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
-            <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
-            <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
-            <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown">
-          <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown">
-            <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
-            <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
-          </ul>
-        </li>      
-        <li><a href="notice.html" data-en="Notice" data-ne="सूचना">Notice</a></li>
-        <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
-        <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
-        <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
-        
-        <li class="nav-cta">
-          <a href="jobs.html" data-en="Apply Now" data-ne="आवेदन दिनुहोस्">Apply Now</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-header.png" alt="Janashakti Logo" class="nav-logo">
+                </a>
+            </div>
+
+            <ul class="menu">
+                <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="#" data-en="About" data-ne="हाम्राे बारेमा">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
+                        <li><a href="#chairman-msg-section" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
+                        <li><a href="#geo-reach-section" data-en="Our Scope" data-ne="हाम्रो कार्यक्षेत्र">Our Scope</a></li>
+                        <li><a href="#board-members-section" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
+                        <li><a href="#management-team-section" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
+                        <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
+                    </ul>
+                </li>      
+                <li><a href="notice.html" data-en="Notice" data-ne="सूचना">Notice</a></li>
+                <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
+                <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
+                <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
+                
+                <li class="nav-cta">
+                    <a href="jobs.html" data-en="Apply Now" data-ne="आवेदन दिनुहोस्">Apply Now</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
   <main>
     <section class="banners-home">
       <img loading="lazy" src="assets/banners/group-banner.JPG" alt="Banner 1" class="active">
@@ -186,8 +193,8 @@
     </section>
     <section class="get-in-touch">
       <h2>Get in touch</h2>
-      <div class="map-contact-container">
-        <div class="map-container">
+      <div class="location-contact-container">
+        <div class="location-map">
           <p>Find us at:</p>
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3566.547416609406!2d87.989109!3d26.63095!3m2!1i1024!2i768!4f60.1!3m3!1m2!1s0x39e5bbfeed345877%3A0xd0a7d7af207df597!2sJanashakti%20Saving%20and%20Credit%20Co-operative%20Ltd.!5e0!3m2!1sen!2snp!4v1767442592209!5m2!1sen!2snp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
