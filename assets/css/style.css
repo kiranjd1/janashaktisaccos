@@ -445,7 +445,7 @@ footer {
   gap: 0.75rem; /* Space between the icon and text */
 }
 
-.contact-info a{
+.contact-info a {
   color: inherit; /* White color for links */
   text-decoration: none; /* Remove underline from links */
   transition: color 0.3s ease; /* Smooth transition for hover effect */
@@ -470,8 +470,8 @@ footer {
 }
 
 .contact-info .social-icon a:hover {
-  background-color: #04B85C; /* Match hover effect */
-  transform: scale(1.2); /* Add a zoom effect on hover */
+  background-color: var(--accent);
+  transform: scale(1.1);
 }
 
 .contact-info .social-icon.facebook {
@@ -670,78 +670,6 @@ footer {
   text-underline-offset: 10px;
 }
 
-.board-type {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 24px; /* Rounded corners */
-    margin: 1rem 6rem; /* Add some margin around the container */
-}
-.board-type h2 {
-    background-color: hsl(149, 100%, 28%);
-    padding:5px 20px;
-    font-size: 26px;
-    border-radius: 10px;
-    color: #ffffff;
-    text-align: center;
-    width: auto; /* Adjust width as needed */
-    align-content: center;
-}
-.board-type .bod-tenure {
-    display: none;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 0;
-    color: #008D45;
-}
-
-.board-type:hover .bod-tenure {
-    display: block;
-}
-
-.board-members, .accounts-supervisory-committee, .credit-subcommittee {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center the content vertically */
-    align-items: center;
-    margin-bottom: 3rem; /* Space between sections */
-    
-}
-
-.members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem; /* Space between items */
-    justify-items: center; /* Center items horizontally within the grid */
-    align-items: center; /* Center items vertically within the grid */
-    margin: 0 6rem; /* Add some margin around the container */
-
-}
-
-.board-members .chairman {
-    grid-column: span 3;
-    width: 35%; /* Adjust width as needed */
-    animation: slideUp 1s ease-out forwards;
-}
-
-.member img {
-    width: 100%; /* Adjust size as needed */
-    border-radius: 20px; /* Make the image circular */
-    object-fit: cover; /* Ensure the image fits within the circle */
-}
-
-.member  p {
-    text-align: center;
-    margin: 0;
-    padding: 2px 0 2px 0;
-    line-height: 1.3;
-    font-size: 24px;
-    font-weight: bold;
-    color: #008D45;
-}
-
-
 /* ----- About Us Page ------------------- */
 .main-about-us {
   display: grid; /* Use Flexbox for layout */
@@ -751,10 +679,29 @@ footer {
   gap: 3rem; /* Space between items */
 }
 
+.section-title {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.angled-section {
+    background-color: var(--bg-soft);
+    padding-bottom: 100px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    position: relative;
+}
+
 .about-hero {
   padding: 5vh 10vw;
   background-color: var(--bg-card);
   margin: 0 auto;
+}
+
+.about-hero .section-title {
+  text-align: left;
 }
 
 .hero-content {
@@ -762,13 +709,6 @@ footer {
     grid-template-columns: 1.2fr 0.8fr;
     gap: 60px;
     align-items: center;
-}
-
-.section-title {
-    color: var(--primary);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
 }
 
 .lead-text {
@@ -948,7 +888,6 @@ footer {
 /* --- Chairman Message Section --- */
 .chairman-msg-full {
     padding: 40px 0;
-    background-color: #fdfdfd; /* Subtle off-white to separate from stats */
     overflow: hidden;
 }
 
@@ -987,14 +926,14 @@ footer {
     right: -15px;
     width: 60px;
     height: 60px;
-    background: #ffdf00; /* Marker Yellow Accent */
+    background: var(--accent); /* Marker Yellow Accent */
     border-radius: 50%;
     z-index: -1;
 }
 
 .chairman-info h3 {
     margin-top: 25px;
-    color: #2d6a4f;
+    color: var(--primary);
     font-size: 1.4rem;
 }
 
@@ -1076,9 +1015,10 @@ footer {
 
 /* SVG Styling */
 .jhapa-svg {
-    width: 100%;
-    height: 460px;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 800 / 645
 }
 
 /* The District Background Border */
@@ -1159,7 +1099,7 @@ footer {
     transform: translateY(-5px); /* Simple jump effect */
 }
 
-svg .palika-label {
+.jhapa-svg .palika-label {
   opacity: 0;
   transition: opacity 0.3s ease;
   text-anchor: middle;
@@ -1236,34 +1176,30 @@ svg .palika-label {
 
 /* Selector Navigation Buttons */
 .board-selectors {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.selector-btn {
-    padding: 12px 28px;
-    border: 2px solid #2d6a4f;
-    background: transparent;
-    color: #2d6a4f;
-    font-weight: bold;
-    border-radius: 50px; /* Pill shape */
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Apply to the select and its children */
+select, 
+option {
+  font-family: 'Poppins', 'Inter', -apple-system, sans-serif;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
-.selector-btn:hover {
-    background: #f0fdf4;
-    transform: translateY(-2px);
-}
-
-.selector-btn.active {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+#board-select {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 6px;
 }
 
 /* --- Board Content Visibility --- */
@@ -1278,70 +1214,105 @@ svg .palika-label {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Container for each row */
-.members-row-top, 
-.members-row-bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.members-row-top {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* exactly 3 columns */
     gap: 25px;
+    justify-content: center;
+    margin-bottom: 25px;
+    animation: slideLeft 1s ease;
+}
+
+.members-row-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* exactly 4 columns */
+    gap: 25px;
+    justify-content: center;
+    animation: slideRight 1s ease;
 }
 
 /* --- Modern Member Card --- */
 .member {
-    background: transparent; /* Clean look */
+    position: relative;
+    background: transparent;
     padding: 10px;
     text-align: center;
     width: 220px; 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: none; /* Remove old borders */
+    border: none;
 }
 
-/* Enlarged & Styled Image */
 .member img {
     width: 200px;
     height: 200px;
     border-radius: 12px;
     object-fit: cover;
-    margin-bottom: 6px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-.member-detail p:first-of-type {
-    font-size: 1.1rem;
-    font-weight: 700; /* Extra bold for name */
-    color: var(--text-main);
+/* --- Overlay Styling --- */
+.member-detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(252, 86, 166, 1), rgba(252, 86, 166, 0.4)); 
+    color: #fff;
+    padding: 14px 10px;
+    border-radius: 0 0 12px 12px;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    text-align: center;
+    pointer-events: none;
+    backdrop-filter: blur(4px); /* subtle blur for busy images */
+}
+
+.member-detail p {
     margin: 0;
-    line-height: 1.2;
-    transition: color 0.3s ease;
+    line-height: 1.3;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.member-detail p:first-of-type {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .member-detail p:last-of-type {
-    font-size: 0.75rem;
-    color: var(--primary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0.95;
 }
 
+/* --- Hover Effects --- */
 .member:hover img {
-    box-shadow: 0 12px 25px rgba(45, 106, 79, 0.2);
-    border-top: 4px solid var(--accent);
-    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 14px 28px rgba(45, 106, 79, 0.25);
+    transform: scale(1.05) translateY(-8px);
 }
 
 .member:hover .member-detail {
-    color: var(--primary);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* --- Hover-out delay --- */
+.member .member-detail {
+    transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
 }
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
     .member {
-        width: 100%; /* Stack cards on mobile */
+        width: 100%;
         max-width: 320px;
     }
     
@@ -1351,25 +1322,13 @@ svg .palika-label {
     }
 }
 
-.management-team-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 24px; /* Rounded corners */
-    margin: 1rem 6rem; /* Add some margin around the container */
-}
-.management-team-header h1 {
-    background-color: hsl(149, 100%, 28%);
-    padding:5px 20px;
-    font-size: 26px;
-    border-radius: 10px;
-    color: #ffffff;
-    text-align: center;
-    width: auto; /* Adjust width as needed */
-    align-content: center;
+/* --- Management Team Section --- */
+.management-team {
+    padding: 2vh 10vw;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* General styles for the about us page */
 .employees-internal {
     display: flex;
     flex-direction: column; /* Stack items vertically */
@@ -1385,15 +1344,10 @@ svg .palika-label {
     justify-items: center; /* Center items horizontally within the grid */
     align-items: center; /* Center items vertically within the grid */
     margin: 0 6rem; /* Add some margin around the container */
-    border-bottom: #ff0000 solid 6px; /* Add a red border at the bottom */
     width: 80%;
 }
 
 .employees-internal .ceo {
-    grid-column: span 3;
-}
-
-.employees-internal .it-head {
     grid-column: span 3;
 }
 
@@ -2211,85 +2165,100 @@ svg .palika-label {
     color: #ffffff;
 }
 
-/* Modal overlay */
-.stack-image-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0; top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
-    align-items: center;
+/* The background overlay */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px); /* Modern touch */
+  overflow-y: auto; /* Allows scrolling if images are long */
 }
 
-.stack-images {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    max-width: 560px;
-    max-height: 90vh;
-    margin: 0 auto;
-    display: flex;
-    box-shadow: 0 0 30px #000;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    animation: zoom 0.6s;
+/* The white box/container */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  /* Use flex to center the modal-body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 90vh; /* Reduced slightly to give space for the 'half-outside' button */
+  width: 90%;
+  max-width: 520px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.stack-image-close {
-    position: absolute;
-    font-size: 24px;
-    top: -10px;
-    right: -10px;
-    font-weight: bold;
-    color: #ffffff;
-    cursor: pointer;
-    z-index: 10;
-    background: rgba(26, 44, 28, 0.855);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    text-align: center;
-    line-height: 36px;
-    transition: background 0.2s;
-}
-.stack-image-close:hover {
-    background: rgba(6, 80, 52, 0.8);
-    color: #ffffff;
-    transform: scale(1.2);
-    transition: background 0.2s, transform 0.2s;
-    cursor: pointer;
-}
-.stack-image-close:active {
-    background: #007f3e;
-    color: #ffffff;
-    transition: background 0.2s;
+/* Close Button - Half-Outside Style */
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: var(--text-main);
+  background-color: var(--hover-bg);
+  border-radius: 50%;
+  font-size: 24px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.stack-image {
-    position: absolute;
-    max-width: 500px;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    margin: 0;
-    align-items: center;
-    justify-content: center;
+.modal-close:hover {
+  background-color: rgb(200, 2, 2);
+  color: #fff;
+  transition: all 0.2s ease-in;
 }
 
-.stack-image.active {
-    opacity: 1;
-    z-index: 2;
-    pointer-events: auto;
+.modal-close:active {
+  background-color: #ff0000;
+}
+
+/* Ensure images don't overflow the container */
+.modal-body {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Take up available space in modal-content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%; /* Keeps image within modal-content bounds */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Logic for stacking order via JS or CSS */
+.modal-img.active {
+  z-index: 10; /* Top image */
+}
+
+.modal-img.hidden {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  pointer-events: none;
 }
 
 .news-section {
@@ -2371,10 +2340,44 @@ svg .palika-label {
     margin: 0;
 }
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Higher than your modal */
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+/* Simple CSS Spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Class to hide the loader */
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* --- All Mobile & Tablet Styles (Up to 768px) --- */
 @media (max-width: 768px) {
 
-  /* 1. Header & Utility Bar (The Fix) */
   .top-util-bar {
     position: fixed;
     top: 0;
@@ -2399,7 +2402,6 @@ svg .palika-label {
     padding: 0;
   }
 
-  /* 2. Style the Language Bar for Mobile Visibility */
   .buttons-home {
     display: flex !important;
     margin-left: 0; /* Resets desktop auto-margin */
@@ -2425,7 +2427,6 @@ svg .palika-label {
     flex-shrink: 0;
   }
 
-  /* 4. Hide Contact Info */
   .top-contact-info {
     display: none !important;
   }
@@ -2446,7 +2447,6 @@ svg .palika-label {
     opacity: 1;
   }
 
-  /* 2. Navigation Bar & Logo */
   .nav-bar {
     top: 50px; /* Must match .top-util-bar height */
     width: 100%;
@@ -2532,39 +2532,38 @@ svg .palika-label {
     justify-content: center;
   }
 
-  /* 5. Home Page Grid & Layouts */
   .general-info-home, 
   .utilities {
-      grid-template-columns: 1fr;
-      margin: 0.75rem;
+    grid-template-columns: 1fr;
+    margin: 0.75rem;
   }
 
   .utilities {
-      margin: 2.75rem;
+    margin: 2.75rem;
   }
 
   .main-content-home {
-      height: auto;
-      padding: 0.25rem;
-      margin: 0.75rem;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    height: auto;
+    padding: 0.25rem;
+    margin: 0.75rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .welcome, 
   .chairman-msg {
-      border-radius: 12px;
-      flex: 1;
-      width: 100%;
+    border-radius: 12px;
+    flex: 1;
+    width: 100%;
   }
 
   .banners-home {
-      height: auto;
-      padding: 80px 20px;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+    height: auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   .get-in-touch {
     padding: 10px;
@@ -2615,10 +2614,23 @@ svg .palika-label {
       gap: 15px;
   }
 
-  .modal-content, .stack-images {
-    width: 95%;
-    height: auto;
-    max-height: 80vh;
+  .modal-content {
+    width: 85%;
+    max-height: 70vh;
+  }
+
+  .modal-content img, .stack-images img {
+    width: 340px;
+  }
+
+  .modal-img.hidden {
+    opacity: 0;
+    transform: translateX(-110%); 
+  }
+
+  .angled-section {
+    padding-bottom: 60px;
+    clip-path: none;
   }
 }
 
@@ -2626,7 +2638,7 @@ svg .palika-label {
 @keyframes slideLeft {
     from {
         opacity: 0;
-        transform: translateX(100%); /* Start off-screen to the right */
+        transform: translateX(60%); /* Start off-screen to the right */
     }
     to {
         opacity: 1;
@@ -2637,7 +2649,7 @@ svg .palika-label {
 @keyframes slideRight {
     from {
         opacity: 0;
-        transform: translateX(-100%); /* Start off-screen to the left */
+        transform: translateX(-60%); /* Start off-screen to the left */
     }
     to {
         opacity: 1;
@@ -2648,7 +2660,7 @@ svg .palika-label {
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-100%); /* Start off-screen to the left */
+        transform: translateY(-60%); /* Start off-screen to the left */
     }
     to {
         opacity: 1;
@@ -2659,7 +2671,7 @@ svg .palika-label {
 @keyframes slideUp {
     from {
         opacity: 0.5;
-        transform: translateY(30%); /* Start off-screen to the left */
+        transform: translateY(40%); /* Start off-screen to the left */
     }
     to {
         opacity: 1;

@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
   <header class="top-util-bar">
     <div class="top-container">
       <button class="menu-toggle" aria-label="Toggle Menu">
@@ -21,7 +24,7 @@
 
       <div class="top-contact-info">
         <span><i class="fas fa-phone-alt"></i> +977-23-533344</span>
-        <span class="location">| Birtamode, Jhapa</span>
+        <span class="location">| Birtamode, Jhapa |</span>
         <span><i class="fas fa-envelope"></i> janashakticoop2014@gmail.com</span>
       </div>
 
@@ -51,11 +54,11 @@
                 <li class="has-dropdown">
                     <a href="#" data-en="About" data-ne="हाम्राे बारेमा">About <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
-                        <li><a href="#chairman-msg-section" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
-                        <li><a href="#geo-reach-section" data-en="Our Scope" data-ne="हाम्रो कार्यक्षेत्र">Our Scope</a></li>
-                        <li><a href="#board-members-section" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
-                        <li><a href="#management-team-section" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
+                        <li><a href="about.html#about-hero-section" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
+                        <li><a href="about.html#chairman-msg-section" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
+                        <li><a href="about.html#geo-reach-section" data-en="Our Scope" data-ne="हाम्रो कार्यक्षेत्र">Our Scope</a></li>
+                        <li><a href="about.html#board-members-section" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
+                        <li><a href="about.html#management-team-section" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
                     </ul>
                 </li>
                 <li class="has-dropdown">
@@ -265,12 +268,13 @@
       </p>
     </div>
   </footer>
-  <div id="stackImageModal" class="stack-image-modal">
-    <div class="stack-images">
-      <span class="stack-image-close">&times;</span>
-      <img src="assets/images/holiday-modal-img.jpg" alt="Holiday Notice" class="stack-image">
-      <img src="assets/images/bibaran-modal-img.jpeg" alt="Latest Offical Info" class="stack-image">
-      <img src="assets/images/JobNotice_1-081-82.jpg" alt="Job Vacancy 001-081/82" class="stack-image">
+  <div id="modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-body">
+        <!-- <img src="assets/images/holiday-modal-img.jpg" alt="Notice 1" class="modal-img"> -->
+        <img src="assets/images/bibaran-modal-img.jpeg" alt="Latest Official Info" class="modal-img">
+      </div>
     </div>
   </div>
 

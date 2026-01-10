@@ -4,31 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Janashakti Saving and Credit Cooperative Ltd. -Birtamod Jhapa | Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header class="top-util-bar">
-        <div class="top-container">
-            <div class="top-contact-info">
-                <span><i class="fas fa-phone-alt"></i> +977-23-533344 </span>
-                <span>| Birtamode, Jhapa</span>
-                <span><i class="fas fa-envelope"></i> janashakticoop2014@gmail.com</span>
-            </div>
-            <div class="buttons-home">
-                <button id="lang-en" class="lang-btn active" data-lang="en">
-                    <img src="assets/icons/usa-flag.png" alt="English">
-                    <span>En</span>
-                </button>
-                <button id="lang-ne" class="lang-btn" data-lang="ne">
-                    <img src="assets/icons/nepal-flag.png" alt="Nepali">
-                    <span>ने</span>
-                </button>
-            </div>
-        </div>
-    </header>
-    <nav id="mainNav" class="nav-bar" role="navigation">
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+  <header class="top-util-bar">
+    <div class="top-container">
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="top-contact-info">
+        <span><i class="fas fa-phone-alt"></i> +977-23-533344</span>
+        <span class="location">| Birtamode, Jhapa |</span>
+        <span><i class="fas fa-envelope"></i> janashakticoop2014@gmail.com</span>
+      </div>
+
+      <div class="buttons-home">
+        <button id="lang-en" class="lang-btn active" data-lang="en">
+          <img src="assets/icons/usa-flag.png" alt="English">
+          <span>En</span>
+        </button>
+        <button id="lang-ne" class="lang-btn" data-lang="ne">
+          <img src="assets/icons/nepal-flag.png" alt="Nepali">
+          <span>ने</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="mainNav" class="nav-bar" role="navigation">
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
@@ -36,19 +49,16 @@
                 </a>
             </div>
 
-            <button class="menu-toggle" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-
             <ul class="menu">
                 <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
                 <li class="has-dropdown">
                     <a href="#" data-en="About" data-ne="हाम्राे बारेमा">About <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="about.html" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
-                        <li><a href="chairman.html" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
-                        <li><a href="boards.html" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
-                        <li><a href="management.html" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
+                        <li><a href="about.html#about-hero-section" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
+                        <li><a href="about.html#chairman-msg-section" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
+                        <li><a href="about.html#geo-reach-section" data-en="Our Scope" data-ne="हाम्रो कार्यक्षेत्र">Our Scope</a></li>
+                        <li><a href="about.html#board-members-section" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
+                        <li><a href="about.html#management-team-section" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
                     </ul>
                 </li>
                 <li class="has-dropdown">
@@ -259,5 +269,6 @@
             <p>&copy; 2025 Janashakti Saving And Credit Cooperative Ltd. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

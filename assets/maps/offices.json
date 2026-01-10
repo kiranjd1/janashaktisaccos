@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.98883706987345, 26.631891367801238]
+      },
+      "properties": {
+        "name": "Head Office"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.960989728945, 26.554092331373468]
+      },
+      "properties": {
+        "name": "Goldhap S.C."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [87.89041009516157, 26.64819622769181]
+      },
+      "properties": {
+        "name": "Surunga S.C."
+      }
+    }
+  ]
+}
