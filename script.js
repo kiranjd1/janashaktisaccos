@@ -261,6 +261,109 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function project(lat, lon) {
+    const lonMin = 87.63570897439074;
+    const lonMax = 88.18798416951093;
+    const latMin = 26.36118115968359;
+    const latMax = 26.805970321180226;
+
+    const svgWidth = 800;
+    const svgHeight = 645;
+
+    // Scale longitude to X
+    const x = ((lon - lonMin) / (lonMax - lonMin)) * svgWidth;
+
+    // Scale latitude to Y (flip so north is up)
+    const y = (1 - (lat - latMin) / (latMax - latMin)) * svgHeight;
+
+    return { x, y };
+  }
+
+  const offices = [
+    { id: "birtamod", name: "Head Office", lat: 26.63114166340732, lon: 87.98913767046227 },
+    { id: "haldibari", name: "Goldhap S.C.", lat: 26.554108077619485, lon: 87.96084823146204 },
+    { id: "kankai", name: "Surunga S.C.", lat: 26.646280991878175, lon: 87.89204506560387 },
+    { id: "barhadashi", name: "Rajgadh S.C.", lat: 26.510719513524027, lon: 87.93448461074684 },
+    { id: "arjundhara", name: "Sanischare S.C.", lat: 26.68525031577208, lon: 87.99251046379676 }
+  ];
+
+/**
+ * Plots office markers on an SVG map.
+ * Safe for global JS files: includes null checks and scoped selectors.
+*/
+  function plotPlaces(svgSelector, places) {
+    const svg = document.querySelector(svgSelector);
+    
+    if (!svg) return;
+
+    let markerLayer = svg.querySelector(".marker-layer");
+    if (!markerLayer) {
+      markerLayer = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      markerLayer.classList.add("marker-layer");
+      svg.appendChild(markerLayer); 
+    }
+
+    places.forEach(place => {
+      // Check if project function exists (assumes it's available globally or in scope)
+      if (typeof project !== "function") return;
+      
+      const { x, y } = project(place.lat, place.lon);
+
+      const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      group.setAttribute("class", "office-group"); 
+      group.setAttribute("data-id", place.id); 
+
+      // Marker icon
+      const icon = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      icon.setAttribute("x", x);
+      icon.setAttribute("y", y);
+      icon.setAttribute("class", "fa-icon");
+      icon.setAttribute("dominant-baseline", "middle");
+      icon.setAttribute("text-anchor", "middle");
+      icon.textContent = "\uf3c5"; 
+      group.appendChild(icon);
+
+      // Label
+      const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      label.setAttribute("x", x); 
+      label.setAttribute("y", y - 25); 
+      label.setAttribute("class", "palika-label");
+      label.setAttribute("text-anchor", "middle");
+      label.textContent = place.name;
+      group.appendChild(label);
+
+      markerLayer.appendChild(group);
+
+      // Find path only inside this specific SVG
+      const path = svg.querySelector(`.palika-path[id="${place.id}"]`);
+      // Find list item in the document (assuming unique data-id per palika)
+      const listItem = document.querySelector(`.palika-list li[data-id="${place.id}"]`);
+
+      const toggleHoverState = (isActive) => {
+        const method = isActive ? 'add' : 'remove';
+        group.classList[method]('active');
+        if (path) path.classList[method]('active');
+        if (listItem) listItem.classList[method]('active-list');
+      };
+
+      // Attach listeners
+      group.addEventListener('mouseenter', () => toggleHoverState(true));
+      group.addEventListener('mouseleave', () => toggleHoverState(false));
+
+      if (path) {
+        path.addEventListener('mouseenter', () => toggleHoverState(true));
+        path.addEventListener('mouseleave', () => toggleHoverState(false));
+      }
+
+      if (listItem) {
+        listItem.addEventListener('mouseenter', () => toggleHover(true));
+        listItem.addEventListener('mouseleave', () => toggleHover(false));
+      }
+    });
+  }
+
+  plotPlaces(".jhapa-svg", offices);
+
   // Initialize only if elements exist
   initShowBoard();
   initHighlighting();

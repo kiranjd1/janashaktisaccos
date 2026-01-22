@@ -1000,20 +1000,20 @@ footer {
 
 /* Container Layout */
 .map-layout {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 25px;
-    background-color: var(--bg-soft);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background-color: var(--bg-soft);
 }
 
 .map-container {
-    flex: 2;
-    border-radius: 8px;
-    padding: 10px;
+  flex: 2;
+  border-radius: 8px;
+  padding: 10px;
 }
 
-/* SVG Styling */
+/* SVG Styling  */
 .jhapa-svg {
   width: 100%;
   height: auto;
@@ -1023,33 +1023,87 @@ footer {
 
 /* The District Background Border */
 .jhapa-bg {
-  fill: var(--bg-card);
+  fill: rgb(255, 245, 252);
   stroke: var(--primary);
   stroke-width: 2;
 }
 
 /* Local Bodies (Palika) Paths */
 .palika-path {
-    fill: var(--hover-bg); /* Default light gray */
-    stroke: var(--primary);
-    stroke-width: 3;
-    transition: all 0.3s ease;
+  fill: var(--hover-bg); /* Default light gray */
+  stroke: var(--primary);
+  stroke-width: 2;
+  transition: all 0.3s ease;
 }
 
 /* Active/Hover State for Map Paths */
 .palika-path.active, 
 .palika-path:hover {
-    fill: var(--primary) !important; /* Brand green */
-    stroke: var(--primary);
-    cursor: pointer;
-    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
+  fill: var(--primary) !important; /* Brand green */
+  stroke: var(--primary);
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
+}
+
+/* Default Marker Style */
+.fa-icon {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", sans-serif;
+  font-weight: 900;
+  fill: var(--accent);
+  font-size: 28px;
+  text-anchor: middle;
+  pointer-events: auto;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.palika-label {
+  opacity: 0;
+  visibility: hidden; /* Added to prevent ghost-clicks */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  fill: var(--accent);
+  pointer-events: none; /* Label shouldn't block mouse interactions */
+}
+
+/* 1. Change Marker Color when Map Path is Hovered */
+/* .palika-group:hover .fa-icon,
+.palika-group.active .fa-icon {
+  fill: var(--accent);
+  stroke: #ffffff;
+  transform: translateY(-5px);
+}
+
+.palika-group:hover .palika-label,
+.palika-group.active .palika-label {
+  opacity: 1;
+} */
+
+/* Keep your path hover style */
+.palika-path:hover,
+.palika-group.active .palika-path {
+  fill: var(--primary) !important;
+}
+
+/* When hovering the group, show label and update icon */
+.office-group:hover .fa-icon {
+  stroke: white;       /* White border around the pin */
+  stroke-width: 2px;   /* Make stroke visible */
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.office-group:hover .palika-label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-5px); /* Moves up with the icon */
 }
 
 /* Sidebar List Styling */
 .palika-list-container {
-    flex: 1;
-    margin: 0;
-    padding: 0;
+  flex: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .palika-list-container p {
@@ -1066,69 +1120,23 @@ footer {
 }
 
 .palika-list li {
-    padding: 12px 15px;
-    border-bottom: 1px solid var(--text-muted);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--text-main);
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-main);
 }
 
-.palika-list li:hover {
-    background-color: #f0fdf4; /* Very light green bg */
-    color: var(--primary);
-    padding-left: 25px; /* Inward movement effect */
-    font-weight: bold;
-    border-left: 4px solid var(--primary);
-}
-/* Default Marker Style */
-.fa-icon {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    fill: var(--accent);
-    font-size: 28px;
-    text-anchor: middle;
-    pointer-events: none;
-    transition: fill 0.3s ease, transform 0.3s ease;
-}
-
-/* 1. Change Marker Color when Map Path is Hovered */
-.palika-group:hover .fa-icon,
-.palika-group.active .fa-icon {
-    fill: var(--accent);
-    stroke: #ffffff;
-    transform: translateY(-5px); /* Simple jump effect */
-}
-
-.jhapa-svg .palika-label {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-anchor: middle;
-  font-size: 0.95rem;
-  font-weight: bold;
-  fill: #FFFFFF;
-}
-
-.palika-group:hover .palika-label,
-.palika-group.active .palika-label {
-    opacity: 1;
-}
-
-/* Keep your path hover style */
-.palika-path:hover,
-.palika-group.active .palika-path {
-    fill: var(--primary) !important;
-}
-
-/* This triggers when you hover the map OR the list */
+.palika-list li:hover,
 .palika-list li.active-list {
-    background-color: #f0fdf4; 
-    color: var(--primary);
-    padding-left: 25px; 
-    font-weight: bold;
-    border-left: 4px solid var(--primary);
+  background-color: #f0fdf4; /* Very light green bg */
+  color: var(--primary);
+  padding-left: 25px; /* Inward movement effect */
+  font-weight: bold;
+  border-left: 4px solid var(--primary);
 }
 
-.location-grid {
+/* .location-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1165,7 +1173,7 @@ footer {
 
 .location-item:hover i {
     color: white;
-}
+} */
 
 /* --- Board Section Container --- */
 .board-members {

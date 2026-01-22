@@ -139,7 +139,7 @@
 							<div class="stat-card">
 									<div class="stat-icon"><i class="fas fa-users"></i></div>
 									<div class="stat-data">
-											<span class="number">5,860</span>
+											<span class="number">5,887</span>
 											<span class="text" data-en="Total Members" data-ne="कुल सदस्य">Total Members</span>
 									</div>
 							</div>
@@ -147,7 +147,7 @@
 							<div class="stat-card">
 									<div class="stat-icon"><i class="fas fa-hand-holding-usd"></i></div>
 									<div class="stat-data">
-											<span class="number">Rs. 29.18M</span>
+											<span class="number">Rs. 29.48M</span>
 											<span class="text" data-en="Share Capital" data-ne="सेयर पुँजी">Share Capital</span>
 									</div>
 							</div>
@@ -155,7 +155,7 @@
 							<div class="stat-card">
 									<div class="stat-icon"><i class="fas fa-coins"></i></div>
 									<div class="stat-data">
-											<span class="number">Rs. 136.61M</span>
+											<span class="number">Rs. 147.26M</span>
 											<span class="text" data-en="Total Saving" data-ne="कुल बचत">Total Saving</span>
 									</div>
 							</div>
@@ -163,7 +163,7 @@
 							<div class="stat-card">
 									<div class="stat-icon"><i class="fas fa-money-check-alt"></i></div>
 									<div class="stat-data">
-											<span class="number">Rs. 145.83M</span>
+											<span class="number">Rs. 137.60M</span>
 											<span class="text" data-en="Total Loan" data-ne="कुल लगानी">Total Loan</span>
 									</div>
 							</div>
@@ -171,7 +171,7 @@
 							<div class="stat-card accent-card">
 									<div class="stat-icon"><i class="fas fa-wallet"></i></div>
 									<div class="stat-data">
-											<span class="number">Rs. 204.98M</span>
+											<span class="number">Rs. 205.57M</span>
 											<span class="text" data-en="Total Assets" data-ne="कुल सम्पत्ति">Total Assets</span>
 									</div>
 							</div>
@@ -555,64 +555,5 @@
 		</footer>
 
 		<script src="script.js" defer></script>
-		<script>
-
-			function project(lat, lon) {
-				const lonMin = 87.63570897439074;
-				const lonMax = 88.18798416951093;
-				const latMin = 26.36118115968359;
-				const latMax = 26.805970321180226;
-
-				const svgWidth = 800;
-				const svgHeight = 645;
-
-				// Scale longitude to X
-				const x = ((lon - lonMin) / (lonMax - lonMin)) * svgWidth;
-
-				// Scale latitude to Y (flip so north is up)
-				const y = (1 - (lat - latMin) / (latMax - latMin)) * svgHeight;
-
-				return { x, y };
-			}
-
-			const offices = [
-				{ id: "birtamod", name: "Head Office", lat: 26.63114166340732, lon: 87.98913767046227 },
-				{ id: "haldibari", name: "Goldhap S.C.", lat: 26.554108077619485, lon: 87.96084823146204 },
-				{ id: "kankai", name: "Surunga S.C.", lat: 26.646280991878175, lon: 87.89204506560387 },
-				{ id: "barhadashi", name: "Rajgadh S.C.", lat: 26.510719513524027, lon: 87.93448461074684 },
-				{ id: "arjundhara", name: "Sanischare S.C.", lat: 26.68525031577208, lon: 87.99251046379676 }
-			];
-
-			function plotPlaces(svgSelector, places) {
-				const svg = document.querySelector(svgSelector);
-
-				places.forEach(place => {
-					const { x, y } = project(place.lat, place.lon);
-
-					const group = document.getElementById("group-" + place.id);
-
-					// Marker icon (Font Awesome pin)
-					const icon = document.createElementNS("http://www.w3.org/2000/svg", "text");
-					icon.setAttribute("x", x);
-					icon.setAttribute("y", y);
-					icon.setAttribute("class", "fa-icon");
-					icon.setAttribute("dominant-baseline", "middle");
-					icon.setAttribute("text-anchor", "middle");
-					icon.textContent = "\uf3c5"; // Font Awesome map-marker-alt
-					group.appendChild(icon);
-
-					// Label
-					const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-					label.setAttribute("x", x + 40); // offset
-					label.setAttribute("y", y + 20);
-					label.setAttribute("class", "palika-label");
-					label.textContent = place.name;
-					group.appendChild(label);
-				});
-			}
-			
-			plotPlaces(".jhapa-svg", offices);
-
-		</script>
 </body>
 </html>
