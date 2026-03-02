@@ -177,6 +177,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Dynamic statistics loader with language support ---
+  let currentLang = 'en'; // default
+  let statsCache = null;
+
+  function applyStats(lang) {
+    if (!statsCache) return;
+    const statEls = document.querySelectorAll('[data-stat-key]');
+    if (!statEls.length) return;
+
+    statEls.forEach(el => {
+      const key = el.getAttribute('data-stat-key');
+      if (key && statsCache[key]) {
+        const val = statsCache[key];
+        if (typeof val === 'object' && val[lang] !== undefined) {
+          el.textContent = val[lang];
+        } else if (typeof val === 'string') {
+          el.textContent = val;
+        }
+      }
+    });
+  }
+
+  function initStats() {
+    fetch('assets/data/stats.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load stats');
+        return res.json();
+      })
+      .then(json => {
+        statsCache = json;
+        applyStats(currentLang);
+      })
+      .catch(err => console.error('Error loading statistics:', err));
+  }
+
+  function setupLanguageStatsSync() {
+    // delegate clicks so replacement of buttons doesn't break us
+    document.body.addEventListener('click', e => {
+      const btn = e.target.closest('[data-lang]');
+      if (!btn) return;
+      const lang = btn.getAttribute('data-lang');
+      if (lang) {
+        currentLang = lang;
+        console.log('language selected', currentLang);
+        applyStats(currentLang);
+      }
+    });
+
+    // also respond when header component triggers loaded event (preference may have applied)
+    document.addEventListener('headerLoaded', () => {
+      const active = document.querySelector('.lang-btn.active');
+      if (active) {
+        currentLang = active.getAttribute('data-lang') || currentLang;
+        applyStats(currentLang);
+      }
+    });
+  }
+
+  // detect initial active language (before components may load)
+  const activeLangBtn = document.querySelector('.lang-btn.active');
+  if (activeLangBtn) {
+    currentLang = activeLangBtn.getAttribute('data-lang');
+  }
+
+  setupLanguageStatsSync();
+
   // --- Show Board ---
   function initShowBoard() {
     const boardSelect = document.getElementById("board-select");
@@ -356,8 +422,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (listItem) {
-        listItem.addEventListener('mouseenter', () => toggleHover(true));
-        listItem.addEventListener('mouseleave', () => toggleHover(false));
+        listItem.addEventListener('mouseenter', () => toggleHoverState(true));
+        listItem.addEventListener('mouseleave', () => toggleHoverState(false));
       }
     });
   }
@@ -371,9 +437,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initBannerSlideshow();
   initMenu();
   initLanguageSwitcher();
+  setupLanguageStatsSync();
   initScrollUnderline();
   initNavbarScroll();
   initModal();
   initSmoothScroll();
+  initStats();
 
 });

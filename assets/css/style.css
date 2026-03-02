@@ -110,7 +110,8 @@ main {
 	align-items: center;
 	gap: 4px;
 	border: none;
-	background: transparent;
+	/* default (inactive) state: green background with light text */
+	background-color: var(--accent);
 	padding: 2px 6px;
 	border-radius: 16px;
 	cursor: pointer;
@@ -121,6 +122,7 @@ main {
 }
 
 .lang-btn.active {
+	/* active language gets white background and dark text */
 	background-color: #FFFFFF;
 	color: var(--text-main);
 }
