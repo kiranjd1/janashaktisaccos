@@ -4,7 +4,7 @@ const noticesData = [
 		title: "Organizational Status Update for Members",
 		title_np: "सदस्यहरूलाई संस्थागत अवस्थाको जानकारी",
 		file_path: "assets/uploads/notices/bibaran-monthly.jpg",
-		publish_date: "2026-02-18",
+		publish_date: "2026-03-23",
 		file_type: "jpg"
 	},
 	{
