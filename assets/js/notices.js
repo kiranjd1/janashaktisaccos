@@ -1,6 +1,14 @@
 const noticesData = [
 	{
 		id: 1,
+		title: "Regarding Registration in NCRA",
+		title_np: "NCRA मा दर्ता अभिलेखीकरण गरिएको सम्बन्धमा",
+		file_path: "assets/uploads/notices/operative-license-ncra.jpg",
+		publish_date: "2026-03-24",
+		file_type: "jpg"
+	},
+		{
+		id: 2,
 		title: "Organizational Status Update for Members",
 		title_np: "सदस्यहरूलाई संस्थागत अवस्थाको जानकारी",
 		file_path: "assets/uploads/notices/bibaran-monthly.jpg",
@@ -8,7 +16,7 @@ const noticesData = [
 		file_type: "jpg"
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Change in Office Hours",
 		title_np: "कार्यालय समय परिवर्तन सम्बन्धमा",
 		file_path: "assets/uploads/notices/office-time-notice.jpg",
@@ -16,7 +24,7 @@ const noticesData = [
 		file_type: "jpg"
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "Holiday Notice",
 		title_np: "कार्यालय विदा सम्बन्धमा",
 		file_path: "assets/uploads/notices/Holiday-20821103-Shivaratri.jpg",
