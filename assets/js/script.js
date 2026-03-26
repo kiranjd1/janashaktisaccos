@@ -133,8 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    function setActiveSlide() {
+      slides.forEach((img, i) => {
+        img.classList.toggle("active", i === current && !img.classList.contains("hidden"));
+      });
+    }
+
     modal.style.display = "flex";
     initStack();
+    setActiveSlide();
 
     closeBtn.onclick = function () {
       if (current < slides.length) {
@@ -142,7 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
         current++;
         if (current === slides.length) {
           modal.style.display = "none";
+          return;
         }
+        setActiveSlide();
       }
     };
 
@@ -180,6 +189,59 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Dynamic statistics loader with language support ---
   let currentLang = 'en'; // default
   let statsCache = null;
+  let counterAnimationStarted = false;
+
+  // Currency-related stat keys
+  const currencyKeys = ['shareCapital', 'totalSaving', 'totalLoan', 'totalAssets'];
+
+  function normalizeDigitsToEnglish(text) {
+    const nepaliToEnglish = {
+      '०': '0', '१': '1', '२': '2', '३': '3', '४': '4',
+      '५': '5', '६': '6', '७': '7', '८': '8', '९': '9'
+    };
+    return String(text).replace(/[०-९]/g, d => nepaliToEnglish[d] || d);
+  }
+
+  // Format numbers with proper currency and numbering system
+  function formatStatValue(value, lang, key) {
+    // Check if this stat key requires currency formatting
+    if (currencyKeys.includes(key)) {
+      const currencySymbol = lang === 'ne' ? 'रू. ' : 'Rs. ';
+      
+      if (lang === 'ne') {
+        // Nepali numbering system: format with Hindi numerals and Nepali commas
+        // Nepali system: groups of 2 digits after the first 3 digits (e.g., 10,00,000)
+        const englishDigits = normalizeDigitsToEnglish(value);
+        const cleanNum = englishDigits.replace(/[^0-9]/g, '');
+        if (cleanNum.length === 0) return currencySymbol + value;
+        
+        // English to Devanagari numeral conversion
+        const numMap = { '0': '०', '1': '१', '2': '२', '3': '३', '4': '४', '5': '५', '6': '६', '7': '७', '8': '८', '9': '९' };
+        let devanagariNum = cleanNum.replace(/./g, d => numMap[d]);
+        
+        // Apply Nepali numbering formatting: 10,00,000 pattern
+        let reversed = devanagariNum.split('').reverse().join('');
+        let formatted = '';
+        for (let i = 0; i < reversed.length; i++) {
+          if (i === 3 || (i > 3 && (i - 3) % 2 === 0)) {
+            formatted += ',';
+          }
+          formatted += reversed[i];
+        }
+        devanagariNum = formatted.split('').reverse().join('');
+        return currencySymbol + devanagariNum;
+      } else {
+        // English: International numbering system (1,000,000)
+        const englishDigits = normalizeDigitsToEnglish(value);
+        const cleanNum = englishDigits.replace(/[^0-9]/g, '');
+        if (cleanNum.length === 0) return currencySymbol + value;
+        const formatted = parseInt(cleanNum).toLocaleString('en-US');
+        return currencySymbol + formatted;
+      }
+    }
+    
+    return value;
+  }
 
   function applyStats(lang) {
     if (!statsCache) return;
@@ -191,9 +253,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (key && statsCache[key]) {
         const val = statsCache[key];
         if (typeof val === 'object' && val[lang] !== undefined) {
-          el.textContent = val[lang];
+          const formatted = formatStatValue(val[lang], lang, key);
+          el.textContent = formatted;
         } else if (typeof val === 'string') {
-          el.textContent = val;
+          const formatted = formatStatValue(val, lang, key);
+          el.textContent = formatted;
         }
       }
     });
@@ -208,6 +272,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(json => {
         statsCache = json;
         applyStats(currentLang);
+        if (!counterAnimationStarted) {
+          initCounterAnimation();
+          counterAnimationStarted = true;
+        }
       })
       .catch(err => console.error('Error loading statistics:', err));
   }
@@ -437,11 +505,115 @@ document.addEventListener("DOMContentLoaded", () => {
   initBannerSlideshow();
   initMenu();
   initLanguageSwitcher();
+  // --- Scroll Reveal Animation ---
+  function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children');
+    if (!revealElements.length) return;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // --- Lazy image fade-in ---
+  function initImageFadeIn() {
+    const lazyImages = document.querySelectorAll('img[loading=\"lazy\"]');
+    if (!lazyImages.length) return;
+
+    lazyImages.forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+      }
+    });
+  }
+
+  // --- Smooth Counter Animation ---
+  function initCounterAnimation() {
+    const numbers = document.querySelectorAll('.number[data-stat-key]');
+    if (!numbers.length) return;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.textContent.trim();
+          // Extract numeric value for animation
+          const normalizedText = normalizeDigitsToEnglish(text);
+          const match = normalizedText.match(/[0-9][0-9,]*(?:\.[0-9]+)?/);
+          const numericMatch = match ? match[0].replace(/,/g, '') : '';
+          if (numericMatch && !el.dataset.animated) {
+            el.dataset.animated = 'true';
+            const targetNum = parseFloat(numericMatch);
+            const prefix = text.slice(0, match.index);
+            const suffix = text.slice(match.index + match[0].length);
+            const duration = 2000; // Increased to 2 seconds for smoother animation
+            const startTime = performance.now();
+            const isDecimal = numericMatch.includes('.');
+            const isNepali = /[०-९]|रू\./.test(text);
+
+            function toNepaliDigits(numText) {
+              const map = { '0': '०', '1': '१', '2': '२', '3': '३', '4': '४', '5': '५', '6': '६', '7': '७', '8': '८', '9': '९' };
+              return numText.replace(/[0-9]/g, d => map[d] || d);
+            }
+
+            function formatNepaliGrouping(num) {
+              const raw = Math.round(num).toString();
+              const last3 = raw.slice(-3);
+              const head = raw.slice(0, -3);
+              if (!head) return last3;
+              const groupedHead = head.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
+              return groupedHead + ',' + last3;
+            }
+
+            function update(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease out cubic for smooth deceleration
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = targetNum * eased;
+
+              if (isDecimal) {
+                const decimalText = current.toFixed(2);
+                el.textContent = prefix + (isNepali ? toNepaliDigits(decimalText) : decimalText) + suffix;
+              } else {
+                // Use Math.round for smoother integer transitions instead of Math.floor
+                const intText = isNepali ? formatNepaliGrouping(current) : Math.round(current).toLocaleString('en-US');
+                el.textContent = prefix + (isNepali ? toNepaliDigits(intText) : intText) + suffix;
+              }
+
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              }
+              // Animation ends naturally at 100% progress
+            }
+            requestAnimationFrame(update);
+          }
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    numbers.forEach(el => counterObserver.observe(el));
+  }
+
   setupLanguageStatsSync();
   initScrollUnderline();
   initNavbarScroll();
   initModal();
   initSmoothScroll();
   initStats();
+  initScrollReveal();
+  initImageFadeIn();
 
 });

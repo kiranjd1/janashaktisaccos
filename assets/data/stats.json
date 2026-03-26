@@ -3,9 +3,9 @@
   "members": { "en": "5,000+", "ne": "५,०००+" },
   "localBodies": { "en": "6", "ne": "६" },
   "serviceCenters": { "en": "5", "ne": "५" },
-  "shareCapital": { "en": "Rs. 29,503,700", "ne": "रु. २,९५,०३,७००" },
-  "totalSaving": { "en": "Rs. 148,800,590", "ne": "रु. १४,८८,००,५९०" },
-  "totalLoan": { "en": "Rs. 136,805,066", "ne": "रु. १३,६८,०९,०६५" },
-  "totalAssets": { "en": "Rs. 207,943,128", "ne": "रु. २०,७९,९५३,१२८" },
+  "shareCapital": { "en": "29662500", "ne": "२९६६२५००" },
+  "totalSaving": { "en": "150739570", "ne": "१५०७३९५७०" },
+  "totalLoan": { "en": "134545851", "ne": "१३४५४५८५१" },
+  "totalAssets": { "en": "210943592", "ne": "२१०९४३५९२" },
   "employees": { "en": "43", "ne": "४३" }
 }

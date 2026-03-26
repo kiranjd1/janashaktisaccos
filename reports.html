@@ -19,110 +19,37 @@
   <div id="header-container"></div>
 
   <main class="main-reports">
-		<section class="reports-section">
+		<section class="reports-section reveal">
 			<h1 data-en="Official Reports" data-ne="आधिकारिक प्रतिवेदनहरु">Official Reports</h1>
-			<p data-en="Explore our official reports, including monthly and quarterly reports, to stay updated on our performance and activities." data-ne="हाम्राे कार्य र गतिविधिहरूमा अद्यावधिक रहनका लागि हाम्राे आधिकारिक प्रतिवेदनहरू अन्वेषण गर्नुहोस्।">Explore our official reports, including monthly and quarterly reports, to stay updated on our performance and activities.
-			</p>
-			<div class="reports-selector">
-				<div class="report-type">
-					<p>Monthly Reports</p>
-				</div>
-				<div class="report-type">
-					<p>Quarterly Reports</p>
-				</div>
-				<div class="report-type">
-					<p>Annual Reports</p>
-				</div>
+			<p data-en="Explore our official reports, including monthly, quarterly and annual reports, to stay updated on our performance and activities." data-ne="हाम्राे कार्य र गतिविधिहरूमा अद्यावधिक रहनका लागि हाम्राे आधिकारिक प्रतिवेदनहरू अन्वेषण गर्नुहोस्।">Explore our official reports, including monthly, quarterly and annual reports, to stay updated on our performance and activities.</p>
+
+			<div class="reports-category-tabs">
+				<button class="report-tab active" data-category="monthly" data-en="Monthly Reports" data-ne="मासिक प्रतिवेदन">Monthly Reports</button>
+				<button class="report-tab" data-category="quarterly" data-en="Quarterly Reports" data-ne="त्रैमासिक प्रतिवेदन">Quarterly Reports</button>
+				<button class="report-tab" data-category="annual" data-en="Annual Reports" data-ne="वार्षिक प्रतिवेदन">Annual Reports</button>
 			</div>
-			<div class="monthly-reports">
-				<h2 data-en="Monthly Reports" data-ne="मासिक प्रतिवेदन">Monthly Reports</h2>
-				<div class="reports-list">
-					<div class="report-item">
-						<img src="assets/reports/monthly-1.jpg" alt="Monthly Report 1" class="report-image" id="myImg">
-						<div class="report-details">
-							<h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
-							<h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
-						</div>
-					</div>
-					<div class="report-item">
-						<img src="assets/reports/monthly-1.jpg" alt="Monthly Report 2" class="report-image" id="myImg">
-						<div class="report-details">
-							<h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
-							<h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
-						</div>
-					</div>
-					<div class="report-item">
-						<img src="assets/reports/monthly-1.jpg" alt="Monthly Report 3" class="report-image" id="myImg">
-						<div class="report-details">
-							<h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
-							<h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
-						</div>
-					</div>
-					<div class="report-item">
-						<img src="assets/reports/monthly-1.jpg" alt="Monthly Report 4" class="report-image" id="myImg">
-						<div class="report-details">
-							<h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
-							<h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
-						</div>
-					</div>
-					<div class="report-item">
-						<img src="assets/reports/monthly-1.jpg" alt="Monthly Report 5" class="report-image" id="myImg">
-						<div class="report-details">
-							<h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
-							<h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
-						</div>
-					</div>
-					<div class="report-item">
-						<img src="assets/reports/monthly-1.jpg" alt="Monthly Report 6" class="report-image" id="myImg">
-						<div class="report-details">
-							<h3 data-en="Chaitra, 2081" data-ne="२०८१ चैत्र">Chaitra, 2081</h3>
-							<h3 data-en="Monthly Report" data-ne="Monthly Report">Monthly Report</h3>
-						</div>
-					</div>
-				</div>
+
+			<div class="reports-list" id="reports-container">
+				<!-- Reports will be loaded here by JavaScript -->
 			</div>
 		</section>
   </main>
 
-	<!-- Image Display Modal -->
-	<div id="ViewReportModal" class="view-report-modal">
-		<div class="report-modal-inner">
-			<span class="report-modal-close">&times;</span>
-			<img class="report-modal-content" id="img01">
-			<div id="reportCaption"></div>
-		</div>  
+	<!-- Report Viewer Modal (image + PDF, like notice viewer) -->
+	<div id="report-modal" class="modal-overlay" style="display: none;">
+		<div class="modal-content report-modal-content">
+			<button class="modal-close" id="report-modal-close">&times;</button>
+			<div class="modal-body report-modal-body">
+				<img id="report-img-viewer" src="" alt="Report" style="display: none; max-width: 100%; max-height: 100%; object-fit: contain;">
+				<embed id="report-pdf-viewer" src="" type="application/pdf" style="display: none; width: 100%; height: 100%;">
+			</div>
+		</div>
 	</div>
 
   <div id="footer-container"></div>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var modal = document.getElementById("ViewReportModal");
-			var modalImg = document.getElementById("img01");
-			var captionText = document.getElementById("reportCaption");
-			var closeBtn = document.getElementsByClassName("report-modal-close")[0];
-
-			document.querySelectorAll('.report-image').forEach(function(image) {
-				image.onclick = function(){
-					modal.classList.add("show");
-					modalImg.src = this.src;
-					captionText.innerHTML = this.alt;
-				}
-			});
-
-			closeBtn.onclick = function() {
-				modal.classList.remove("show");
-			}
-
-			modal.onclick = function(event) {
-				if (event.target === modal) {
-						modal.classList.remove("show");
-				}
-			}
-		});
-	</script>
-
 	<script src="components/components.js" defer></script>
-	<script src="script.js" defer></script>
+	<script src="assets/js/reports.js" defer></script>
+	<script src="assets/js/script.js" defer></script>
 
 </body>
 </html>

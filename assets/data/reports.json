@@ -1,0 +1,134 @@
+{
+  "monthly": [
+    {
+      "id": "m208112",
+      "title": "Chaitra, 2082",
+      "title_np": "चैत्र, २०८१",
+      "file_path": "assets/uploads/reports/monthly/2081-12-chaitra.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2081-12-chaitra.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-04-20"
+    },
+    {
+      "id": "m208201",
+      "title": "Baisakh, 2082",
+      "title_np": "बैशाख, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-01-baisakh.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-01-baisakh.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-05-20"
+    },
+		{
+      "id": "m208202",
+      "title": "Jestha, 2082",
+      "title_np": "जेष्ठ, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-02-jestha.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-02-jestha.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-06-19"
+    },
+    {
+      "id": "m208203",
+      "title": "Ashar, 2082",
+      "title_np": "असार, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-03-ashar.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-03-ashar.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-07-22"
+    },
+		{
+      "id": "m208204",
+      "title": "Shrawan, 2082",
+      "title_np": "श्रावण, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2081-04-shrawan.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-04-shrawan.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-08-24"
+    },
+    {
+      "id": "m208205",
+      "title": "Bhadra, 2082",
+      "title_np": "भाद्र, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-05-bhadra.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-05-bhadra.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-09-21"
+    },
+		{
+      "id": "m208206",
+      "title": "Ashoj, 2082",
+      "title_np": "असोज, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-06-ashoj.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-06-ashoj.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-10-06"
+    },
+    {
+      "id": "m208207",
+      "title": "Kartik, 2082",
+      "title_np": "कार्तिक, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-07-kartik.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-07-kartik.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-11-21"
+    },
+		{
+      "id": "m208208",
+      "title": "Mangsir, 2082",
+      "title_np": "म‌ङ्सिर, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-08-mangsir.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-08-mangsir.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-12-22"
+    },
+    {
+      "id": "m208209",
+      "title": "Poush, 2082",
+      "title_np": "पौष, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-09-poush.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-09-poush.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-01-19"
+    },
+		{
+      "id": "m208210",
+      "title": "Magh, 2082",
+      "title_np": "माघ, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-10-magh.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-10-magh.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-02-18"
+    },
+    {
+      "id": "m208211",
+      "title": "Falgun, 2082",
+      "title_np": "फाल्गुन, २०८२",
+      "file_path": "assets/uploads/reports/monthly/2082-11-falgun.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2082-11-falgun.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-03-23"
+    }
+  ],
+  "quarterly": [
+    {
+      "id": "q1",
+      "title": "Third Quarter Report, 2081/82",
+      "title_np": "तेस्रो त्रैमासिक प्रतिवेदन, २०८१/८२",
+      "file_path": "assets/uploads/reports/quarterly/q3-2081-82.jpg",
+      "thumbnail": "assets/uploads/reports/quarterly/q3-2081-82.jpg",
+      "file_type": "jpg",
+      "publish_date": "2025-04-15"
+    }
+  ],
+  "annual": [
+    {
+      "id": "a1",
+      "title": "Annual Report, 2081/82",
+      "title_np": "वार्षिक प्रतिवेदन, २०८१/८२",
+      "file_path": "assets/uploads/reports/annual/agm-11-2082.pdf",
+      "thumbnail": "assets/uploads/pdf-thumbnails/annual-2080-81.jpg",
+      "file_type": "pdf",
+      "publish_date": "2024-08-01"
+    }
+  ]
+}
