@@ -62,8 +62,8 @@
     "publish_date": "2026-02-14",
     "headline": "Holiday Notice",
     "headline_ne": "कार्यालय विदा सम्बन्धमा",
-    "summary": "Branch and service points will remain closed on the announced holiday date.",
-    "summary_ne": "घोषित विदा मितिमा शाखा तथा सेवा केन्द्रहरू बन्द रहने जानकारी गराइन्छ।",
+    "summary": "All our offices will remain closed on the announced holiday date.",
+    "summary_ne": "घोषित विदा मितिमा हाम्रा सम्पूर्ण कार्यालयहरू बन्द रहने जानकारी गराइन्छ।",
     "link": "assets/uploads/notices/Holiday-20821103-Shivaratri.jpg",
     "link_type": "file",
     "file_type": "jpg"
@@ -77,6 +77,18 @@
     "summary": "Monthly organizational status and operational progress details have been published for members.",
     "summary_ne": "सदस्यहरूका लागि मासिक संस्थागत अवस्था तथा सञ्चालन प्रगति विवरण प्रकाशित गरिएको छ।",
     "link": "assets/uploads/notices/bibaran-monthly.jpg",
+    "link_type": "file",
+    "file_type": "jpg"
+  },
+	{
+    "id": 8,
+    "category": "notice",
+    "publish_date": "2026-04-14",
+    "headline": "New Year 2083 & Siruwa Parva Holiday",
+    "headline_ne": "नयाँ वर्ष २०८३ तथा सिरुवा पर्व विदा",
+    "summary": "All our offices will remain closed on the announced holiday date.",
+    "summary_ne": "घोषित विदा मितिमा हाम्रा सम्पूर्ण कार्यालयहरू बन्द रहने जानकारी गराइन्छ।",
+    "link": "assets/uploads/notices/Holiday-20830101.jpg",
     "link_type": "file",
     "file_type": "jpg"
   }
