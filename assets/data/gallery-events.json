@@ -1,0 +1,91 @@
+{
+  "events": [
+		{
+      "id": "member-program-rajgadh-2082",
+      "label": "सदस्य विस्तारित भेला राजगढ २०८२",
+      "photos": [
+        {
+          "src": "assets/uploads/photos/mem-pro-rajgadh-2082/mem-pro-rajgadh-2082-01.jpg"
+        },
+				{
+          "src": "assets/uploads/photos/mem-pro-rajgadh-2082/mem-pro-rajgadh-2082-02.jpg"
+        }
+      ]
+    },
+		{
+      "id": "fs-training-2082",
+      "label": "बजार प्रतिनिधि क्षमता अधिवृद्धि २०८२",
+      "photos": [
+        {
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-01.jpeg"
+        },
+				{
+          "src": "/assets/uploads/photos/fs-training-2082/fs-training-2082-02.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-03.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-04.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-05.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-06.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-07.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-08.jpeg"
+        },
+				{
+          "src": "assets/uploads/photos/fs-training-2082/fs-training-2082-09.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "agm-11-2082",
+      "label": "11th Annual General Meeting 2082",
+      "photos": [
+        {
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-01.JPG"
+        },
+        {
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-02.JPG"
+        },
+        {
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-03.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-03.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-04.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-05.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-06.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-07.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-08.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-09.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-10.JPG"
+        },
+				{
+          "src": "assets/uploads/photos/agm-11-2082/agm-11-photo-11.JPG"
+        }
+      ]
+    }    
+  ]
+}

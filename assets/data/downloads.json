@@ -1,0 +1,88 @@
+{
+  "categories": [
+		{
+      "id": "calendars",
+      "name": "Saccos Calendar",
+      "name_np": "साकोस क्यालेन्डर",
+      "documents": [
+        {
+          "title": "Saccos Calendar 2083",
+          "title_np": "साकोस क्यालेन्डर २०८३",
+          "description": "Office Calendar for B.S. 2083",
+          "description_np": "विस २०८३ सालको संस्थागत क्यालेन्डर",
+          "file_url": "assets/uploads/calendars/janashakti-saccos-calendar-2083.pdf",
+          "last_updated": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "forms",
+      "name": "Application Forms",
+      "name_np": "आवेदन फारामहरू",
+      "documents": [
+        {
+          "title": "Loan Application Form",
+          "title_np": "ऋण आवेदन फाराम",
+          "description": "Standard form required to apply for member loans.",
+          "description_np": "सदस्य ऋण आवेदनका लागि आवश्यक मानक फाराम।",
+          "file_url": "assets/uploads/reports/annual/agm-11-2082.pdf",
+          "last_updated": "2026-01-10"
+        },
+        {
+          "title": "Savings Account Opening Form",
+          "title_np": "बचत खाता खोल्ने फाराम",
+          "description": "Use this form to open a new savings account.",
+          "description_np": "नयाँ बचत खाता खोल्न यो फाराम प्रयोग गर्नुहोस्।",
+          "file_url": "assets/uploads/reports/annual/agm-11-2082.pdf",
+          "last_updated": "2025-12-18"
+        }
+      ]
+    },
+    {
+      "id": "policies",
+      "name": "Policies and Guidelines",
+      "name_np": "नीति तथा निर्देशिकाहरू",
+      "documents": [
+        {
+          "title": "Credit Policy 2082",
+          "title_np": "कर्जा नीति २०८२",
+          "description": "Detailed policy for loan eligibility, limits and repayment terms.",
+          "description_np": "ऋण पात्रता, सीमा र भुक्तानी सर्तहरूको विस्तृत नीति।",
+          "file_url": "assets/uploads/reports/annual/agm-11-2082.pdf",
+          "last_updated": "2026-02-05"
+        },
+        {
+          "title": "Member Service Guidelines",
+          "title_np": "सदस्य सेवा निर्देशिका",
+          "description": "Service standards and required process steps for members.",
+          "description_np": "सदस्यका लागि सेवा मापदण्ड र आवश्यक प्रक्रिया चरणहरू।",
+          "file_url": "assets/uploads/reports/annual/agm-11-2082.pdf",
+          "last_updated": "2025-11-22"
+        }
+      ]
+    },
+    {
+      "id": "disclosures",
+      "name": "Public Disclosures",
+      "name_np": "सार्वजनिक खुलासा",
+      "documents": [
+        {
+          "title": "Annual Disclosure Report",
+          "title_np": "वार्षिक खुलासा प्रतिवेदन",
+          "description": "Yearly disclosure summary for governance and financial transparency.",
+          "description_np": "सुशासन र वित्तीय पारदर्शिताका लागि वार्षिक खुलासा सारांश।",
+          "file_url": "assets/uploads/reports/annual/agm-11-2082.pdf",
+          "last_updated": "2025-08-01"
+        },
+        {
+          "title": "Member Rights and Responsibilities",
+          "title_np": "सदस्य अधिकार तथा जिम्मेवारी",
+          "description": "Overview of member rights, duties, and grievance channels.",
+          "description_np": "सदस्य अधिकार, कर्तव्य र गुनासो व्यवस्थापनका माध्यमहरूको अवलोकन।",
+          "file_url": "assets/uploads/reports/annual/agm-11-2082.pdf",
+          "last_updated": "2025-10-14"
+        }
+      ]
+    }
+  ]
+}

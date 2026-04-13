@@ -68,7 +68,13 @@
                         <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
                     </ul>
                 </li>      
-                <li><a href="notice.html" data-en="Notice" data-ne="सूचना">Notice</a></li>
+                <li class="has-dropdown">
+                  <a href="news.html" data-en="News & Notice" data-ne="समाचार र सूचना">News & Notice <i class="fas fa-chevron-down"></i></a>
+                  <ul class="dropdown">
+                    <li><a href="news.html?category=news" data-en="News" data-ne="समाचार">News</a></li>
+                    <li><a href="news.html?category=notice" data-en="Notice" data-ne="सूचना">Notice</a></li>
+                  </ul>
+                </li>
                 <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
                 <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
                 <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
@@ -85,6 +91,15 @@
       <img src="assets/banners/group-banner.JPG" alt="Banner 1" class="active">
       <img src="assets/banners/samiti-banner.JPG" alt="Banner 2" class="">
       <img src="assets/banners/puraskrit-banner.JPG" alt="Banner 3" class="">
+    </section>
+    <section class="news-bar-home reveal" aria-label="Latest news updates">
+      <div class="news-bar-label" data-en="Latest Updates" data-ne="ताजा अपडेट">Latest Updates</div>
+      <a href="news.html" class="news-bar-headline-link" data-news-link>
+        <span class="news-bar-headline-wrap">
+          <span class="news-bar-headline" data-news-headline data-en="Loading latest headlines..." data-ne="ताजा शीर्षक लोड हुँदैछ...">Loading latest headlines...</span>
+        </span>
+        <span class="news-bar-date" data-news-date></span>
+      </a>
     </section>
     <section class="main-content-home reveal">
       <div class="chairman-msg reveal-left">
@@ -216,7 +231,7 @@
           <a href="#">
               <span class="material-icons-outlined">calculate</span>
               EMI Calculator
-          </a>            
+          </a>
       </div>
       <div class="utility">
           <a href="#">
@@ -225,7 +240,7 @@
           </a>
       </div>
       <div class="utility">
-          <a href="notice.html">
+          <a href="news.html">
               <span class="material-icons-outlined">feed</span>
               News & Notices
           </a>
@@ -237,10 +252,10 @@
           </a>                    
       </div>
       <div class="utility">
-          <a href="#">
+          <a href="downloads.html">
               <span class="material-icons-outlined">attachment</span>
               Downloads
-          </a>           
+          </a>         
       </div>
     </section>
     <section class="get-in-touch reveal">

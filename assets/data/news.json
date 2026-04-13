@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "category": "news",
+    "publish_date": "2026-04-07",
+    "headline": "10th AGM preparations enter final phase",
+    "headline_ne": "१०औं वार्षिक साधारण सभाको तयारी अन्तिम चरणमा",
+    "summary": "Final coordination meetings and member briefings have started for the upcoming 10th Annual General Meeting.",
+    "summary_ne": "आगामी १०औं वार्षिक साधारण सभाका लागि अन्तिम समन्वय बैठक र सदस्य अभिमुखीकरण सुरु भएको छ।",
+    "link": "assets/pages/10th-agm-2081.html",
+    "link_type": "url"
+  },
+  {
+    "id": 2,
+    "category": "news",
+    "publish_date": "2026-04-03",
+    "headline": "Half-yearly revision program schedule published",
+    "headline_ne": "अर्धवार्षिक समीक्षा कार्यक्रमको तालिका प्रकाशित",
+    "summary": "The cooperative has released updated dates and sessions for the half-yearly financial and operational review.",
+    "summary_ne": "संस्थाले अर्धवार्षिक वित्तीय तथा सञ्चालन समीक्षा कार्यक्रमका अद्यावधिक मिति र सत्रहरू सार्वजनिक गरेको छ।",
+    "link": "assets/pages/half-yearly-revision-fy-081-82.html",
+    "link_type": "url"
+  },
+  {
+    "id": 3,
+    "category": "news",
+    "publish_date": "2026-03-30",
+    "headline": "Member education orientation completed in ward cluster",
+    "headline_ne": "वडा क्लस्टरमा सदस्य शिक्षा अभिमुखीकरण सम्पन्न",
+    "summary": "A focused member education session was completed to improve financial literacy and cooperative participation.",
+    "summary_ne": "वित्तीय साक्षरता र सहकारी सहभागिता वृद्धि गर्न लक्षित सदस्य शिक्षा सत्र सफलतापूर्वक सम्पन्न भयो।",
+    "link": "assets/pages/member-education-2080.html",
+    "link_type": "url"
+  },
+  {
+    "id": 4,
+    "category": "notice",
+    "publish_date": "2026-03-24",
+    "headline": "Registration update regarding NCRA documentation",
+    "headline_ne": "NCRA कागजात सम्बन्धी दर्ता अद्यावधिक सूचना",
+    "summary": "Notice has been issued regarding registration documentation and record updates under NCRA guidelines.",
+    "summary_ne": "NCRA निर्देशिका अनुसार दर्ता कागजात तथा अभिलेख अद्यावधिकबारे सूचना जारी गरिएको छ।",
+    "link": "assets/uploads/notices/operative-license-ncra.jpg",
+    "link_type": "file",
+    "file_type": "jpg"
+  },
+  {
+    "id": 5,
+    "category": "notice",
+    "publish_date": "2026-03-21",
+    "headline": "Office timing update for service counters",
+    "headline_ne": "सेवा काउन्टरका लागि कार्यालय समय अद्यावधिक",
+    "summary": "Members are informed about revised service counter timings effective this week.",
+    "summary_ne": "यस हप्तादेखि लागू हुने संशोधित सेवा काउन्टर समयबारे सदस्यहरूलाई जानकारी गराइन्छ।",
+    "link": "assets/uploads/notices/office-time-notice.jpg",
+    "link_type": "file",
+    "file_type": "jpg"
+  },
+  {
+    "id": 6,
+    "category": "notice",
+    "publish_date": "2026-02-14",
+    "headline": "Holiday Notice",
+    "headline_ne": "कार्यालय विदा सम्बन्धमा",
+    "summary": "Branch and service points will remain closed on the announced holiday date.",
+    "summary_ne": "घोषित विदा मितिमा शाखा तथा सेवा केन्द्रहरू बन्द रहने जानकारी गराइन्छ।",
+    "link": "assets/uploads/notices/Holiday-20821103-Shivaratri.jpg",
+    "link_type": "file",
+    "file_type": "jpg"
+  },
+  {
+    "id": 7,
+    "category": "notice",
+    "publish_date": "2026-03-23",
+    "headline": "Organizational Status Update for Members",
+    "headline_ne": "सदस्यहरूलाई संस्थागत अवस्थाको जानकारी",
+    "summary": "Monthly organizational status and operational progress details have been published for members.",
+    "summary_ne": "सदस्यहरूका लागि मासिक संस्थागत अवस्था तथा सञ्चालन प्रगति विवरण प्रकाशित गरिएको छ।",
+    "link": "assets/uploads/notices/bibaran-monthly.jpg",
+    "link_type": "file",
+    "file_type": "jpg"
+  }
+]

@@ -54,6 +54,22 @@ document.addEventListener("DOMContentLoaded", () => {
     hasDropdowns.forEach(dropdown => {
       dropdown.addEventListener("click", function (e) {
         if (window.innerWidth <= 768) {
+          const topLink = this.querySelector(":scope > a");
+          const clickedTopLink = e.target.closest("a") === topLink;
+          const hasRealTopLink = topLink && topLink.getAttribute("href") && topLink.getAttribute("href") !== "#";
+
+          if (clickedTopLink) {
+            if (hasRealTopLink && !this.classList.contains("active")) {
+              e.preventDefault();
+              this.classList.add("active");
+            } else if (!hasRealTopLink) {
+              e.preventDefault();
+              this.classList.toggle("active");
+            }
+            return;
+          }
+
+          if (e.target.closest(".dropdown")) return;
           e.preventDefault();
           this.classList.toggle("active");
         }
@@ -64,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Language switcher
   function initLanguageSwitcher() {
     const langButtons = document.querySelectorAll(".lang-btn");
-    const translatableElements = document.querySelectorAll("[data-en][data-ne]");
+    const translatableElements = document.querySelectorAll("[data-en][data-ne]:not(.lang-btn)");
     if (!langButtons.length || !translatableElements.length) return;
 
     langButtons.forEach(button => {
@@ -189,6 +205,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Dynamic statistics loader with language support ---
   let currentLang = 'en'; // default
   let statsCache = null;
+  let newsCache = [];
+  let newsIndex = 0;
+  let newsInterval = null;
+  let newsAnimationBound = false;
   let counterAnimationStarted = false;
 
   // Currency-related stat keys
@@ -280,6 +300,75 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error('Error loading statistics:', err));
   }
 
+  function formatNewsDate(dateString, lang) {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return '';
+
+    const locale = lang === 'ne' ? 'ne-NP' : 'en-US';
+    return date.toLocaleDateString(locale, {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit'
+    });
+  }
+
+  function updateNewsBar() {
+    const headlineEl = document.querySelector('[data-news-headline]');
+    const dateEl = document.querySelector('[data-news-date]');
+    const linkEl = document.querySelector('[data-news-link]');
+    if (!headlineEl || !dateEl || !linkEl || !newsCache.length) return;
+
+    const item = newsCache[newsIndex];
+    const headline = currentLang === 'ne' && item.headline_ne ? item.headline_ne : item.headline;
+    const targetLink = item.link || 'news.html';
+
+    headlineEl.textContent = headline || 'Latest update';
+    dateEl.textContent = formatNewsDate(item.publish_date, currentLang);
+    linkEl.setAttribute('href', targetLink);
+  }
+
+  function initNewsBar() {
+    const newsBar = document.querySelector('.news-bar-home');
+    const headlineEl = document.querySelector('[data-news-headline]');
+    if (!newsBar) return;
+
+    fetch('assets/data/news.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load news items');
+        return res.json();
+      })
+      .then(json => {
+        if (!Array.isArray(json) || !json.length) return;
+
+        newsCache = [...json].sort((a, b) => new Date(b.publish_date) - new Date(a.publish_date));
+        newsIndex = 0;
+        updateNewsBar();
+
+        if (headlineEl) {
+          if (newsInterval) clearInterval(newsInterval);
+          headlineEl.classList.remove('marquee-active');
+          void headlineEl.offsetWidth;
+          headlineEl.classList.add('marquee-active');
+
+          if (!newsAnimationBound) {
+            headlineEl.addEventListener('animationiteration', () => {
+              if (!newsCache.length) return;
+              newsIndex = (newsIndex + 1) % newsCache.length;
+              updateNewsBar();
+            });
+            newsAnimationBound = true;
+          }
+        }
+      })
+      .catch(err => {
+        const headlineEl = document.querySelector('[data-news-headline]');
+        const dateEl = document.querySelector('[data-news-date]');
+        if (headlineEl) headlineEl.textContent = 'Latest news updates are unavailable right now.';
+        if (dateEl) dateEl.textContent = '';
+        console.error('Error loading news bar:', err);
+      });
+  }
+
   function setupLanguageStatsSync() {
     // delegate clicks so replacement of buttons doesn't break us
     document.body.addEventListener('click', e => {
@@ -290,6 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentLang = lang;
         console.log('language selected', currentLang);
         applyStats(currentLang);
+        updateNewsBar();
       }
     });
 
@@ -299,6 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (active) {
         currentLang = active.getAttribute('data-lang') || currentLang;
         applyStats(currentLang);
+        updateNewsBar();
       }
     });
   }
@@ -308,8 +399,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (activeLangBtn) {
     currentLang = activeLangBtn.getAttribute('data-lang');
   }
-
-  setupLanguageStatsSync();
 
   // --- Show Board ---
   function initShowBoard() {
@@ -612,6 +701,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarScroll();
   initModal();
   initSmoothScroll();
+  initNewsBar();
   initStats();
   initScrollReveal();
   initImageFadeIn();

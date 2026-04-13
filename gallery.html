@@ -16,284 +16,118 @@
   <div id="preloader">
     <div class="spinner"></div>
   </div>
-  <header class="top-util-bar">
-    <div class="top-container">
-      <button class="menu-toggle" aria-label="Toggle Menu">
-        <i class="fas fa-bars"></i>
-      </button>
 
-      <div class="top-contact-info">
-        <span><i class="fas fa-phone-alt"></i> +977-23-533344</span>
-        <span class="location">| Birtamode, Jhapa |</span>
-        <span><i class="fas fa-envelope"></i> janashakticoop2014@gmail.com</span>
-      </div>
+	<div id="header-container"></div>
 
-      <div class="buttons-home">
-        <button id="lang-en" class="lang-btn active" data-lang="en">
-          <img src="assets/icons/usa-flag.png" alt="English">
-          <span>En</span>
-        </button>
-        <button id="lang-ne" class="lang-btn" data-lang="ne">
-          <img src="assets/icons/nepal-flag.png" alt="Nepali">
-          <span>ने</span>
-        </button>
-      </div>
-    </div>
-  </header>
+	<main>
+			<section class="gallery-section reveal">
+					<div class="section-title">
+							<h1>Gallery</h1>
+							<p>Explore the glimpses captured during our numerous programmes and activities.</p>
+					</div>
+					<div class="gallery-nav">
+							<button class="gallery-btn active" data-target="photos">Photos</button>
+							<button class="gallery-btn" data-target="videos">Videos</button>
+					</div>
+					<div class="gallery-content">
+						<div class="photos">
+							<div class="photos-grid" id="gallery-events-grid"></div>
 
-  <nav id="mainNav" class="nav-bar" role="navigation">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/logo-header.png" alt="Janashakti Logo" class="nav-logo">
-                </a>
-            </div>
+							<div id="event-photos-view" class="is-hidden">
+								<div class="event-photos-header">
+									<button type="button" id="event-photos-back" class="event-back-btn">
+										<i class="fas fa-arrow-left"></i> Back to Events
+									</button>
+									<h2 id="event-photos-title"></h2>
+								</div>
+								<div id="event-photos-grid" class="event-photos-grid"></div>
+							</div>
+						</div>
+					<div class="videos is-hidden">
+							<div class="photos-grid">
+									<a href="assets/pages/half-yearly-revision-fy-081-82.html" class="thumbnail video">
+											<div class="revision-program half-yearly fy-081-82">
+													<img src="assets/thumbnails/agm-10-1.JPG" alt="Half-yearly Revision Program">
+													<div class="thumbnail-title">
+															<h3>Half-yearly Revision Program FY-2081/082</h3>
+													</div>
+													<div class="view video">
+															<i class="fas fa-play"></i>
+															<span>Play Video</span>
+													</div>
+											</div>
+									</a>
+									<a href="assets/pages/10th-agm-2081.html" class="thumbnail video">
+											<div class="annual-general-meeting agm agm-10 2081">
+													<img src="assets/thumbnails/agm-10-1.JPG" alt="Annual General Meeting Opening">
+													<div class="thumbnail-title">
+															<h3>10th Annual General Meeting 2081</h3>
+													</div>                            
+													<div class="view video">
+															<i class="fas fa-play"></i>
+															<span>Play Video</span>
+													</div>
+											</div>
+									</a>
+									<a href="assets/pages/annual-revision-fy-081-82.html" class="thumbnail video">
+											<div class="revision-program annual fy-080-81">
+													<img src="assets/thumbnails/agm-10-1.JPG" alt="Annual Revision Program">
+													<div class="thumbnail-title">
+															<h3>Annual Revision Program FY-2080/081</h3>
+													</div>
+													<div class="view video">
+															<i class="fas fa-play"></i>
+															<span>Play Video</span>
+													</div>
+											</div>
+									</a>
+									<a href="assets/pages/employee-motivation-2081.html" class="thumbnail video">
+											<div class="training-seminar employee-motivation-training 2080">
+													<img src="assets/thumbnails/agm-10-1.JPG" alt="Employee Motivation Training">
+													<div class="thumbnail-title">
+															<h3>Employee Motivation Training 2080</h3>
+													</div>
+													<div class="view video">
+															<i class="fas fa-play"></i>
+															<span>Play Video</span>
+													</div>
+											</div>
+									</a>
+									<a href="assets/pages/employee-orientation-2080.html" class="thumbnail video">
+											<div class="training-seminar employee-orientation-training 2080">
+													<img src="assets/thumbnails/agm-10-1.JPG" alt="Employee Orientation Program">
+													<div class="thumbnail-title">
+															<h3>Employee Orientation Program 2080</h3>
+													</div>
+													<div class="view video">
+															<i class="fas fa-play"></i>
+															<span>Play Video</span>
+													</div>
+											</div>
+									</a>
+							</div>
+					</div>
+				</div>
+				</div>
 
-            <ul class="menu">
-                <li><a href="index.html" data-en="Home" data-ne="गृहपृष्ठ">Home</a></li>
-                <li class="has-dropdown">
-                    <a href="#" data-en="About" data-ne="हाम्राे बारेमा">About <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="about.html#about-hero-section" data-en="About Us" data-ne="हाम्राे बारेमा">About Us</a></li>
-                        <li><a href="about.html#chairman-msg-section" data-en="Chairman's Message" data-ne="अध्यक्षको सन्देश">Chairman's Message</a></li>
-                        <li><a href="about.html#geo-reach-section" data-en="Our Scope" data-ne="हाम्रो कार्यक्षेत्र">Our Scope</a></li>
-                        <li><a href="about.html#board-members-section" data-en="Board & Committees" data-ne="समिति तथा उप-समिति">Board & Committee</a></li>
-                        <li><a href="about.html#management-team-section" data-en="Management Team" data-ne="व्यवस्थापन टिम">Management Team</a></li>
-                    </ul>
-                </li>
-                <li class="has-dropdown">
-                    <a href="#" data-en="Services" data-ne="हाम्राे सेवाहरू">Services <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="savings.html" data-en="Saving Schemes" data-ne="बचत याेजना">Saving Schemes</a></li>
-                        <li><a href="loans.html" data-en="Loan Facilities" data-ne="ऋण सुविधा">Loan Facilities</a></li>
-                    </ul>
-                </li>      
-                <li><a href="notice.html" data-en="Notice" data-ne="सूचना">Notice</a></li>
-                <li><a href="gallery.html" data-en="Gallery" data-ne="ग्यालरी">Gallery</a></li>
-                <li><a href="reports.html" data-en="Reports" data-ne="रिपोर्टहरू">Reports</a></li>
-                <li><a href="contact.html" data-en="Contact" data-ne="सम्पर्क">Contact</a></li>
-                
-                <li class="nav-cta">
-                    <a href="jobs.html" data-en="Apply Now" data-ne="आवेदन दिनुहोस्">Apply Now</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+		</section>
+	</main>
 
-    <main>
-        <section class="gallery-section reveal">
-            <div class="section-title">
-                <h1>Gallery</h1>
-                <p>Explore the glimpses captured during our numerous programmes and activities.</p>
-            </div>
-            <div class="gallery-nav">
-                <button class="gallery-btn active" data-target="photos">Photos</button>
-                <button class="gallery-btn" data-target="videos">Videos</button>
-            </div>
-            <div class="photos">
-                <div class="photos-grid">
-                    <a href="assets/pages/half-yearly-revision-fy-081-82.html" class="thumbnail">
-                        <div class="revision-program half-yearly fy-081-82">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Half-yearly Revision Program">
-                            <div class="thumbnail-title">
-                                <h3>Half-yearly Revision Program FY-2081/082</h3>
-                            </div>
-                            <div class="view photos">
-                                <i class="fas fa-search"></i>
-                                <span>View Photos</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/10th-agm-2081.html" class="thumbnail">
-                        <div class="annual-general-meeting agm agm-10 2081">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Annual General Meeting Opening">
-                            <div class="thumbnail-title">
-                                <h3>10th Annual General Meeting 2081</h3>
-                            </div>                            
-                            <div class="view photos">
-                                <i class="fas fa-search"></i>
-                                <span>View Photos</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/annual-revision-fy-081-82.html" class="thumbnail">
-                        <div class="revision-program annual fy-080-81">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Annual Revision Program">
-                            <div class="thumbnail-title">
-                                <h3>Annual Revision Program FY-2080/081</h3>
-                            </div>
-                            <div class="view photos">
-                                <i class="fas fa-search"></i>
-                                <span>View Photos</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/employee-motivation-2081.html" class="thumbnail">
-                        <div class="training-seminar employee-motivation-training 2080">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Employee Motivation Training">
-                            <div class="thumbnail-title">
-                                <h3>Employee Motivation Training 2080</h3>
-                            </div>
-                            <div class="view photos">
-                                <i class="fas fa-search"></i>
-                                <span>View Photos</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/employee-orientation-2080.html" class="thumbnail">
-                        <div class="training-seminar employee-orientation-training 2080">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Employee Orientation Program">
-                            <div class="thumbnail-title">
-                                <h3>Employee Orientation Program 2080</h3>
-                            </div>
-                            <div class="view photos">
-                                <i class="fas fa-search"></i>
-                                <span>View Photos</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/member-education-2080.html" class="thumbnail">
-                        <div class="training-seminar member-education-program 2080">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Member Educational Training">
-                            <div class="thumbnail-title">
-                                <h3>Member Education Program 2080</h3>
-                            </div>
-                            <div class="view photos">
-                                <i class="fas fa-search"></i>
-                                <span>View Photos</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>                
-            <div class="videos">
-                <div class="photos-grid">
-                    <a href="assets/pages/half-yearly-revision-fy-081-82.html" class="thumbnail video">
-                        <div class="revision-program half-yearly fy-081-82">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Half-yearly Revision Program">
-                            <div class="thumbnail-title">
-                                <h3>Half-yearly Revision Program FY-2081/082</h3>
-                            </div>
-                            <div class="view video">
-                                <i class="fas fa-play"></i>
-                                <span>Play Video</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/10th-agm-2081.html" class="thumbnail video">
-                        <div class="annual-general-meeting agm agm-10 2081">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Annual General Meeting Opening">
-                            <div class="thumbnail-title">
-                                <h3>10th Annual General Meeting 2081</h3>
-                            </div>                            
-                            <div class="view video">
-                                <i class="fas fa-play"></i>
-                                <span>Play Video</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/annual-revision-fy-081-82.html" class="thumbnail video">
-                        <div class="revision-program annual fy-080-81">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Annual Revision Program">
-                            <div class="thumbnail-title">
-                                <h3>Annual Revision Program FY-2080/081</h3>
-                            </div>
-                            <div class="view video">
-                                <i class="fas fa-play"></i>
-                                <span>Play Video</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/employee-motivation-2081.html" class="thumbnail video">
-                        <div class="training-seminar employee-motivation-training 2080">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Employee Motivation Training">
-                            <div class="thumbnail-title">
-                                <h3>Employee Motivation Training 2080</h3>
-                            </div>
-                            <div class="view video">
-                                <i class="fas fa-play"></i>
-                                <span>Play Video</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="assets/pages/employee-orientation-2080.html" class="thumbnail video">
-                        <div class="training-seminar employee-orientation-training 2080">
-                            <img src="assets/thumbnails/agm-10-1.JPG" alt="Employee Orientation Program">
-                            <div class="thumbnail-title">
-                                <h3>Employee Orientation Program 2080</h3>
-                            </div>
-                            <div class="view video">
-                                <i class="fas fa-play"></i>
-                                <span>Play Video</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const galleryButtons = document.querySelectorAll('.gallery-btn');
-            const photosSection = document.querySelector('.photos');
-            const videosSection = document.querySelector('.videos');
+	<div id="footer-container"></div>
 
-            galleryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    galleryButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    button.classList.add('active');
+	<div id="gallery-photo-modal" class="modal-overlay" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photo viewer">
+		<button type="button" id="gallery-photo-close" class="gallery-photo-close-btn" aria-label="Close photo viewer">&times;</button>
+		<button type="button" id="gallery-photo-prev" class="gallery-viewer-nav prev" aria-label="Previous photo">
+			<i class="fas fa-chevron-left"></i>
+		</button>
+		<img id="gallery-photo-image" src="" alt="Gallery preview image">
+		<button type="button" id="gallery-photo-next" class="gallery-viewer-nav next" aria-label="Next photo">
+			<i class="fas fa-chevron-right"></i>
+		</button>
+	</div>
 
-                    // Toggle sections based on button clicked
-                    if (button.dataset.target === 'photos') {
-                        photosSection.style.display = 'block';
-                        videosSection.style.display = 'none';
-                    } else {
-                        photosSection.style.display = 'none';
-                        videosSection.style.display = 'block';
-                    }
-                });
-            });
-        });
-    </script>
-  <footer>
-    <section class="footer-section">
-      <div class="overview">
-        <h3>Overview</h3>
-        <P>Founded in 2014 with 31 members, Janashakti SACCOS has grown to serve over 5,000 members across six local bodies in Jhapa. Rooted in community and trust, we provide savings and credit services that empower individuals, strengthen families, and promote sustainable financial security.</P>
-      </div>
-      <div class="quick-links">
-        <h3>Quick Links</h3>
-        <a href="#" target="_blank" rel="noopener noreferrer">Our Annual Calendar<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://ncra.gov.np/" target="_blank" rel="noopener noreferrer">NCRA<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://www.deoc.gov.np/" target="_blank" rel="noopener noreferrer">Department of Cooperative<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://copomis.gov.np/" target="_blank" rel="noopener noreferrer">COPOMIS<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://goaml.fiu.nrb.org.np/PRD/content/#/home" target="_blank" rel="noopener noreferrer">goAML<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://www.nrb.org.np/" target="_blank" rel="noopener noreferrer">Nepal Rastra Bank(NRB)<i class="fas fa-external-link-alt"></i></a>
-        <a href="https://ncbl.coop/" target="_blank" rel="noopener noreferrer">NCBL<i class="fas fa-external-link-alt"></i></a>
-      </div>
-      <div class="contact-info">
-        <h3>Contact Us</h3>
-        <p><i class="fas fa-map-marker-alt"></i>Bhadrapur Road, Birtamod-4, Jhapa, Nepal</p>
-        <p><i class="fas fa-phone-alt"></i>+977-23-533344</p>
-        <p><i class="fas fa-envelope"></i><a href="mailto:janashakticoop2014@gmail.com">janashakticoop2014@gmail.com</a></p>
-        <div class="social-icon">
-          <p>Follow us:</p>
-          <a href="https://www.facebook.com/jsaccosbirtamod" target="_blank" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.twitter.com" target="_blank" class="social-icon twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.youtube.com" target="_blank" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-    </section> 
-    <div class="copyright">
-      <p>&copy; 2025 Janashakti Saving And Credit Cooperative Ltd. All rights reserved.</p>
-      <p class="credits">
-        Designed & Developed by: <a href="https://www.linkedin.com/in/kiranj-deep-yonghang-b77778289/" target="_blank" aria-label="LinkedIn-Profile">Kiranj Deep Yonghang</a>
-      </p>
-    </div>
-  </footer>
-    <script src="assets/js/script.js" defer></script>
+	<script src="assets/js/script.js" defer></script>
+	<script src="components/components.js"></script>
+	<script src="assets/js/gallery.js"></script>
 </body>
 </html>

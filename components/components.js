@@ -102,6 +102,22 @@ const ComponentLoader = {
 	hasDropdowns.forEach(dropdown => {
 	dropdown.addEventListener('click', function (e) {
 	if (window.innerWidth <= 768) {
+	const topLink = this.querySelector(':scope > a');
+	const clickedTopLink = e.target.closest('a') === topLink;
+	const hasRealTopLink = topLink && topLink.getAttribute('href') && topLink.getAttribute('href') !== '#';
+
+	if (clickedTopLink) {
+	if (hasRealTopLink && !this.classList.contains('active')) {
+	e.preventDefault();
+	this.classList.add('active');
+	} else if (!hasRealTopLink) {
+	e.preventDefault();
+	this.classList.toggle('active');
+	}
+	return;
+	}
+
+	if (e.target.closest('.dropdown')) return;
 	e.preventDefault();
 	this.classList.toggle('active');
 	}
@@ -137,7 +153,7 @@ const ComponentLoader = {
 	 */
 	initLanguageSwitcher() {
 	const langButtons = document.querySelectorAll('.lang-btn');
-	const translatableElements = document.querySelectorAll('[data-en][data-ne]');
+	const translatableElements = document.querySelectorAll('[data-en][data-ne]:not(.lang-btn)');
 
 	if (!langButtons.length || !translatableElements.length) return;
 
@@ -155,7 +171,8 @@ const ComponentLoader = {
 	element.textContent = element.getAttribute(`data-${selectedLang}`);
 	}
 	});
-	langButtons.forEach(btn => btn.classList.remove('active'));
+	const currentLangButtons = document.querySelectorAll('.lang-btn');
+	currentLangButtons.forEach(btn => btn.classList.remove('active'));
 	newButton.classList.add('active');
 
 	// Store language preference
