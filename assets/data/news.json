@@ -91,5 +91,17 @@
     "link": "assets/uploads/notices/Holiday-20830101.jpg",
     "link_type": "file",
     "file_type": "jpg"
+  },
+	{
+    "id": 8,
+    "category": "notice",
+    "publish_date": "2026-04-16",
+    "headline": "Mata Aunsi Holiday",
+    "headline_ne": "मातातीर्थ औँसी विदा",
+    "summary": "All our offices will remain closed on the announced holiday date.",
+    "summary_ne": "घोषित विदा मितिमा हाम्रा सम्पूर्ण कार्यालयहरू बन्द रहने जानकारी गराइन्छ।",
+    "link": "assets/uploads/notices/Holiday-20830103.jpg",
+    "link_type": "file",
+    "file_type": "jpg"
   }
 ]
