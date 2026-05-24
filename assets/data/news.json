@@ -47,12 +47,12 @@
   {
     "id": 5,
     "category": "notice",
-    "publish_date": "2026-03-21",
-    "headline": "Office timing update for service counters",
-    "headline_ne": "सेवा काउन्टरका लागि कार्यालय समय अद्यावधिक",
-    "summary": "Members are informed about revised service counter timings effective this week.",
-    "summary_ne": "यस हप्तादेखि लागू हुने संशोधित सेवा काउन्टर समयबारे सदस्यहरूलाई जानकारी गराइन्छ।",
-    "link": "assets/uploads/notices/office-time-notice.jpg",
+    "publish_date": "2026-05-23",
+    "headline": "Office Weekly Holiday Change",
+    "headline_ne": "संस्थाको साप्ताहिक विदा सम्बन्धमा",
+    "summary": "Members are informed about revised weekly holiday.",
+    "summary_ne": "सदस्यहरुमा संस्थाको साप्ताहिक विदा परिवर्तन भएको जानकारी गराइन्छ।",
+    "link": "assets/uploads/notices/Weekly-Holiday-Change-20830209.jpg",
     "link_type": "file",
     "file_type": "jpg"
   },
