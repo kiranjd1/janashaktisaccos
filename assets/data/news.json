@@ -1,36 +1,49 @@
 [
-  {
+	{
     "id": 1,
     "category": "news",
-    "publish_date": "2026-04-07",
-    "headline": "10th AGM preparations enter final phase",
-    "headline_ne": "१०औं वार्षिक साधारण सभाको तयारी अन्तिम चरणमा",
-    "summary": "Final coordination meetings and member briefings have started for the upcoming 10th Annual General Meeting.",
-    "summary_ne": "आगामी १०औं वार्षिक साधारण सभाका लागि अन्तिम समन्वय बैठक र सदस्य अभिमुखीकरण सुरु भएको छ।",
-    "link": "assets/pages/10th-agm-2081.html",
-    "link_type": "url"
+    "publish_date": "2026-06-06",
+    "headline": "Extended Member Gathering conducted at Sanischare",
+    "headline_ne": "शनिश्चरेमा सदस्य विस्तारित भेला सम्पन्न",
+    "summary": "An interaction was held with the share members...",
+    "summary_ne": "मिति २०८३ जेठ २३ गते संस्थाको शनिश्चरे...",
+    "content": "SANISCHARE, JHAPA — An interaction was held with the share members present at the 'Extended Member Gathering' organized by the Sanischare Service Center office on June 6, 2026 (Jeth 23, 2083 BS), focusing on the organization's current status, future strategic plans, and contemporary agendas.",
+    "content_ne": "शनिश्चरे, झापा — मिति २०८३ जेठ २३ गते संस्थाको शनिश्चरे सेवा केन्द्र कार्यालयमा आयोजित 'सदस्य विस्तारित मञ्च' कार्यक्रममा उपस्थित शेयर सदस्यहरूसँग संस्थागत अवस्था, भावी कार्ययोजना र समसामयिक विषयहरूमा छलफल गरियो।",
+    "images": [
+      "assets/uploads/photos/member-literacy-program/mem-pro-sanischare-2083-1.jpg",
+      "assets/uploads/photos/member-literacy-program/mem-pro-sanischare-2083-2.jpg",
+			"assets/uploads/photos/member-literacy-program/mem-pro-sanischare-2083-3.jpg"
+    ]
   },
   {
     "id": 2,
     "category": "news",
-    "publish_date": "2026-04-03",
-    "headline": "Half-yearly revision program schedule published",
-    "headline_ne": "अर्धवार्षिक समीक्षा कार्यक्रमको तालिका प्रकाशित",
-    "summary": "The cooperative has released updated dates and sessions for the half-yearly financial and operational review.",
-    "summary_ne": "संस्थाले अर्धवार्षिक वित्तीय तथा सञ्चालन समीक्षा कार्यक्रमका अद्यावधिक मिति र सत्रहरू सार्वजनिक गरेको छ।",
-    "link": "assets/pages/half-yearly-revision-fy-081-82.html",
-    "link_type": "url"
+    "publish_date": "2026-03-21",
+    "headline": "Extended Member Gathering conducted at Rajgadh",
+    "headline_ne": "राजगढमा सदस्य विस्तारित भेला सम्पन्न",
+    "summary": "An interaction was held with the share members...",
+    "summary_ne": "मिति २०८२ चैत्र ७ गते संस्थाको राजगढ सेवा केन्द्र...",
+    "content": "RAJGADH, JHAPA — An interaction was held with the share members present at the 'Extended Member Gathering' organized by the Rajgadh Service Center office on June 6, 2026 (Chaitra 7, 2082 BS), focusing on the organization's current status, future strategic plans, and contemporary agendas",
+    "content_ne": "राजगढ, झापा — मिति २०८२ चैत्र ७ गते संस्थाको राजगढ सेवा केन्द्र कार्यालयमा आयोजित 'सदस्य विस्तारित मञ्च' कार्यक्रममा उपस्थित शेयर सदस्यहरूसँग संस्थागत अवस्था, भावी कार्ययोजना र समसामयिक विषयहरूमा छलफल गरियो।",
+    "images": [
+      "assets/uploads/photos/member-literacy-program/mem-pro-rajgadh-2082-01.jpg",
+      "assets/uploads/photos/member-literacy-program/mem-pro-rajgadh-2082-02.jpg"
+    ]
   },
-  {
+	  {
     "id": 3,
     "category": "news",
-    "publish_date": "2026-03-30",
-    "headline": "Member education orientation completed in ward cluster",
-    "headline_ne": "वडा क्लस्टरमा सदस्य शिक्षा अभिमुखीकरण सम्पन्न",
-    "summary": "A focused member education session was completed to improve financial literacy and cooperative participation.",
-    "summary_ne": "वित्तीय साक्षरता र सहकारी सहभागिता वृद्धि गर्न लक्षित सदस्य शिक्षा सत्र सफलतापूर्वक सम्पन्न भयो।",
-    "link": "assets/pages/member-education-2080.html",
-    "link_type": "url"
+    "publish_date": "2026-06-10",
+		"headline": "Janashakti SACCOS Mourns the Passing of Mr. Mahendra Kumar Kharel.",
+    "headline_ne": "स्व. महेन्द्र कु. खरेलको निधनले जनशक्ति साकोस भावुक एवं स्तब्ध भएको छ।",
+    "summary": "Janashakti SACCOS has expressed deep sorrow over the untimely...",
+    "summary_ne": "जनशक्ति साकोसका आदरणीय शेयर सदस्य श्री. चन्द्र माया खरेलको...",
+    "content": "RAJGADH, JHAPA — Janashakti SACCOS has expressed deep sorrow over the untimely demise of Mr. Mahendra Kumar Kharel, husband of the cooperative's esteemed share member, Mrs. Chandra Maya Kharel. The entire Janashakti SACCOS family extends its heartfelt condolences to the bereaved family during this difficult time, praying for their strength, peace, and eternal rest for the departed soul.",
+    "content_ne": "राजगढ, झापा — जनशक्ति साकोसका आदरणीय शेयर सदस्य श्री. चन्द्र माया खरेलको श्रीमान् स्व. महेन्द्र कुमार खरेलको असामयिक निधनप्रति संस्थाले गहिरो दुःख व्यक्त गरेको छ। यस दुःखद घडीमा सम्पूर्ण जनशक्ती साकोस परिवार शोक सन्तप्त परिवारजनप्रति हार्दिक समवेदना प्रकट गर्दै धैर्य धारण गर्ने शक्ति, शान्ति र दिवंगत आत्माको चीर शान्तिको कामना गर्दछ।",
+    "images": [
+      "assets/uploads/photos/samabedana/20830227-01-mahendra-kharel.jpg",
+			"assets/uploads/photos/samabedana/20830227-02-mahendra-kharel.jpg"
+    ]
   },
   {
     "id": 4,
@@ -71,12 +84,12 @@
   {
     "id": 7,
     "category": "notice",
-    "publish_date": "2026-05-20",
+    "publish_date": "2026-06-18",
     "headline": "Organizational Status Update for Members",
     "headline_ne": "सदस्यहरूलाई संस्थागत अवस्थाको जानकारी",
     "summary": "Monthly organizational status and operational progress details have been published for members.",
     "summary_ne": "सदस्यहरूका लागि मासिक संस्थागत अवस्था तथा सञ्चालन प्रगति विवरण प्रकाशित गरिएको छ।",
-    "link": "assets/uploads/reports/monthly/2083-01-baisakh.jpg",
+    "link": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
     "link_type": "file",
     "file_type": "jpg"
   },

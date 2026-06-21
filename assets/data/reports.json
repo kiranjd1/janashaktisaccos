@@ -119,12 +119,21 @@
     },
 		{
       "id": "m208301",
-      "title": "Baisakh, 2082",
+      "title": "Baisakh, 2083",
       "title_np": "वैशाख, २०८३",
       "file_path": "assets/uploads/reports/monthly/2083-01-baisakh.jpg",
       "thumbnail": "assets/uploads/reports/monthly/2083-01-baisakh.jpg",
       "file_type": "jpg",
       "publish_date": "2026-05-20"
+    },
+		{
+      "id": "m208301",
+      "title": "Jestha, 2083",
+      "title_np": "जेष्ठ, २०८३",
+      "file_path": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-06-18"
     }
   ],
   "quarterly": [

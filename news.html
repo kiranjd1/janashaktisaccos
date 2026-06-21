@@ -29,6 +29,23 @@
       </div>
       <div class="updates-summary" id="updates-summary"></div>
       <div class="news-page-grid" id="updates-grid"></div>
+			<div id="news-detail-view" style="display: none;">
+        <button id="back-to-list-btn" class="back-btn">
+          <i class="fas fa-arrow-left"></i> <span data-en="Back to News" data-ne="पछाडि जानुहोस्">Back to News</span>
+        </button>
+        <article class="news-detail-content">
+          <header class="news-detail-header">
+            <span class="updates-category-badge news" id="detail-category-badge">News</span>
+            <div class="news-meta">
+              <span><i class="fas fa-calendar-alt"></i></span>
+              <span id="detail-date"></span>
+            </div>
+          </header>
+          <h2 id="detail-title"></h2>
+          <div id="detail-body" class="news-detail-body"></div>
+          <div id="detail-gallery" class="news-detail-gallery"></div>
+        </article>
+      </div>
     </section>
   </main>
 

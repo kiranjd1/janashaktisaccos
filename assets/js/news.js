@@ -2,15 +2,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('updates-grid');
   const summaryEl = document.getElementById('updates-summary');
   const filterButtons = document.querySelectorAll('.updates-filter-btn');
+  const filterBar = document.querySelector('.updates-filter-bar');
+  
+  // Detail View Elements
+  const detailView = document.getElementById('news-detail-view');
+  const backBtn = document.getElementById('back-to-list-btn');
+  const detailTitle = document.getElementById('detail-title');
+  const detailDate = document.getElementById('detail-date');
+  const detailBody = document.getElementById('detail-body');
+  const detailGallery = document.getElementById('detail-gallery');
+  const detailCategoryBadge = document.getElementById('detail-category-badge');
+
+  // Modal Elements
   const modal = document.getElementById('updates-modal');
   const modalImg = document.getElementById('updates-img-viewer');
   const modalPdf = document.getElementById('updates-pdf-viewer');
   const modalClose = document.getElementById('updates-modal-close');
+  
   if (!grid || !summaryEl || !filterButtons.length) return;
 
   let currentLang = 'en';
   let activeFilter = 'all';
   let updatesData = [];
+  
+  // State variables for tracking view
+  let currentView = 'list'; // 'list' or 'detail'
+  let activeNewsItem = null;
 
   function formatDate(value, lang) {
     const date = new Date(value);
@@ -96,6 +113,75 @@ document.addEventListener('DOMContentLoaded', () => {
     return items.filter(item => detectCategory(item) === activeFilter);
   }
 
+  // --- Detail View Functions ---
+  
+  function showListView() {
+    currentView = 'list';
+    activeNewsItem = null;
+    
+    if (detailView) detailView.style.display = 'none';
+    if (grid) grid.style.display = 'grid'; 
+    if (filterBar) filterBar.style.display = 'flex'; 
+    if (summaryEl) summaryEl.style.display = 'block';
+    
+    renderUpdates(updatesData);
+  }
+
+  function showDetailView(item) {
+    currentView = 'detail';
+    activeNewsItem = item;
+    
+    // Hide list elements
+    if (grid) grid.style.display = 'none';
+    if (filterBar) filterBar.style.display = 'none';
+    if (summaryEl) summaryEl.style.display = 'none';
+    
+    // Show detail element
+    if (detailView) detailView.style.display = 'block';
+    
+    renderDetailContent();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderDetailContent() {
+    if (!activeNewsItem) return;
+    
+    const item = activeNewsItem;
+    const title = currentLang === 'ne' && item.headline_ne ? item.headline_ne : item.headline;
+    // Fallback to summary if content isn't provided
+    const content = currentLang === 'ne' && item.content_ne ? item.content_ne : (item.content || (currentLang === 'ne' ? item.summary_ne : item.summary));
+    
+    if (detailTitle) detailTitle.textContent = title;
+    if (detailDate) detailDate.textContent = formatDate(item.publish_date, currentLang);
+    if (detailCategoryBadge) detailCategoryBadge.textContent = currentLang === 'ne' ? 'समाचार' : 'News';
+    if (detailBody) detailBody.innerHTML = `<p>${content}</p>`; 
+    
+    // Render Images if they exist
+    if (detailGallery) {
+      detailGallery.innerHTML = '';
+      if (item.images && Array.isArray(item.images) && item.images.length > 0) {
+        detailGallery.innerHTML = item.images.map(imgSrc => `
+          <img src="${imgSrc}" alt="News Image" class="detail-gallery-img" onclick="openFileModal('${imgSrc}', 'jpg')">
+        `).join('');
+      }
+    }
+
+    // Update back button language
+    if (backBtn) {
+      const backText = backBtn.querySelector('span');
+      if (backText) {
+        backText.textContent = currentLang === 'ne' ? backText.getAttribute('data-ne') : backText.getAttribute('data-en');
+      }
+    }
+  }
+
+  // Handle Back Button Click
+  if (backBtn) {
+    backBtn.addEventListener('click', showListView);
+  }
+
+  // --- Render Updates ---
+
   function renderUpdates(items) {
     if (!Array.isArray(items) || !items.length) {
       grid.innerHTML = '<p>No updates are available right now.</p>';
@@ -157,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>${summary || ''}</p>
           ${isNotice
             ? `<button class="news-read-link" type="button" data-open-file="${item.link || ''}" data-file-type="${safeType}">${actionLabel} <i class="fas fa-eye"></i></button>`
-            : `<a class="news-read-link" href="${item.link || 'news.html'}" target="_blank" rel="noopener noreferrer">${actionLabel} <i class="fas fa-arrow-right"></i></a>`}
+            : `<button class="news-read-link" type="button" data-news-id="${item.id}">${actionLabel} <i class="fas fa-arrow-right"></i></button>`}
         </article>
       `;
     }).join('');
@@ -168,6 +254,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const fileType = btn.getAttribute('data-file-type') || '';
         if (!filePath) return;
         openFileModal(filePath, fileType);
+      });
+    });
+
+    grid.querySelectorAll('[data-news-id]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = parseInt(btn.getAttribute('data-news-id'), 10);
+        const selectedItem = updatesData.find(news => news.id === id);
+        if (selectedItem) {
+          showDetailView(selectedItem);
+        }
       });
     });
   }
@@ -201,7 +297,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!selectedLang) return;
 
         currentLang = selectedLang;
-        renderUpdates(updatesData);
+        
+        // Refresh the correct view
+        if (currentView === 'detail') {
+          renderDetailContent();
+        } else {
+          renderUpdates(updatesData);
+        }
       });
 
       document.addEventListener('headerLoaded', () => {
@@ -209,7 +311,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!activeBtn) return;
 
         currentLang = activeBtn.getAttribute('data-lang') || currentLang;
-        renderUpdates(updatesData);
+        
+        if (currentView === 'detail') {
+          renderDetailContent();
+        } else {
+          renderUpdates(updatesData);
+        }
       });
 
       if (modal && modalClose) {

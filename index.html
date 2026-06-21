@@ -270,11 +270,11 @@
             <p>Or fill in the form to reach out to us:</p>
           </div>
           <div class="form-group">
-            <input type="text" id="first_name" name="first_name" placeholder=" " required>
+            <input type="text" id="firstName" name="firstName" placeholder=" " required>
             <label for="first_name" data-en="First Name" data-ne="नाम">First Name</label>
           </div>
           <div class="form-group">
-            <input type="text" id="last_name" name="last_name" placeholder=" " required>
+            <input type="text" id="lastName" name="lastName" placeholder=" " required>
             <label for="last_name" data-en="Last Name" data-ne="थर">Last Name</label>
           </div>
           <div class="form-group">
@@ -282,15 +282,15 @@
             <label for="email" data-en="Email" data-ne="इमेल">Email</label>
           </div>
           <div class="form-group">
-            <input type="text" id="number" name="number" placeholder=" " required>
+            <input type="text" id="mobileNo" name="mobileNo" placeholder=" " required>
             <label for="number" data-en="Mobile Number" data-ne="विषय">Mobile Number</label>
           </div>
           <div class="form-group">
-              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-              <label for="message" data-en="Message" data-ne="सन्देश">Message</label>
+						<textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+						<label for="message" data-en="Message" data-ne="सन्देश">Message</label>
           </div>
           <button type="submit" class="submit-btn" data-en="Submit" data-ne="पठाउनुहोस्">
-              Submit
+						Submit
           </button>
         </form>
       </div>
@@ -303,12 +303,47 @@
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal">&times;</button>
       <div class="modal-body">
-				<img src="assets/uploads/notices/Weekly-Holiday-Change-20830209.jpg" alt="Weekly Holiday Change" class="modal-img">
-				<img src="assets/uploads/reports/monthly/2083-01-baisakh.jpg" alt="Latest Official Info" class="modal-img">
+				<!-- <img src="assets/uploads/notices/Weekly-Holiday-Change-20830209.jpg" alt="Weekly Holiday Change" class="modal-img"> -->
+				<img src="assets/uploads/reports/monthly/2083-02-jestha.jpg" alt="Latest Official Info" class="modal-img">
         <img src="assets/uploads/notices/operative-license-ncra.jpg" alt="Operative License NCRA" class="modal-img">
       </div>
     </div>
   </div>
+
+	<script>
+		document.getElementById('contactForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbziQnr2Qys1Ofafr--kdEG4V16fAqMYO3d8cE2wSRJgaWdAO_eZ-rBMXk8yWKVAq5CnpQ/exec';
+
+			const data = {
+				firstName: document.getElementById('firstName').value,
+				lastName: document.getElementById('lastName').value,
+				email: document.getElementById('email').value,
+				mobileNo: document.getElementById('mobileNo').value,
+				message: document.getElementById('message').value
+			};
+
+			// Optional: You can still change the button text to "Submitting..." here if you want visual feedback before the popup appears
+
+			fetch(scriptURL, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(data)
+			})
+			.then(() => {
+					alert('Thank you! Your message has been submitted. You will hear from us soon!');
+					document.getElementById('contactForm').reset();
+			})
+			.catch(error => {
+					alert('Error submitting message. Please try again.');
+					console.error('Error!', error.message);
+			});
+		});
+	</script>
 
 	<script src="components/components.js" defer></script>
   <script src="assets/js/script.js" defer></script>
