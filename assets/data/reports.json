@@ -127,13 +127,31 @@
       "publish_date": "2026-05-20"
     },
 		{
-      "id": "m208301",
+      "id": "m208302",
       "title": "Jestha, 2083",
       "title_np": "जेष्ठ, २०८३",
       "file_path": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
       "thumbnail": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
       "file_type": "jpg",
       "publish_date": "2026-06-18"
+    },
+		{
+      "id": "m208302",
+      "title": "Ashar, 2083",
+      "title_np": "असार, २०८३",
+      "file_path": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-07-24"
+    },
+		{
+      "id": "m208304",
+      "title": "Shrawan, 2083",
+      "title_np": "श्रावण, २०८३",
+      "file_path": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2083-02-jestha.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-08-20"
     }
   ],
   "quarterly": [

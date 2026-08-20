@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KYM | Janashakti Saving and Credit Cooperative Society Ltd. -Birtamod Jhapa</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/nepali.datepicker.v4.0.8.min.css">
+	<style>
+		.member-search-container {margin-top: 4rem; padding-inline: 10rem; }
+		.member-search-container h2 { text-align: center; margin-bottom: 1rem;}
+		.search-form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; align-items: flex-end; }
+		.input-field { display: flex; flex-direction: column; }
+		.input-field label { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #4a5568; }
+		.input-field input { padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.9rem; height: 38px; box-sizing: border-box; }
+		.toggle-group { display: flex; gap: 1rem; align-items: center; height: 38px; }
+		.toggle-group label { font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 0.25rem; }
+		.search-btn { background: #0056b3; color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.95rem; font-weight: 500; }
+		.search-btn:hover { background: #004085; }
+		.results-box { margin-top: 1.5rem; }
+		.results-table { width: 100%; border-collapse: collapse; }
+		.results-table th, .results-table td { padding: 0.75rem; border: 1px solid #e2e8f0; text-align: left; }
+		.results-table th { background: #f8fafc; color: #334155; font-size: 0.9rem; }
+		.highlight-code { color: #0056b3; font-size: 1.05rem; }
+		.error-msg { color: #dc2626; }
+		.no-results-msg { color: #d97706; }
+		.loading-msg { color: #2563eb; }
+		.locked-input { background-color: #f1f5f9; color: #64748b; cursor: not-allowed; pointer-events: none; border-color: #e2e8f0; }
+		/* Container adjustments */
+		.kym-section {
+			display: none; /* Hide all sections by default */
+		}
+		.kym-section.active {
+			display: block; /* Show only the active section block */
+			animation: fadeInTab 0.35s ease;
+		}
+
+		/* Tabs Bar Styling Layer */
+		.kym-tabs-navigation {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-bottom: 1.5rem;
+			border-bottom: 2px solid #e2e8f0;
+			padding-bottom: 0.5rem;
+		}
+
+		.tab-btn {
+			background: #f8fafc;
+			color: #475569;
+			border: 1px solid #cbd5e1;
+			padding: 0.6rem 1.2rem;
+			font-size: 0.9rem;
+			font-weight: 500;
+			border-radius: 6px;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+
+		.tab-btn:hover {
+			background: #f1f5f9;
+			color: #0f172a;
+			border-color: #94a3b8;
+		}
+
+		.tab-btn.active {
+			background: #0056b3;
+			color: #ffffff;
+			border-color: #0056b3;
+			box-shadow: 0 2px 4px rgba(0, 86, 179, 0.2);
+		}
+
+		/* Tab Fade animation framework */
+		@keyframes fadeInTab {
+				from { opacity: 0; transform: translateY(4px); }
+				to { opacity: 1; transform: translateY(0); }
+		}
+
+		/* Layout configurations for the mid-form tabular structure matrix */
+		.alignment-middle-matrix input[type="text"] {
+				width: 100%;
+				box-sizing: border-box;
+				border: 1px solid #cbd5e1;
+				padding: 0.5rem;
+				font-size: 0.85rem;
+				border-radius: 4px;
+		}
+		.alignment-middle-matrix input[type="text"]:focus {
+				border-color: #0056b3;
+				outline: none;
+				background-color: #f8fafc;
+		}
+		.locked-select {
+				background-color: #f1f5f9;
+				color: #475569;
+				cursor: not-allowed;
+				pointer-events: none;
+				font-weight: 600;
+		}
+		.extended-family-action-bar {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 1rem;
+		}
+		.btn-sm-action {
+				padding: 0.4rem 0.9rem;
+				font-size: 0.85rem;
+				background-color: #10b981;
+				color: white;
+				border-radius: 4px;
+				border: none;
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.25rem;
+		}
+		.btn-sm-action:hover {
+				background-color: #059669;
+		}
+
+		/* Tabular Deletion Operations Styling */
+		.matrix-remove-btn {
+				background: transparent;
+				color: #ef4444;
+				border: none;
+				cursor: pointer;
+				padding: 2px;
+				border-radius: 4px;
+				display: inline-flex;
+				align-items: center;
+				transition: all 0.2s ease;
+		}
+		.matrix-remove-btn:hover {
+				color: #b91c1c;
+				background-color: #fee2e2;
+		}
+
+		/* Row entrance animation configurations */
+		.animated-matrix-row {
+				animation: slideInMatrixRow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		}
+		@keyframes slideInMatrixRow {
+				from { opacity: 0; transform: translateY(8px); }
+				to { opacity: 1; transform: translateY(0); }
+		}
+	</style>
+</head>
+
+<body>
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+  <div id="header-container"></div>
+
+<main>
+	<section class="member-search-section">
+		<div class="member-search-container">
+			<h2 data-en="Search Your Membership No. To Proceed:" data-ne="अगाडि बढ्न आफ्नो सदस्यता नं. खोज्नुहोस्:">अगाडि बढ्न आफ्नो सदस्यता नं. खोज्नुहोस्:</h2>	
+			<div class="search-form-grid">
+				<div class="input-field">
+					<label>पुरा नाम (Full Name):</label>
+					<input type="text" id="input_name" placeholder="उदा: RAM PRASAD LIMBU">
+				</div>
+
+				<div class="input-field">
+					<label>नागरिकता नं (Citizenship No):</label>
+					<input type="text" id="input_citizenship" placeholder="उदा: 78/56422">
+				</div>
+
+				<div class="input-field">
+					<label>मिति प्रकार (Date Type):</label>
+					<div class="toggle-group">
+						<label><input type="radio" name="date_type" value="BS" checked onchange="toggleDateInput()"> BS (नेपाली)</label>
+						<label><input type="radio" name="date_type" value="AD" onchange="toggleDateInput()"> AD (English)</label>
+					</div>
+				</div>
+				
+				<div class="input-field" id="dob_input_wrapper">
+					<label id="dob_label">जन्म मिति (BS) :</label>
+					<input type="text" id="input_dob" class="nepali-date-field" placeholder="उदा: 2038/06/12">
+				</div>
+			</div>
+
+			<button type="button" onclick="searchMemberCode()" class="search-btn">खोज्नुहोस् (Search)</button>
+			<div id="search-results-output" class="results-box"></div>
+		</div>
+	</section>
+
+	<section class="kym-form-container">
+    <div class="kym-header">
+      <h1 data-en="Know Your Member (KYM) Form — Individual" data-ne="सदस्य पहिचान फारम (KYM) – व्यक्तिगत">सदस्य पहिचान फारम (KYM) – व्यक्तिगत</h1>
+      <p class="annex-text">अनुसूची-१: सहकारी विभागद्वारा सम्पत्ति शुद्धीकरण निवारण सम्बन्धी सहकारी सङ्घ/संस्थालाई जारी गरिएको निर्देशनको दफा ३ उपदफा (२) को खण्ड (क) सँग सम्बन्धित</p>
+    </div>
+
+		<!-- Meta Information Section (Always Visible) -->
+		<div class="kym-row response-grid-3">
+			<div class="kym-group">
+				<label for="kym_date">मिति (AD):</label>
+				<input type="date" id="kym_date" name="kym_date" readonly tabindex="-1" class="locked-input">
+			</div>
+			<div class="kym-group">
+				<label for="kym_date_np">मिति (वि‍.स‌ं.):</label>
+				<input type="text" id="kym_date_np" name="kym_date_np" readonly tabindex="-1" class="locked-input">
+			</div>
+			<div class="kym-group">
+				<label for="membership_no">सदस्यता नम्बर :</label>
+				<input type="text" id="membership_no" name="membership_no" readonly>
+			</div>
+		</div>
+
+    <!-- NEW: Interactive Section Selection Tabs -->
+    <div class="kym-tabs-navigation">
+      <button type="button" class="tab-btn active" data-target="kym-section-ka">क. व्यक्तिगत</button>
+      <button type="button" class="tab-btn" data-target="kym-section-kha">ख. पारिवारिक</button>
+      <button type="button" class="tab-btn" data-target="kym-section-ga">ग. पेशा</button>
+      <button type="button" class="tab-btn" data-target="kym-section-gha">घ. रहनसहन</button>
+      <button type="button" class="tab-btn" data-target="kym-section-nga">ङ. सदस्यता</button>
+      <button type="button" class="tab-btn" data-target="kym-section-cha">च. आय स्रोत</button>
+      <button type="button" class="tab-btn" data-target="kym-section-chha">छ. कारोबार</button>
+			<button type="button" class="tab-btn" data-target="kym-section-ja">ज. कागजात</button>
+			<button type="button" class="tab-btn" data-target="kym-section-jha">झ. स्व-घोषणा</button>
+    </div>
+
+    <form action="#" method="POST" class="kym-form">
+
+      <hr class="section-divider">
+
+      <!-- SECTION क: व्यक्तिगत विवरण -->
+      <section class="kym-section active" id="kym-section-ka">
+        <h3 class="kym-section-title">क. व्यक्तिगत विवरण</h3>
+        
+        <div class="kym-row response-grid-2">
+          <div class="kym-group">
+            <label for="full_name">१. नाम, थर (अङ्ग्रेजीमा):</label>
+            <input type="text" id="full_name" name="full_name" required>
+          </div>
+          <div class="kym-group">
+            <label for="dob-np">२. जन्म मिति (BS) :</label>
+            <input type="text" id="dob-np" name="dob-np" class="nepali-date-field" placeholder="YYYY/MM/DD" required>
+          </div>
+        </div>
+
+        <div class="kym-row response-grid-3">
+          <div class="kym-group">
+            <label for="citizenship_no">३. नागरिकता प्रमाण पत्र नं. :</label>
+            <input type="text" id="citizenship_no" name="citizenship_no" required>
+          </div>
+          <div class="kym-group">
+            <label for="citizenship_issued_place">जारी गर्ने जिल्ला :</label>
+            <input type="text" id="citizenship_issued_place" name="citizenship_issued_place" required>
+          </div>
+          <div class="kym-group">
+            <label for="citizenship_issued_date">जारी मिति (BS) :</label>
+            <input type="text" id="citizenship_issued_date" name="citizenship_issued_date" class="nepali-date-field" placeholder="YYYY/MM/DD" required>
+          </div>
+        </div>
+
+        <div class="kym-row response-grid-2">
+          <div class="kym-group">
+            <label for="national_id_no">राष्ट्रिय परिचय पत्र नं. (NIN) :</label>
+            <input type="text" id="national_id_no" name="national_id_no">
+          </div>
+          <div class="kym-group">
+            <label for="national_id_issued_date">रा.प.प. (NIN) जारी मिति (AD) :</label>
+            <input type="date" id="national_id_issued_date" name="national_id_issued_date">
+          </div>
+        </div>
+
+        <div class="kym-row response-grid-4">
+          <div class="kym-group">
+            <label for="passport_no">४. राहदानी नं. :</label>
+            <input type="text" id="passport_no" name="passport_no">
+          </div>
+          <div class="kym-group">
+            <label for="passport_issued_date">राहदानी जारी मिति (AD) :</label>
+            <input type="date" id="passport_issued_date" name="passport_issued_date">
+          </div>
+          <div class="kym-group">
+            <label for="passport_expiry_date">राहदानीको वैधता समाप्त मिति (AD) :</label>
+            <input type="date" id="passport_expiry_date" name="passport_expiry_date">
+          </div>
+        </div>
+
+        <div class="kym-row response-grid-3">
+          <div class="kym-group">
+            <label>५. शैक्षिक योग्यता :</label>
+            <select name="education" class="kym-selector-group" required>
+							<option value="">Select (छान्नुहोस्)...</option>
+              <option value="literate">साक्षर (Literate)</option>
+              <option value="slc">एस.ई.ई./एस.एल.सी. (Class 10)</option>
+              <option value="intermmediate">कक्षा १२ (Class 12/HSEB/Intermediate)</option>
+              <option value="bachelors">स्नातक (Bachelors)</option>
+              <option value="masters">स्नाकोत्तर (Masters)</option>
+              <option value="other"> विद्यावारिधि (PhD)</option>
+            </select>
+          </div>
+          <div class="kym-group">
+            <label>६. लिङ्ग :</label>
+            <select name="gender" class="kym-selector-group has-other-select" data-trigger="other">
+							<option value="">Select (छान्नुहोस्)...</option>
+            	<option value="male">पुरुष</option>
+            	<option value="female">महिला</option>
+            	<option value="third">तेस्रो</option>
+            </select>
+          </div>
+          <div class="kym-group">
+            <label>७. धर्म :</label> 
+            <select name="religion" class="kym-selector-group has-other-select" data-trigger="other">
+							<option value="">Select (छान्नुहोस्)...</option>
+              <option value="hindu">हिन्दु</option>
+              <option value="buddhist">बौद्ध</option>
+              <option value="christian">इसाई</option>
+              <option value="muslim">मुसलमान</option>
+              <option value="kirat">किराँत</option>
+              <option value="other">अन्य</option>
+            </select>
+            <input type="text" name="other_religion_details" placeholder="अन्य भए खुलाउनुहोस्" class="mt-1 other-target-input" disabled style="display: none;">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION ख: पारिवारिक विवरण -->
+			<section class="kym-section" id="kym-section-kha">
+				<h3 class="kym-section-title">ख. पारिवारिक विवरण</h3>
+
+				<div class="kym-row response-grid-2">
+					<div class="kym-group">
+						<label for="marital_status">१४. वैवाहिक स्थिति :</label>
+						<select name="marital_status" id="marital_status" class="kym-selector-group has-other-select" data-trigger="other">
+							<option value="unmarried">अविवाहित (Unmarried)</option>
+							<option value="married">विवाहित (Married)</option>
+							<option value="single">एकल (Single)</option>
+							<option value="other">अन्य (Other)</option>
+						</select>
+						<input type="text" name="other_marital_status" placeholder="अन्य भए खुलाउनुहोस्" class="mt-1 other-target-input" disabled style="display: none;">
+					</div>
+
+					<div class="kym-group">
+						<label>१८. परिवारको किसिम :</label>
+						<select name="family_type" class="kym-selector-group">
+							<option value="joint_same_kitchen">संयुक्त र एकै भात भान्छा</option>
+							<option value="joint_diff_kitchen">संयुक्त तर अलग भात भान्छा</option>
+							<option value="nuclear">छुटिभिन्न वा एकसरुवा (न्युक्लियर)</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="table-responsive mt-3">
+					<table class="data-table alignment-middle-matrix" id="family-matrix-table">
+						<thead>
+							<tr>
+								<th style="width: 6%; text-align: center;">सि.नं.</th>
+								<th style="width: 24%;">नाता (Relationship)</th>
+								<th style="width: 32%;">नाम, थर (English)</th>
+								<th style="width: 32%;">नाम, थर (नेपालीमा)</th>
+								<th style="width: 6%; text-align: center;">कार्य</th>
+							</tr>
+						</thead>
+						<tbody id="family-matrix-body">
+							
+							<tr class="static-row" data-relation="father">
+								<td class="serial-number-cell">१</td>
+								<td>
+									<select name="family_relation[]" class="kym-selector-group locked-select" tabindex="-1">
+										<option value="father" selected>बाबु (Father) *</option>
+									</select>
+								</td>
+								<td><input type="text" name="family_member_name[]" placeholder="FATHER'S NAME" required></td>
+								<td><input type="text" name="family_member_name_nepali[]" placeholder="बाबुको नाम थर" required></td>
+								<td style="text-align: center;"><span class="material-icons text-muted text-sm">lock</span></td>
+							</tr>
+
+							<tr class="static-row core-conditional-row" data-relation="mother">
+								<td class="serial-number-cell">२</td>
+								<td>
+									<select name="family_relation[]" class="kym-selector-group locked-select" tabindex="-1">
+										<option value="mother" selected>आमा (Mother)</option>
+									</select>
+								</td>
+								<td><input type="text" name="family_member_name[]" class="conditional-family-input" placeholder="MOTHER'S NAME"></td>
+								<td><input type="text" name="family_member_name_nepali[]" class="conditional-family-input" placeholder="आमाको नाम थर"></td>
+								<td style="text-align: center;"><span class="material-icons text-muted text-sm">lock</span></td>
+							</tr>
+
+							<tr class="static-row core-conditional-row" data-relation="grandfather">
+								<td class="serial-number-cell">३</td>
+								<td>
+									<select name="family_relation[]" class="kym-selector-group locked-select" tabindex="-1">
+										<option value="grandfather" selected>बाजे (Grandfather)</option>
+									</select>
+								</td>
+								<td><input type="text" name="family_member_name[]" class="conditional-family-input" placeholder="GRANDFATHER'S NAME"></td>
+								<td><input type="text" name="family_member_name_nepali[]" class="conditional-family-input" placeholder="बाजेको नाम थर"></td>
+								<td style="text-align: center;"><span class="material-icons text-muted text-sm">lock</span></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="extended-family-action-bar mt-1">
+					<p class="text-muted text-sm">* बाबुको विवरण अनिवार्य छ। आमा वा हजुरबाजे मध्ये कुनै एकको विवरण भर्नु पर्नेछ।</p>
+					<button type="button" id="add-family-member-btn" class="btn btn-secondary btn-sm-action">
+						<span class="material-icons">add</span> थप सदस्य थप्नुहोस् (Add +)
+					</button>
+				</div>
+			</section>
+
+      <!-- SECTION ग: पेशाको विवरण -->
+      <section class="kym-section" id="kym-section-ga">
+				<h3 class="kym-section-title">ग. पेशाको विवरण</h3>
+				
+				<div class="kym-row">
+					<div class="kym-group">
+						<label for="pan_no">२०. स्थायी लेखा नम्बर भए (PAN) :</label>
+						<input type="text" id="pan_no" name="pan_no">
+					</div>
+				</div>
+
+				<div class="kym-group-wrapper">
+					<div class="kym-row">
+						<div class="kym-group">
+							<label>१९. आफ्नो मुख्य पेशा :</label>
+							<select name="primary_occupation" class="kym-selector-group has-other-select" data-trigger="business,salaried,other">
+								<option value="agriculture">खेतीपाती</option>
+								<option value="business">व्यवसाय (खुलाउने)</option>
+								<option value="salaried">नोकरी (खुलाउने)</option>
+								<option value="foreign_employment">वैदेशिक रोजगारी (खुलाउने)</option>
+								<option value="other">अन्य (खुलाउने)</option>
+							</select>
+							<input type="text" name="other_occupation" placeholder="अन्य भए खुलाउनुहोस्" class="mt-1 other-target-input" data-show-on="other" disabled style="display: none; margin: 1rem 0;">
+						</div>
+					</div>
+
+					<div class="table-responsive mb-2 other-target-input" data-show-on="business" disabled style="display: none; margin-top: 1rem;">
+						<h5>व्यवसाय सम्बन्धी विवरण:</h5>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>फर्म/संस्थाको नाम</th><th>ठेगाना</th><th>फोन नं.</th><th>व्यवसायको प्रकृति</th><th>पद</th><th>अनुमानित वार्षिक आम्दानी</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="user_business_name" required></td>
+									<td><input type="text" name="user_business_address" required></td>
+									<td><input type="text" name="user_business_phone"></td>
+									<td><input type="text" name="user_business_nature"></td>
+									<td><input type="text" name="user_business_designation"></td>
+									<td><input type="number" name="user_business_income"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="table-responsive mb-2 other-target-input" data-show-on="salaried" disabled style="display: none; margin-top: 1rem;">
+						<h5>नोकरी सम्बन्धी विवरण:</h5>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>कार्यालय/संस्थाको नाम</th><th>ठेगाना</th><th>फोन नं.</th><th>कामको प्रकृति</th><th>पद</th><th>अनुमानित वार्षिक आम्दानी</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="user_salary_org" required></td>
+									<td><input type="text" name="user_salary_address" required></td>
+									<td><input type="text" name="user_salary_phone"></td>
+									<td><input type="text" name="user_salary_nature"></td>
+									<td><input type="text" name="user_salary_designation"></td>
+									<td><input type="number" name="user_salary_income"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="kym-group-wrapper mt-3">
+					<div class="kym-row">
+						<div class="kym-group">
+							<label>२२. पति वा पत्नीको मुख्य पेशा :</label>
+							<select name="spouse_occupation" class="kym-selector-group has-other-select" data-trigger="business,salaried,other">
+								<option value="agriculture">खेतीपाती</option>
+								<option value="business">व्यवसाय (खुलाउने)</option>
+								<option value="salaried">नोकरी (खुलाउने)</option>
+								<option value="foreign_employment">वैदेशिक रोजगारी</option>
+								<option value="other">अन्य (खुलाउने)</option>
+							</select>
+							<input type="text" name="other_spouse_occupation" placeholder="अन्य भए खुलाउनुहोस्" class="mt-1 other-target-input" data-show-on="other" disabled style="display: none; margin: 1rem 0;">
+						</div>
+					</div>
+
+					<div class="table-responsive mb-2 other-target-input" data-show-on="business" disabled style="display: none; margin-top: 1rem;">
+						<h5>पति/पत्नीको व्यवसाय विवरण:</h5>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>फर्म/संस्थाको नाम</th><th>ठेगाना</th><th>फोन नं.</th><th>व्यवसायको प्रकृति</th><th>पद</th><th>अनुमानित वार्षिक आम्दानी</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="spouse_business_name" required></td>
+									<td><input type="text" name="spouse_business_address" required></td>
+									<td><input type="text" name="spouse_business_phone"></td>
+									<td><input type="text" name="spouse_business_nature"></td>
+									<td><input type="text" name="spouse_business_designation"></td>
+									<td><input type="number" name="spouse_business_income"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="table-responsive mb-2 other-target-input" data-show-on="salaried" disabled style="display: none; margin-top: 1rem;">
+						<h5>पति/पत्नीको नोकरी विवरण:</h5>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>कार्यालय/संस्थाको नाम</th><th>ठेगाना</th><th>फोन नं.</th><th>कामको प्रकृति</th><th>पद</th><th>अनुमानित वार्षिक आम्दानी</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="spouse_salary_org" required></td>
+									<td><input type="text" name="spouse_salary_address" required></td>
+									<td><input type="text" name="spouse_salary_phone"></td>
+									<td><input type="text" name="spouse_salary_nature"></td>
+									<td><input type="text" name="spouse_salary_designation"></td>
+									<td><input type="number" name="spouse_salary_income"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="kym-group-wrapper mt-3">
+					<div class="kym-row response-grid-3">
+						<div class="kym-group">
+							<label>२३. परिवारमा अर्को मुख्य कमाउने सदस्य :</label>
+							<input type="text" name="other_earning_member" placeholder="नाम">
+						</div>
+						<div class="kym-group">
+							<label for="other_earning_relation">२३.१ नाता :</label>
+							<input type="text" id="other_earning_relation" name="other_earning_relation">
+						</div>
+						<div class="kym-group">
+							<label>२३.२ मुख्य पेशा :</label>
+							<select name="other_member_occupation" class="kym-selector-group has-other-select" data-trigger="business,salaried,other">
+								<option value="agriculture">खेतीपाती</option>
+								<option value="business">व्यवसाय (खुलाउने)</option>
+								<option value="salaried">नोकरी (खुलाउने)</option>
+								<option value="foreign_employment">वैदेशिक रोजगारी</option>
+								<option value="other">अन्य (खुलाउने)</option>
+							</select>
+							<input type="text" name="other_fam_occupation" placeholder="अन्य भए खुलाउनुहोस्" class="mt-1 other-target-input" data-show-on="other" disabled style="display: none; margin: 1rem 0;">
+						</div>
+					</div>
+
+					<div class="table-responsive mb-2 other-target-input" data-show-on="business" disabled style="display: none; margin-top: 1rem;">
+						<h5>परिवारका सदस्यको व्यवसाय विवरण:</h5>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>फर्म/संस्थाको नाम</th><th>ठेगाना</th><th>फोन नं.</th><th>व्यवसायको प्रकृति</th><th>पद</th><th>अनुमानित वार्षिक आम्दानी</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="fam_business_name" required></td>
+									<td><input type="text" name="fam_business_address" required></td>
+									<td><input type="text" name="fam_business_phone"></td>
+									<td><input type="text" name="fam_business_nature"></td>
+									<td><input type="text" name="fam_business_designation"></td>
+									<td><input type="number" name="fam_business_income"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="table-responsive mb-2 other-target-input" data-show-on="salaried" disabled style="display: none; margin-top: 1rem;">
+						<h5>परिवारका सदस्यको नोकरी विवरण:</h5>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>कार्यालय/संस्थाको नाम</th><th>ठेगाना</th><th>फोन नं.</th><th>कामको प्रकृति</th><th>पद</th><th>अनुमानित वार्षिक आम्दानी</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="fam_salary_org" required></td>
+									<td><input type="text" name="fam_salary_address" required></td>
+									<td><input type="text" name="fam_salary_phone"></td>
+									<td><input type="text" name="fam_salary_nature"></td>
+									<td><input type="text" name="fam_salary_designation"></td>
+									<td><input type="number" name="fam_salary_income"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="kym-group mt-3">
+					<label>२४/२५. आफैँ वा परिवारको कुनै सदस्य उच्च पदीय राजनीतिक, प्रशासनिक वा साङ्गठनिक भूमिकामा रहेको/नरहेको :</label>
+					<div class="radio-checkbox-group mb-1">
+						<label><input type="radio" name="pep_status" value="no"> नरहेको</label>
+						<label><input type="radio" name="pep_status" value="yes"> रहेको (भए विवरण भर्नुहोस्)</label>
+					</div>
+					<div class="kym-row response-grid-3">
+						<input type="text" name="pep_name" placeholder="१) नाम">
+						<input type="text" name="pep_relation" placeholder="२) नाता">
+						<input type="text" name="pep_role" placeholder="३) पद वा सार्वजनिक भूमिका">
+					</div>
+				</div>
+
+				<div class="kym-row response-grid-2 mt-2">
+					<div class="kym-group">
+						<label>२६. के तपाईको हिताधिकारी (Beneficial) व्यक्ति हुनुहुन्छ ?</label>
+						<div class="radio-checkbox-group">
+							<label><input type="radio" name="has_beneficial" value="no"> छैन</label>
+							<label><input type="radio" name="has_beneficial" value="yes"> छ (नाम र नाता खुलाउनुहोस्)</label>
+						</div>
+						<input type="text" name="beneficial_details" placeholder="विवरण खुलाउनुहोस्" class="mt-1">
+					</div>
+					<div class="kym-group">
+						<label>विगतमा कुनै अपराधमा दण्डित भए/नभएको घोषणाः</label>
+						<div class="radio-checkbox-group">
+							<label><input type="radio" name="criminal_record" value="no"> नरहेको</label>
+							<label><input type="radio" name="criminal_record" value="yes"> रहेको (कृपया खुलाउनुहोस्)</label>
+						</div>
+						<input type="text" name="criminal_record_details" placeholder="विवरण खुलाउनुहोस्" class="mt-1">
+					</div>
+				</div>
+			</section>
+
+      <!-- SECTION घ: रहनसहनको विवरण -->
+      <section class="kym-section" id="kym-section-gha">
+        <h3 class="kym-section-title">घ. रहनसहनको विवरण</h3>
+        
+        <h4 data-en="Permanent Address:" data-ne="स्थायी ठेगाना :">स्थायी ठेगाना :</h4>
+        <div class="kym-row response-grid-4">
+          <div class="kym-group">
+						<label data-en="Province" data-ne="प्रदेश">प्रदेश</label>
+						<select id="perm_province" name="perm_province">
+							<option value="">Select...</option>
+						</select>
+					</div>
+          <div class="kym-group">
+						<label data-en="District" data-ne="जिल्ला">जिल्ला</label>
+						<select id="perm_district" name="perm_district">
+							<option value="">Select...</option>
+						</select>
+					</div>
+          <div class="kym-group">
+						<label data-en="Local Level" data-ne="स्थानीय तह">स्थानीय तह</label>
+						<select id="perm_local" name="perm_local">
+							<option value="">Select...</option>
+						</select>
+					</div>
+					<div class="kym-group">
+						<label data-en="Ward No." data-ne="वडा नं.">वडा नं.</label>
+						<select id="perm_ward" name="perm_ward">
+							<option value="">Select...</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+							<option value="32">32</option>
+							<option value="33">33</option>
+						</select>
+					</div>
+        </div>
+        <div class="kym-row response-grid-4">
+          <div class="kym-group"><label>गाउँ/टोल</label><input type="text" name="perm_tole"></div>
+          <div class="kym-group"><label>घर नं.</label><input type="text" name="perm_house_no"></div>
+          <div class="kym-group"><label>सम्पर्क नं.</label><input type="text" name="perm_phone"></div>
+					<div class="kym-group"><label>इमेल</label><input type="text" name="perm_email"></div>
+        </div>
+
+        <h4 class="mt-2" data-en="Temporary/Contact Address:" data-ne="अस्थायी/पत्राचार गर्ने ठेगाना :">अस्थायी/पत्राचार गर्ने ठेगाना :</h4>
+				<span><input type="checkbox" name="copy_permanent"> Same as permanent</span>
+        <div class="kym-row response-grid-4">
+                  <div class="kym-row response-grid-4">
+          <div class="kym-group">
+						<label data-en="Province" data-ne="प्रदेश">प्रदेश</label>
+						<select id="temp_province" name="temp_province">
+							<option value="">Select...</option>
+						</select>
+					</div>
+          <div class="kym-group">
+						<label data-en="District" data-ne="जिल्ला">जिल्ला</label>
+						<select id="temp_district" name="temp_district">
+							<option value="">Select...</option>
+						</select>
+					</div>
+          <div class="kym-group">
+						<label data-en="Local Level" data-ne="स्थानीय तह">स्थानीय तह</label>
+						<select id="temp_local" name="temp_local">
+							<option value="">Select...</option>
+						</select>
+					</div>
+					<div class="kym-group">
+						<label data-en="Ward No." data-ne="वडा नं.">वडा नं.</label>
+						<select id="temp_ward" name="temp_ward">
+							<option value="">Select...</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+							<option value="32">32</option>
+							<option value="33">33</option>
+						</select>
+					</div>
+        </div>
+        </div>
+        <div class="kym-row response-grid-4">
+          <div class="kym-group"><label>गाउँ/टोल</label><input type="text" name="temp_tole"></div>
+          <div class="kym-group"><label>घर नं.</label><input type="text" name="temp_house_no"></div>
+          <div class="kym-group"><label>सम्पर्क नं.</label><input type="text" name="temp_phone"></div>
+					<div class="kym-group"><label>इमेल</label><input type="text" name="temp_email"></div>
+        </div>
+        <div class="kym-row response-grid-2 mt-2">
+					<div class="kym-group">
+            <label>संस्थाको कार्यक्षेत्रको बसोबास :</label>
+            <div class="radio-checkbox-group">
+              <label><input type="radio" name="area_residence_type" value="permanent"> स्थायी</label>
+              <label><input type="radio" name="area_residence_type" value="temporary"> अस्थायी</label>
+            </div>
+					</div>
+					<div clss="kym-group">
+						<label>अस्थायी भएमा घर बहाल सम्झौता/घरधनिको सिफारिस पत्र :</label>
+						<div class="radio-checkbox-group">
+							<label><input type="radio" name="rent_agreement" value="yes"> छ</label>
+							<label><input type="radio" name="rent_agreement" value="no"> छैन</label>
+							<label><input type="radio" name="rent_agreement" value="na"> N/A</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="kym-row response-grid-3 mt-2">
+					<div class="kym-group"><input type="text" name="landlord_name" placeholder="घरधनीको नाम"></div>
+					<div class="kym-group"><input type="text" name="landlord_address" placeholder="ठेगाना"></div>
+					<div class="kym-group"><input type="text" name="landlord_phone" placeholder="सम्पर्क नं."></div>
+				</div>
+
+				<div class="kym-row response-grid-3 mt-2">
+          <div class="kym-group">
+            <label for="voter_id">मतदाता परिचय-पत्र नं.:</label>
+            <input type="text" id="voter_id" name="voter_id">
+          </div>
+          <div class="kym-group">
+            <label for="voting_location">मतदान स्थल :</label>
+            <input type="text" id="voting_location" name="voting_location">
+          </div>
+          <div class="kym-group">
+            <label for="days_spent_in_area">संस्थाको कार्यक्षेत्रमा वर्षमा बिताउने अवधि :</label>
+            <input type="text" id="days_spent_in_area" name="days_spent_in_area">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION ङ: सहकारी सदस्यता -->
+      <section class="kym-section" id="kym-section-nga">
+        <h3 class="kym-section-title">ङ. सहकारी सदस्यता</h3>
+        
+        <div class="kym-group mb-1">
+          <label for="membership_objective">संस्थाको सदस्य बन्नुको उद्देश्य :</label>
+          <input type="text" id="membership_objective" name="membership_objective">
+        </div>
+
+        <div class="kym-group mt-3">
+          <label>आफै अर्को सहकारी संस्थाको पनि सदस्य भए, नभएको :</label>
+          <div class="radio-checkbox-group">
+            <label><input type="radio" name="self_other_coop" value="yes"> भएको</label>
+            <label><input type="radio" name="self_other_coop" value="no"> नभएको</label>
+          </div>
+        </div>
+
+        <p class="table-caption mt-3">आफै अर्को सहकारी संस्थाको पनि सदस्य भएको भए विवरण :</p>
+        <div class="table-responsive mb-2">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 10%;">सि.नं.</th>
+                <th>संस्थाको नाम</th>
+								<th>ठेगाना</th>
+                <th>सदस्यता नं.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(१)</td>
+                <td><input type="text" name="self_coop_name_1"></td>
+								<td><input type="text" name="self_coop_addr_1"></td>
+                <td><input type="text" name="self_coop_id_1"></td>
+              </tr>
+              <tr>
+                <td>(२)</td>
+								<td><input type="text" name="self_coop_name_2"></td>
+                <td><input type="text" name="self_coop_addr_2"></td>
+                <td><input type="text" name="self_coop_id_2"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="kym-group mt-3">
+          <label>३८. आफू बाहेक परिवारको सदस्य अर्को सहकारी संस्थाको सदस्य भए, नभएको :</label>
+          <div class="radio-checkbox-group">
+            <label><input type="radio" name="family_other_coop" value="yes"> भएको</label>
+            <label><input type="radio" name="family_other_coop" value="no"> नभएको</label>
+          </div>
+        </div>
+
+        <p class="table-caption">३९. आफू बाहेक परिवारको सदस्य अर्को सहकारी संस्थाको सदस्य भएको भए विवरण :</p>
+        <div class="table-responsive mb-2">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>सि.नं.</th>
+                <th>नाम, थर</th>
+                <th>नाता</th>
+                <th>संस्थाको नाम, ठेगाना</th>
+                <th>सदस्यता नं.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(१)</td>
+                <td><input type="text" name="fam_coop_member_name_1"></td>
+                <td><input type="text" name="fam_coop_relation_1"></td>
+                <td><input type="text" name="fam_coop_name_addr_1"></td>
+                <td><input type="text" name="fam_coop_id_1"></td>
+              </tr>
+              <tr>
+                <td>(२)</td>
+                <td><input type="text" name="fam_coop_member_name_2"></td>
+                <td><input type="text" name="fam_coop_relation_2"></td>
+                <td><input type="text" name="fam_coop_name_addr_2"></td>
+                <td><input type="text" name="fam_coop_id_2"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="kym-group mb-1">
+          <label for="self_dual_purpose">४०. आफैँ अन्य सहकारी संस्थाको पनि सदस्य भएको भए दोहोरो वा बहुसंस्थामा सदस्यताको प्रयोजन :</label>
+          <input type="text" id="self_dual_purpose" name="self_dual_purpose">
+        </div>
+
+        <div class="kym-group mt-3">
+          <label for="family_dual_purpose">४१. आफू बाहेक परिवारको सदस्य अन्य सहकारी संस्थाको सदस्य भएको भए दोहोरो वा बहुसंस्थामा सदस्यताको प्रयोजन :</label>
+          <input type="text" id="family_dual_purpose" name="family_dual_purpose">
+        </div>
+
+        <div class="kym-group mt-3">
+          <label>४२. परिवारको अर्को सदस्य पनि यसै संस्थाको सदस्य भए, नभएको :</label>
+          <div class="radio-checkbox-group">
+            <label><input type="radio" name="fam_same_coop" value="yes"> भएको</label>
+            <label><input type="radio" name="fam_same_coop" value="no"> नभएको</label>
+          </div>
+        </div>
+
+        <p class="table-caption">परिवारको अर्को सदस्य पनि यसै संस्थाको सदस्य भएको भए विवरण :</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 10%;">सि.नं.</th>
+                <th>संस्थाको नाम, ठेगाना</th>
+                <th>सदस्यता नं.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(१)</td>
+                <td><input type="text" name="same_coop_fam_details_1"></td>
+                <td><input type="text" name="same_coop_fam_id_1"></td>
+              </tr>
+              <tr>
+                <td>(२)</td>
+                <td><input type="text" name="same_coop_fam_details_2"></td>
+                <td><input type="text" name="same_coop_fam_id_2"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION च: आय स्रोतको विवरण -->
+      <section class="kym-section" id="kym-section-cha">
+        <h3 class="kym-section-title">च. आय स्रोतको विवरण</h3>
+        
+        <div class="kym-group">
+          <label>४४. वार्षिक पारिवारिक आम्दानी (जग्गाको खुद आयस्ता, नोकरीको पारिश्रमिक, व्यवसायको मुनाफा, इत्यादि) :</label>
+          <div class="radio-checkbox-group-block">
+            <label><input type="radio" name="annual_income_bracket" value="up_to_4_lakh"> रु. ४ लाखसम्म</label>
+            <label><input type="radio" name="annual_income_bracket" value="4_to_10_lakh"> रु. ४ लाखभन्दा बढी रु. १० लाखसम्म</label>
+            <label><input type="radio" name="annual_income_bracket" value="10_to_25_lakh"> रु. १० लाखभन्दा बढी रु. २५ लाखसम्म</label>
+            <label><input type="radio" name="annual_income_bracket" value="25_to_50_lakh"> रु. २५ लाखभन्दा बढी रु. ५० लाखसम्म</label>
+            <label><input type="radio" name="annual_income_bracket" value="above_50_lakh"> रु. ५० लाख भन्दा बढी</label>
+          </div>
+        </div>
+
+        <p class="table-caption">४५. रु. ४ लाख भन्दा बढी वार्षिक पारिवारिक आम्दानी भए पछिल्लो आर्थिक वर्षको आय र स्रोतको विवरण :</p>
+        <div class="table-responsive mb-2">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 10%;">सि.नं.</th>
+                <th>स्रोत</th>
+                <th>रकम (रु.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>(१)</td><td>खेतीपाती</td><td><input type="number" name="income_source_agriculture"></td></tr>
+              <tr><td>(२)</td><td>व्यवसाय</td><td><input type="number" name="income_source_business"></td></tr>
+              <tr><td>(३)</td><td>स्वदेशी रोजगारी</td><td><input type="number" name="income_source_local_job"></td></tr>
+              <tr><td>(४)</td><td>वैदेशिक रोजगारी</td><td><input type="number" name="income_source_foreign_job"></td></tr>
+              <tr><td>(५)</td><td>अन्य (खुलाउने) <input type="text" name="income_source_other_label" placeholder="..." class="inline-input"></td><td><input type="number" name="income_source_other_val"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION छ: वित्तिय कारोबारको विवरण -->
+      <section class="kym-section" id="kym-section-chha">
+        <h3 class="kym-section-title">छ. वित्तिय कारोबारको विवरण</h3>
+        
+        <p class="table-caption">४७. प्रारम्भमा संस्थामा जम्मा गर्ने वा हालसम्म संस्थामा जम्मा गरि सकेको रकमको विवरण :</p>
+        <div class="table-responsive mb-2">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 10%;">सि.नं.</th>
+                <th>बापत</th>
+                <th>रकम (रु.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>(१)</td><td>शेयर</td><td><input type="number" name="fin_share_amount"></td></tr>
+              <tr><td>(२)</td><td>बचत</td><td><input type="number" name="fin_saving_amount"></td></tr>
+              <tr><td>(३)</td><td>अन्य (खुलाउने) <input type="text" name="fin_other_label" placeholder="..." class="inline-input"></td><td><input type="number" name="fin_other_amount"></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="kym-row response-grid-3">
+          <div class="kym-group">
+            <label for="txn_frequency_year">४८. क. वर्षमा कारोबार गर्ने पटक :</label>
+            <input type="number" id="txn_frequency_year" name="txn_frequency_year">
+          </div>
+          <div class="kym-group">
+            <label for="estimated_deposit_year">ख. वार्षिक रुपमा जम्मा गर्ने अनुमानित रकम (रु.) :</label>
+            <input type="number" id="estimated_deposit_year" name="estimated_deposit_year">
+          </div>
+          <div class="kym-group">
+            <label for="estimated_loan_amt">४९. संस्थासँग अनुमानित ऋण धनको रकम कलम (रु.) :</label>
+            <input type="number" id="estimated_loan_amt" name="estimated_loan_amt">
+          </div>
+        </div>
+      </section>
+
+			<section class="kym-section" id="kym-section-ja">
+				<h3 class="kym-section-title">कागजात अपलोड</h3>
+				<p class="table-caption">कागजातहरू तल अपलोड गर्नुहोस् (क्लिक गर्नुहोस् वा फाइल ड्र्याग गर्नुहोस्) :</p>
+				
+				<div class="document-upld-matrix-grid">
+					
+					<div class="document-upld-card-box" data-field-group="citizenship">
+						<label class="matrix-upld-label">नेपाली नागरिकता *</label>
+						<div class="upload-dropzone" id="dropzone-citizenship">
+							<span class="material-icons-outlined dropzone-icon">cloud_upload</span>
+							<p class="dropzone-text">फाइल यहाँ ड्रप गर्नुहोस्</p>
+							<input type="file" id="citizenship-upld" name="citizenship-upld" accept=".jpg, .jpeg, .png" class="hidden-file-input">
+						</div>
+						<div class="preview-delete-actions hidden-action-layer">
+							<span class="file-status-indicator"><span class="material-icons">check_circle</span> अप्लोड भयो</span>
+							<div class="action-btn-group">
+								<button type="button" class="btn-matrix-action btn-view-file" title="कागजात हेर्नुहोस्"><span class="material-icons">visibility</span></button>
+								<button type="button" class="btn-matrix-action btn-delete-file" title="कागजात हटाउनुहोस्"><span class="material-icons">delete</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="document-upld-card-box" data-field-group="national_id">
+						<label class="matrix-upld-label">राष्ट्रिय परिचय पत्र</label>
+						<div class="upload-dropzone" id="dropzone-national-id">
+							<span class="material-icons-outlined dropzone-icon">cloud_upload</span>
+							<p class="dropzone-text">फाइल यहाँ ड्रप गर्नुहोस्</p>
+							<input type="file" id="national-id-upld" name="national-id-upld" accept=".jpg, .jpeg, .png" class="hidden-file-input">
+						</div>
+						<div class="preview-delete-actions hidden-action-layer">
+							<span class="file-status-indicator"><span class="material-icons">check_circle</span> अप्लोड भयो</span>
+							<div class="action-btn-group">
+								<button type="button" class="btn-matrix-action btn-view-file" title="कागजात हेर्नुहोस्"><span class="material-icons">visibility</span></button>
+								<button type="button" class="btn-matrix-action btn-delete-file" title="कागजात हटाउनुहोस्"><span class="material-icons">delete</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="document-upld-card-box" data-field-group="passport">
+						<label class="matrix-upld-label">राहदानी</label>
+						<div class="upload-dropzone" id="dropzone-passport">
+							<span class="material-icons-outlined dropzone-icon">cloud_upload</span>
+							<p class="dropzone-text">फाइल यहाँ ड्रप गर्नुहोस्</p>
+							<input type="file" id="passport-upld" name="passport-upld" accept=".jpg, .jpeg, .png" class="hidden-file-input">
+						</div>
+						<div class="preview-delete-actions hidden-action-layer">
+							<span class="file-status-indicator"><span class="material-icons">check_circle</span> अप्लोड भयो</span>
+							<div class="action-btn-group">
+								<button type="button" class="btn-matrix-action btn-view-file" title="कागजात हेर्नुहोस्"><span class="material-icons">visibility</span></button>
+								<button type="button" class="btn-matrix-action btn-delete-file" title="कागजात हटाउनुहोस्"><span class="material-icons">delete</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="document-upld-card-box" data-field-group="voter_id">
+						<label class="matrix-upld-label">मतदाता परिचय पत्र</label>
+						<div class="upload-dropzone" id="dropzone-voter-id">
+							<span class="material-icons-outlined dropzone-icon">cloud_upload</span>
+							<p class="dropzone-text">फाइल यहाँ ड्रप गर्नुहोस्</p>
+							<input type="file" id="voter-id-upld" name="voter-id-upld" accept=".jpg, .jpeg, .png" class="hidden-file-input">
+						</div>
+						<div class="preview-delete-actions hidden-action-layer">
+							<span class="file-status-indicator"><span class="material-icons">check_circle</span> अप्लोड भयो</span>
+							<div class="action-btn-group">
+								<button type="button" class="btn-matrix-action btn-view-file" title="कागजात हेर्नुहोस्"><span class="material-icons">visibility</span></button>
+								<button type="button" class="btn-matrix-action btn-delete-file" title="कागजात हटाउनुहोस्"><span class="material-icons">delete</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="kym-section" id="kym-section-jha">
+				<h3 class="kym-section-title" data-en="Self-declaration" data-ne="झ. स्व-घोषणा">झ. स्व-घोषणा</h3>
+				<div class="declaration-section mt-3">
+					<span><input type="checkbox" id="self-declaration"></span> मैले पेस गरेको यो विवरणमा भविष्यमा कुनै परिवर्तन आएमा त्यस्तो परिवर्तन भएको मितिले ३५ दिनभित्र संस्थामा पेश गर्नेछु। मैले माथि पेस गरेको मेरो सम्पूर्ण विवरण ठीक, दुरुस्त छ; झुटो ठहरे कानुन बमोजिम सहुँला, बुझाउँला।
+        </div>
+        <!-- Submit Button enclosed within the final logical section -->
+        <div class="kym-actions-area mt-3">
+          <button type="submit" class="btn btn-primary">
+            <span class="material-icons">save</span> विवरण अद्यावधिक गर्नुहोस् (Update KYM)
+          </button>
+        </div>
+			</section>
+
+      <!-- <section class="kym-section" id="kym-section-jha">
+        <div class="declaration-section">
+          <h3 class="kym-section-title">झ. स्व-घोषणा</h3>
+          <p>(१) मैले पेस गरेको यो विवरणमा भविष्यमा कुनै परिवर्तन आएमा त्यस्तो परिवर्तन भएको मितिले ३५ दिनभित्र संस्थामा पेश गर्नेछु ।</p>
+          <p>(२) मैले माथि पेस गरेको मेरो सम्पूर्ण विवरण ठीक, दुरुस्त छ; झुटो ठहरे कानुन बमोजिम सहुँला, बुझाउँला ।</p>
+          
+          <div class="kym-row response-grid-2 mt-3">
+            <div class="signature-box-wrapper">
+              <div class="signature-line"></div>
+              <p>खातावालाको सही (Account Holder's Signature)</p>
+              <div class="kym-group mt-1">
+                <label>नाम :</label> <input type="text" name="declarant_name">
+              </div>
+              <div class="kym-group">
+                <label>मिति :</label> <input type="date" name="declaration_date">
+              </div>
+            </div>
+            <div class="thumbprint-container">
+              <p>औंठा छाप (Thumb Prints)</p>
+              <div class="thumbprint-flex">
+                <div class="thumbprint-box"><p>दायाँ (Right)</p></div>
+                <div class="thumbprint-box"><p>बायाँ (Left)</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kym-actions-area mt-3">
+          <button type="submit" class="btn btn-primary">
+            <span class="material-icons">save</span> विवरण अद्यावधिक गर्नुहोस् (Update KYM)
+          </button>
+        </div> -->
+      <!-- </section> -->
+    </form>
+	</section>
+</main>
+
+	<div id="footer-container"></div>
+
+	<div id="kym-image-viewer-modal" class="kym-modal-overlay">
+		<span class="kym-modal-close-btn">&times;</span>
+		<div class="kym-modal-content-wrapper">
+			<img id="kym-modal-target-img" src="" alt="Uploaded Document Preview">
+		</div>
+	</div>
+
+	<script src="assets/js/nepali.datepicker.v4.0.8.min.js" defer></script>
+	<script src="assets/js/kym.js" defer></script>
+	<script src="components/components.js" defer></script>
+	<script src="assets/js/script.js" defer></script>
+
+</body>
+</html>
+
