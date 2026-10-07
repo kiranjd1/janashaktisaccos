@@ -136,7 +136,7 @@
       "publish_date": "2026-06-18"
     },
 		{
-      "id": "m208302",
+      "id": "m208303",
       "title": "Ashar, 2083",
       "title_np": "असार, २०८३",
       "file_path": "assets/uploads/reports/monthly/2083-03-ashar.jpg",
@@ -152,6 +152,15 @@
       "thumbnail": "assets/uploads/reports/monthly/2083-04-shrawan.jpg",
       "file_type": "jpg",
       "publish_date": "2026-08-21"
+    },
+		{
+      "id": "m208305",
+      "title": "Bhadra, 2083",
+      "title_np": "भाद्र, २०८३",
+      "file_path": "assets/uploads/reports/monthly/2083-05-bhadra.jpg",
+      "thumbnail": "assets/uploads/reports/monthly/2083-05-bhadra.jpg",
+      "file_type": "jpg",
+      "publish_date": "2026-09-24"
     }
   ],
   "quarterly": [
