@@ -1,0 +1,24 @@
+[
+	{
+		"vacancy_no": "001/083/084",
+		"post": "Assistant Accountant",
+		"post_ne": "सहायक लेखापाल",
+		"open_from": "2026-10-31",
+		"open_till": "2026-11-16",
+		"notice": "Sample notice — temporary data",
+		"notice_ne": "नमुना सूचना — अस्थायी विवरण",
+		"notice_url": "assets/uploads/vacancy/Vacancy_2083_20830714.pdf",
+		"result": "assets/uploads/vacancy/Result_2083.pdf"
+	},
+	{
+		"vacancy_no": "002/083/084",
+		"post": "Market Representative",
+		"post_ne": "बजार प्रतिनिधि",
+		"open_from": "2026-10-31",
+		"open_till": "2026-11-16",
+		"notice": "Sample notice — temporary data",
+		"notice_ne": "नमुना सूचना — अस्थायी विवरण",
+		"notice_url": "assets/uploads/vacancy/Vacancy_2083_20830714.pdf",
+		"result": "assets/uploads/notices/Result_2083.pdf"
+	}
+]

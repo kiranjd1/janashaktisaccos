@@ -2335,8 +2335,17 @@ option {
 /* --- Jobs Page Styles ------ */
 
 .jobs-main-content {
-		margin: 2rem 4rem;
-		height: 100vh;
+		grid-template-columns: minmax(0, 1fr);
+		width: 100%;
+		max-width: 1280px;
+		margin: 2rem auto;
+		padding: 0 clamp(1rem, 5vw, 4rem);
+		min-height: 60vh;
+		box-sizing: border-box;
+}
+
+.job-vacancy {
+		min-width: 0;
 }
 
 .job-vacancy h1 {
@@ -2346,8 +2355,118 @@ option {
 }
 
 .job-vacancy p {
-		font-size: 24px;
-		font-weight: 900;
+		font-size: 1rem;
+		font-weight: 400;
+		color: #52635a;
+}
+
+.vacancy-table-wrap {
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+		overflow-x: auto;
+		margin-top: 1.5rem;
+		background: #ffffff;
+		border: 1px solid #dce8df;
+		border-radius: 12px;
+		box-shadow: 0 8px 24px rgba(6, 89, 46, 0.08);
+}
+
+.vacancy-table {
+		width: 100%;
+		min-width: 680px;
+		border-collapse: collapse;
+		text-align: left;
+}
+
+.vacancy-table th,
+.vacancy-table td {
+		padding: 1rem 1.1rem;
+		border-bottom: 1px solid #e6eee8;
+}
+
+.vacancy-table th {
+		background: #06592e;
+		color: #ffffff;
+		font-size: 0.9rem;
+		font-weight: 700;
+}
+
+.vacancy-table th:first-child {
+		border-top-left-radius: 11px;
+}
+
+.vacancy-table th:last-child {
+		border-top-right-radius: 11px;
+}
+
+.vacancy-table tbody tr:last-child td {
+		border-bottom: 0;
+}
+
+.vacancy-table tbody tr:hover {
+		background: #f5faf6;
+}
+
+.vacancy-table .vacancies-message {
+		padding: 1.5rem;
+		color: #52635a;
+		text-align: center;
+}
+
+.vacancy-notice-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem 0.9rem;
+		border-radius: 6px;
+		background: #06592e;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.vacancy-notice-link:hover,
+.vacancy-notice-link:focus-visible {
+		background: #044522;
+		color: #ffffff;
+		transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+		.jobs-main-content {
+				margin: 1.5rem auto;
+		}
+
+		.job-vacancy h1 {
+				font-size: 1.7rem;
+		}
+}
+
+@media (max-width: 600px) {
+		.vacancy-table {
+				min-width: 0;
+				table-layout: fixed;
+				font-size: 0.75rem;
+		}
+
+		.vacancy-table th,
+		.vacancy-table td {
+				padding: 0.65rem 0.35rem;
+				overflow-wrap: anywhere;
+		}
+
+		.vacancy-table th:nth-child(1) { width: 20%; }
+		.vacancy-table th:nth-child(2) { width: 24%; }
+		.vacancy-table th:nth-child(3),
+		.vacancy-table th:nth-child(4) { width: 20%; }
+		.vacancy-table th:nth-child(5) { width: 16%; }
+
+		.vacancy-notice-link {
+				padding: 0.4rem 0.35rem;
+		}
 }
 
 /* Container for the utility row */
