@@ -115,5 +115,17 @@
     "link": "assets/uploads/notices/Holiday-20830103.jpg",
     "link_type": "file",
     "file_type": "jpg"
+  },
+  	{
+    "id": 10,
+    "category": "notice",
+    "publish_date": "2026-10-31",
+    "headline": "New Vacancy open in Janashakti SACCOS",
+    "headline_ne": "जनशक्ति साकोसमा रोजगारीको अवसर",
+    "summary": "Career oppurnities on various positions are open till Nov 16, 2026 at Janashakti SACCOS.",
+    "summary_ne": "जनशक्ति साकोसमा यही २०८३ कार्तिक ३० गतेसम्मका लागि विभिन्न पदमा आवेदन अवसर खुला रहेको छ।",
+    "link": "assets/uploads/vacancy/Vacancy_2083_20830714.pdf",
+    "link_type": "file",
+    "file_type": "pdf"
   }
 ]
