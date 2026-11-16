@@ -71,24 +71,24 @@
   {
     "id": 6,
     "category": "notice",
-    "publish_date": "2026-02-14",
+    "publish_date": "2026-11-07",
     "headline": "Holiday Notice",
     "headline_ne": "कार्यालय विदा सम्बन्धमा",
     "summary": "All our offices will remain closed on the announced holiday date.",
     "summary_ne": "घोषित विदा मितिमा हाम्रा सम्पूर्ण कार्यालयहरू बन्द रहने जानकारी गराइन्छ।",
-    "link": "assets/uploads/notices/Holiday-20821103-Shivaratri.jpg",
+    "link": "assets/uploads/notices/Holiday_Notice_20830721.jpg",
     "link_type": "file",
     "file_type": "jpg"
   },
   {
     "id": 7,
     "category": "notice",
-    "publish_date": "2026-09-24",
+    "publish_date": "2026-10-27",
     "headline": "Organizational Status Update for Members",
     "headline_ne": "सदस्यहरूलाई संस्थागत अवस्थाको जानकारी",
     "summary": "Monthly organizational status and operational progress details have been published for members.",
     "summary_ne": "सदस्यहरूका लागि मासिक संस्थागत अवस्था तथा सञ्चालन प्रगति विवरण प्रकाशित गरिएको छ।",
-    "link": "assets/uploads/reports/monthly/2083-05-bhadra.jpg",
+    "link": "assets/uploads/reports/monthly/2083-06-ashwin.jpg",
     "link_type": "file",
     "file_type": "jpg"
   },
@@ -115,5 +115,17 @@
     "link": "assets/uploads/notices/Holiday-20830103.jpg",
     "link_type": "file",
     "file_type": "jpg"
+  },
+  	{
+    "id": 10,
+    "category": "notice",
+    "publish_date": "2026-10-31",
+    "headline": "New Vacancy open in Janashakti SACCOS",
+    "headline_ne": "जनशक्ति साकोसमा रोजगारीको अवसर",
+    "summary": "Career oppurnities on various positions are open till Nov 16, 2026 at Janashakti SACCOS.",
+    "summary_ne": "जनशक्ति साकोसमा यही २०८३ कार्तिक ३० गतेसम्मका लागि विभिन्न पदमा आवेदन अवसर खुला रहेको छ।",
+    "link": "assets/uploads/vacancy/Vacancy_2083_20830714.pdf",
+    "link_type": "file",
+    "file_type": "pdf"
   }
 ]
