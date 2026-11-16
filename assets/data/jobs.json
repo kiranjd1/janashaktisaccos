@@ -8,6 +8,7 @@
 		"notice": "Sample notice — temporary data",
 		"notice_ne": "नमुना सूचना — अस्थायी विवरण",
 		"notice_url": "assets/uploads/vacancy/Vacancy_2083_20830714.pdf",
+		"schedule_url": "assets/uploads/vacancy/Exam_2083_Schedule.pdf",
 		"result": "assets/uploads/vacancy/Result_2083.pdf"
 	},
 	{
@@ -19,6 +20,7 @@
 		"notice": "Sample notice — temporary data",
 		"notice_ne": "नमुना सूचना — अस्थायी विवरण",
 		"notice_url": "assets/uploads/vacancy/Vacancy_2083_20830714.pdf",
+		"schedule_url": "assets/uploads/vacancy/Exam_2083_Schedule.pdf",
 		"result": "assets/uploads/notices/Result_2083.pdf"
 	}
 ]

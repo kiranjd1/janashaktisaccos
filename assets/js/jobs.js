@@ -21,21 +21,18 @@ function formatVacancyDate(value, lang) {
   });
 }
 
-function createNoticeCell(vacancy, lang) {
+function createDocumentCell(url, lang, description = "") {
   const cell = document.createElement("td");
-  const noticeDescription = getVacancyText(vacancy, "notice", lang);
-  const noticeUrl = vacancy.notice_url;
-
-  if (!noticeUrl) {
-    cell.textContent = getVacancyText(vacancy, "notice", lang) || "—";
+  if (!url) {
+    cell.textContent = "—";
     return cell;
   }
 
   try {
-    const safeUrl = new URL(noticeUrl, window.location.href);
+    const safeUrl = new URL(url, window.location.href);
     const allowedProtocols = ["http:", "https:"];
     if (window.location.protocol === "file:") allowedProtocols.push("file:");
-    if (!allowedProtocols.includes(safeUrl.protocol)) throw new Error("Unsupported notice URL");
+    if (!allowedProtocols.includes(safeUrl.protocol)) throw new Error("Unsupported document URL");
 
     const link = document.createElement("a");
     link.className = "vacancy-notice-link";
@@ -43,11 +40,21 @@ function createNoticeCell(vacancy, lang) {
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = lang === "ne" ? "हेर्नुहोस्" : "View";
-    link.title = noticeDescription || (lang === "ne" ? "सूचना हेर्नुहोस्" : "View notice PDF");
-    link.setAttribute("aria-label", `${lang === "ne" ? "सूचना हेर्नुहोस्" : "View notice"}${vacancy.vacancy_no ? ` ${vacancy.vacancy_no}` : ""}`);
+    link.title = description || (lang === "ne" ? "PDF हेर्नुहोस्" : "View PDF");
     cell.appendChild(link);
-  } catch (error) {
-    cell.textContent = getVacancyText(vacancy, "notice", lang) || "—";
+  } catch {
+    cell.textContent = "—";
+  }
+
+  return cell;
+}
+
+function createNoticeCell(vacancy, lang) {
+  const noticeDescription = getVacancyText(vacancy, "notice", lang);
+  const cell = createDocumentCell(vacancy.notice_url, lang, noticeDescription);
+
+  if (!vacancy.notice_url) {
+    cell.textContent = noticeDescription || "—";
   }
 
   return cell;
@@ -62,7 +69,7 @@ function renderVacancies(lang = "en", message = "") {
     const row = document.createElement("tr");
     const cell = document.createElement("td");
     cell.className = "vacancies-message";
-    cell.colSpan = 5;
+    cell.colSpan = 7;
     cell.textContent = message || (lang === "ne"
       ? "हाल कुनै रिक्त पद उपलब्ध छैन। कृपया पछि पुनः हेर्नुहोस्।"
       : "There are no current vacancies. Please check again later.");
@@ -85,7 +92,10 @@ function renderVacancies(lang = "en", message = "") {
       cell.textContent = value;
       row.appendChild(cell);
     });
+
     row.appendChild(createNoticeCell(vacancy, lang));
+    row.appendChild(createDocumentCell(vacancy.schedule_url, lang));
+    row.appendChild(createDocumentCell(vacancy.result, lang));
     tableBody.appendChild(row);
   });
 }
